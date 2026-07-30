@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Techeneurship — Official Study Guide | ABC XIV</title>
+<meta name="description" content="Official Study Guide for Techeneurship at ABC XIV. Rules, competition rounds, core frameworks, scoring rubrics, and pro tips.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  :root {
+    --bg-void: #040A12;
+    --bg-deep: #060d16;
+    --bg-surface: #0a111c;
+    --border-subtle: #141b26;
+    --border-medium: #1e2630;
+    --text-primary: #e2e8f0;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --accent-bronze: #8b6914;
+    --accent-gold: #a67c00;
+    --accent-gold-bright: #ffd700;
+    --accent-gold-dim: rgba(166,124,0,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg-void);
+    color: var(--text-primary);
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; width: 100%;
+    background: rgba(4,10,18,0.94);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-subtle);
+    z-index: 1000;
+    padding: 0.875rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    text-decoration: none;
+  }
+
+  .nav-brand img { height: 40px; }
+  .nav-brand span {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .nav-brand span strong { color: var(--accent-gold-bright); }
+
+  .back-link {
+    color: var(--accent-gold-bright);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.25s;
+  }
+
+  .back-link:hover { gap: 0.75rem; }
+
+  /* CONTAINER */
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 6rem 5% 4rem;
+  }
+
+  /* HERO HEADER */
+  .hero-banner {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 2.5rem;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 3rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  }
+
+  .banner-img-box {
+    background: #02060c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid var(--border-subtle);
+    padding: 1rem;
+  }
+
+  .banner-img-box img {
+    width: 100%;
+    height: 100%;
+    max-height: 280px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .banner-text {
+    padding: 2.5rem 2rem 2.5rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .category-pill {
+    display: inline-block;
+    padding: 0.3rem 0.85rem;
+    border: 1px solid var(--accent-bronze);
+    background: var(--accent-gold-dim);
+    color: var(--accent-gold-bright);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+    width: fit-content;
+  }
+
+  .hero-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-tagline {
+    font-size: 0.95rem;
+    color: var(--accent-gold-bright);
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .hero-desc {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  /* SECTION CARDS */
+  .section-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .section-card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 0.75rem;
+  }
+
+  .section-card-title i {
+    color: var(--accent-gold-bright);
+  }
+
+  /* ROUNDS TIMELINE */
+  .rounds-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .round-item {
+    background: var(--bg-deep);
+    border-left: 3px solid var(--accent-gold-bright);
+    padding: 1.25rem;
+    border-radius: 0 6px 6px 0;
+  }
+
+  .round-item h4 {
+    font-size: 0.9rem;
+    color: var(--accent-gold-bright);
+    letter-spacing: 1px;
+    margin-bottom: 0.35rem;
+    text-transform: uppercase;
+  }
+
+  .round-item p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+
+  /* FRAMEWORKS GRID */
+  .frameworks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .framework-card {
+    background: var(--bg-deep);
+    border: 1px solid var(--border-medium);
+    border-radius: 6px;
+    padding: 1.25rem;
+  }
+
+  .framework-card h4 {
+    color: #fff;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+  }
+
+  .framework-card p {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+  }
+
+  /* RUBRIC TABLE */
+  .rubric-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .rubric-table th, .rubric-table td {
+    padding: 0.85rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .rubric-table th {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .rubric-table td {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+  }
+
+  .rubric-table td:last-child {
+    color: var(--accent-gold-bright);
+    font-weight: 700;
+  }
+
+  /* PRO TIP & PRACTICE */
+  .tip-box {
+    background: rgba(166,124,0,0.08);
+    border: 1px solid var(--accent-gold);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .tip-box h4 {
+    color: var(--accent-gold-bright);
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .tip-box p {
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  /* PAGE NAV */
+  .page-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .page-nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: color 0.25s;
+  }
+
+  .page-nav a:hover {
+    color: var(--accent-gold-bright);
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    border-top: 1px solid var(--border-subtle);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 768px) {
+    .hero-banner { grid-template-columns: 1fr; }
+    .banner-text { padding: 1.5rem; }
+    .hero-title { font-size: 1.75rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">
+    <img src="lg.png" alt="ABC Logo" onerror="this.style.display='none'">
+    <span><strong>ABC</strong> XIV</span>
+  </a>
+  <a href="index.html" class="back-link">
+    <i class="fas fa-arrow-left"></i> Back to Main Portal
+  </a>
+</nav>
+
+<div class="container">
+
+  <!-- HERO BANNER -->
+  <div class="hero-banner">
+    <div class="banner-img-box">
+      <img src="XIII Vectors/Tech raw.png" alt="Techeneurship">
+    </div>
+    <div class="banner-text">
+      <span class="category-pill">Entrepreneurship &bull; Category 15</span>
+      <h1 class="hero-title">Techeneurship</h1>
+      <div class="hero-tagline">AI, FinTech & Frontier Technology Ventures</div>
+      <p class="hero-desc">Commercialize deep-tech, artificial intelligence, blockchain, or SaaS innovations. Focus on technical feasibility, IP defensibility, and scalable cloud architecture.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 1: ROUND BREAKDOWN -->
+  <div class="section-card">
+    <h3 class="section-card-title"><i class="fas fa-layer-group"></i> Competition Rounds & Structure</h3>
+    <div class="rounds-list">
+      
+        <div class="round-item">
+          <h4>Round 1: Deep Tech Architecture Blueprint</h4>
+          <p>Present software/hardware architecture diagrams, IP strategy, and target tech market.</p>
+        </div>
+      
+        <div class="round-item">
+          <h4>Round 2: Live Prototype / API Demo</h4>
+          <p>Demonstrate live working code, API integration, or algorithmic model.</p>
+        </div>
+      
+        <div class="round-item">
+          <h4>Round 3: Enterprise Pitch & Growth Model</h4>
+          <p>Pitch enterprise sales pipeline, ARR growth, and cloud scalability.</p>
+        </div>
+      
+    </div>
+  </div>
+
+  <!-- SECTION 2: FRAMEWORKS -->
+  <div class="section-card">
+    <h3 class="section-card-title"><i class="fas fa-brain"></i> Essential Frameworks & Concepts</h3>
+    <div class="frameworks-grid">
+      
+        <div class="framework-card">
+          <h4>SaaS Magic Number</h4>
+          <p>(Quarter Net New ARR * 4) / Sales & Marketing Expenditure. Target > 0.75.</p>
+        </div>
+      
+        <div class="framework-card">
+          <h4>Net Revenue Retention (NRR)</h4>
+          <p>(Starting ARR + Expansion - Contraction - Churn) / Starting ARR.</p>
+        </div>
+      
+        <div class="framework-card">
+          <h4>Cloud Microservices Architecture</h4>
+          <p>Decoupled API-first infrastructure design.</p>
+        </div>
+      
+    </div>
+  </div>
+
+  <!-- SECTION 3: SCORING RUBRIC -->
+  <div class="section-card">
+    <h3 class="section-card-title"><i class="fas fa-chart-pie"></i> Official Scoring Rubric</h3>
+    <table class="rubric-table">
+      <thead>
+        <tr>
+          <th>Evaluation Criteria</th>
+          <th>Weightage</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+          <tr>
+            <td>Technical Feasibility & Innovation</td>
+            <td>35%</td>
+          </tr>
+        
+          <tr>
+            <td>SaaS Metrics & Commercial Model</td>
+            <td>35%</td>
+          </tr>
+        
+          <tr>
+            <td>Live Demo & Pitch Defense</td>
+            <td>30%</td>
+          </tr>
+        
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PRO TIP BOX -->
+  <div class="tip-box">
+    <h4><i class="fas fa-lightbulb"></i> Master Strategy Pro Tip</h4>
+    <p>Translate complex technical algorithms into clear business ROI. Investors buy business outcomes.</p>
+  </div>
+
+  <!-- PRACTICE CHALLENGE -->
+  <div class="section-card">
+    <h3 class="section-card-title"><i class="fas fa-flask"></i> Recommended Preparation Challenge</h3>
+    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">
+      Architect an AI-powered financial fraud detection platform pitch including cloud architecture diagrams and API monetization.
+    </p>
+  </div>
+
+  <!-- PAGE NAV -->
+  <div class="page-nav">
+    <a href="event-14.html"><i class="fas fa-chevron-left"></i> Previous Category</a>
+    <a href="l.html"><i class="fas fa-th-large"></i> All Study Guides</a>
+    <a href="event-16.html">Next Category <i class="fas fa-chevron-right"></i></a>
+  </div>
+
+</div>
+
+<footer>
+  Aitchison Business Concept XIV &mdash; Techeneurship Official Study Guide
+</footer>
+
+</body>
+</html>

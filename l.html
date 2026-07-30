@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABC XIV — Category Study Guide</title>
+<meta name="description" content="Official Study Guide for Aitchison Business Concept XIV categories. Strategic frameworks, rules, case preparation, and master tactics.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  :root {
+    --bg-void: #040A12;
+    --bg-deep: #060d16;
+    --bg-surface: #0a111c;
+    --border-subtle: #141b26;
+    --border-medium: #1e2630;
+    --text-primary: #e2e8f0;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --accent-bronze: #8b6914;
+    --accent-gold: #a67c00;
+    --accent-gold-bright: #ffd700;
+    --accent-gold-dim: rgba(166,124,0,0.12);
+    --accent-steel: #4a5568;
+    --card-hover-border: #ffd700;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg-void);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg-void); }
+  ::-webkit-scrollbar-thumb { background: var(--border-medium); border-radius: 0; }
+
+  /* NAVIGATION */
+  nav {
+    position: fixed;
+    top: 0; width: 100%;
+    background: rgba(4,10,18,0.94);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-subtle);
+    z-index: 1000;
+    padding: 0.875rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    text-decoration: none;
+  }
+
+  .nav-brand img {
+    height: 40px;
+    width: auto;
+  }
+
+  .nav-brand span {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .nav-brand span strong {
+    color: var(--accent-gold-bright);
+    font-weight: 800;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.25s;
+  }
+
+  .nav-links a:hover, .nav-links a.active {
+    color: var(--accent-gold-bright);
+  }
+
+  .mobile-menu-btn {
+    display: none;
+    background: transparent;
+    border: 1px solid var(--accent-gold);
+    border-radius: 4px;
+    padding: 0.5rem;
+    cursor: pointer;
+    z-index: 1001;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.2);
+  }
+
+  .mobile-menu-btn svg {
+    display: block;
+    width: 22px;
+    height: 22px;
+  }
+
+  /* CONTAINER */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 5% 4rem;
+  }
+
+  /* HERO HEADER */
+  .header-section {
+    text-align: center;
+    padding: 2.5rem 0 3rem;
+  }
+
+  .header-section h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    color: #fff;
+  }
+
+  .header-section h1 span {
+    color: var(--accent-gold-bright);
+  }
+
+  .header-section .subtitle {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    max-width: 750px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .badge-tag {
+    display: inline-block;
+    padding: 0.35rem 1rem;
+    border: 1px solid var(--accent-bronze);
+    background: var(--accent-gold-dim);
+    color: var(--accent-gold-bright);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+  }
+
+  /* SEARCH & CONTROLS */
+  .controls-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    background: var(--bg-surface);
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+  }
+
+  .search-box {
+    position: relative;
+    flex: 1;
+    min-width: 260px;
+  }
+
+  .search-box input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    background: var(--bg-deep);
+    border: 1px solid var(--border-medium);
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+
+  .search-box input:focus {
+    border-color: var(--accent-gold-bright);
+  }
+
+  .search-box i {
+    position: absolute;
+    left: 0.85rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+  }
+
+  .filter-pills {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    background: var(--bg-deep);
+    border: 1px solid var(--border-medium);
+    color: var(--text-secondary);
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.25s;
+  }
+
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--accent-gold-bright);
+    color: var(--bg-void);
+    border-color: var(--accent-gold-bright);
+  }
+
+  /* CATEGORIES GRID */
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+
+  .category-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.35s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .category-card:hover {
+    border-color: var(--card-hover-border);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5), 0 0 15px rgba(255,215,0,0.15);
+  }
+
+  .card-banner {
+    position: relative;
+    height: 180px;
+    background: #02060c;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .card-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .category-card:hover .card-banner img {
+    transform: scale(1.06);
+  }
+
+  .card-category-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(4,10,18,0.85);
+    border: 1px solid var(--border-medium);
+    color: var(--accent-gold-bright);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 0.3rem 0.75rem;
+    border-radius: 4px;
+    backdrop-filter: blur(4px);
+  }
+
+  .card-body {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .category-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+    margin-bottom: 0.35rem;
+    text-transform: uppercase;
+  }
+
+  .category-tagline {
+    font-size: 0.8rem;
+    color: var(--accent-gold-bright);
+    font-weight: 600;
+    letter-spacing: 1.5.px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .category-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+    flex: 1;
+  }
+
+  .guide-section-box {
+    background: var(--bg-deep);
+    border-left: 3px solid var(--accent-gold);
+    padding: 0.875rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .guide-section-box h4 {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent-gold-bright);
+    margin-bottom: 0.35rem;
+  }
+
+  .guide-section-box p, .guide-section-box ul {
+    font-size: 0.825rem;
+    color: var(--text-primary);
+  }
+
+  .guide-section-box ul {
+    padding-left: 1.2rem;
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-subtle);
+    margin-top: auto;
+  }
+
+  .pro-tip {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  .expand-btn {
+    background: transparent;
+    border: 1px solid var(--accent-bronze);
+    color: var(--accent-gold-bright);
+    padding: 0.4rem 0.85rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.25s;
+  }
+
+  .expand-btn:hover {
+    background: var(--accent-gold-bright);
+    color: var(--bg-void);
+  }
+
+  /* MODAL FOR FULL STUDY GUIDE */
+  .modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(8px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .modal-content {
+    background: var(--bg-deep);
+    border: 1px solid var(--accent-gold);
+    border-radius: 8px;
+    max-width: 800px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 2.5rem;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.9);
+  }
+
+  .close-modal {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    background: transparent;
+    border: 1px solid var(--border-medium);
+    color: var(--text-secondary);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: all 0.25s;
+  }
+
+  .close-modal:hover {
+    color: var(--accent-gold-bright);
+    border-color: var(--accent-gold-bright);
+  }
+
+  .modal-header {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 1rem;
+  }
+
+  .modal-header h2 {
+    font-size: 1.75rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .modal-header p {
+    color: var(--accent-gold-bright);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .modal-body h3 {
+    font-size: 0.9rem;
+    color: var(--accent-gold-bright);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 1.5rem 0 0.5rem;
+  }
+
+  .modal-body p, .modal-body ul {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .modal-body ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .modal-body li {
+    margin-bottom: 0.4rem;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    border-top: 1px solid var(--border-subtle);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 5rem;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .header-section h1 { font-size: 1.75rem; }
+    .categories-grid { grid-template-columns: 1fr; }
+    .controls-bar { flex-direction: column; align-items: stretch; }
+    .mobile-menu-btn { display: flex; }
+    .nav-links {
+      display: none;
+      position: fixed;
+      top: 0; right: 0;
+      width: 75%; height: 100vh;
+      background: var(--bg-deep);
+      flex-direction: column;
+      padding: 5rem 2rem;
+      border-left: 1px solid var(--border-subtle);
+      z-index: 1000;
+    }
+    .nav-links.show { display: flex; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="index.html" class="nav-brand">
+    <img src="lg.png" alt="ABC Logo" onerror="this.style.display='none'">
+    <span><strong>ABC</strong> XIV</span>
+  </a>
+  <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle Navigation">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="2.5" stroke-linecap="round">
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Main Portal</a></li>
+    <li><a href="l.html" class="active">Study Guide</a></li>
+  </ul>
+</nav>
+
+<!-- MAIN CONTAINER -->
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header-section">
+    <div class="badge-tag">Official Preparation Portal</div>
+    <h1>Category <span>Study Guide</span></h1>
+    <p class="subtitle">
+      Master the strategic frameworks, case methodologies, scoring rubrics, and competitive tactics for all 16 official event categories of the Aitchison Business Concept XIV.
+    </p>
+  </div>
+
+  <!-- SEARCH & FILTER BAR -->
+  <div class="controls-bar">
+    <div class="search-box">
+      <i class="fas fa-search"></i>
+      <input type="text" id="searchInput" placeholder="Search category, topic, or concept..." onkeyup="filterCategories()">
+    </div>
+    <div class="filter-pills">
+      <button class="filter-btn active" onclick="filterPill('all', this)">All (16)</button>
+      <button class="filter-btn" onclick="filterPill('entrepreneurship', this)">Entrepreneurship</button>
+      <button class="filter-btn" onclick="filterPill('finance', this)">Finance & Markets</button>
+      <button class="filter-btn" onclick="filterPill('strategy', this)">Strategy & Law</button>
+      <button class="filter-btn" onclick="filterPill('creative', this)">Creative & Media</button>
+    </div>
+  </div>
+
+  <!-- CATEGORIES GRID -->
+  <div class="categories-grid" id="categoriesGrid"></div>
+
+</div>
+
+<!-- MODAL OVERLAY FOR FULL DETAILS -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <button class="close-modal" onclick="closeModalDirect()">&times;</button>
+    <div class="modal-header">
+      <h2 id="modalTitle">Category Title</h2>
+      <p id="modalTagline">Category Tagline</p>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  Aitchison Business Concept XIV &mdash; Official Category Study Guide
+</footer>
+
+<script>
+  // 16 CATEGORIES DATA WITH COMPREHENSIVE STUDY GUIDES
+  const studyGuideData = [
+    {
+      id: "byoi",
+      name: "Build Your Own Idea",
+      tagline: "Venture Pitch & Prototype Masterclass",
+      type: "entrepreneurship",
+      img: "XIII Vectors/BYOI raw.png",
+      overview: "Develop an original product or service from concept to investor deck. Participants pitch before a panel of venture capitalists and battle-tested entrepreneurs.",
+      rounds: [
+        "Round 1: Executive Summary & Problem-Solution Fit Deck",
+        "Round 2: MVP Prototype Demonstration & Unit Economics",
+        "Round 3: Live VC Shark-Tank Pitch & Q&A Defense"
+      ],
+      keyConcepts: [
+        "TAM / SAM / SOM (Total Addressable Market calculations)",
+        "Customer Acquisition Cost (CAC) vs Lifetime Value (LTV)",
+        "Minimum Viable Product (MVP) prototyping frameworks",
+        "Value Proposition Canvas & Lean Business Model Canvas"
+      ],
+      proTips: "Focus 60% of your time on proving customer demand and unit economics. Judges value traction and realistic financial projections over futuristic buzzwords.",
+      fullGuide: `
+        <h3>Executive Summary & Pitch Structure</h3>
+        <p>A winning BYOI pitch deck follows a crisp 10-slide structure: Problem, Solution, Unique Value Proposition, Market Size, Product/MVP Demo, Business Model, Go-to-Market Strategy, Competitor Matrix, Financial Projections, and Team/Ask.</p>
+        
+        <h3>Key Metrics & Financial Modeling</h3>
+        <ul>
+          <li><strong>Unit Economics:</strong> Calculate Gross Margin % = (Revenue - COGS) / Revenue. Proving a healthy margin (>40%) is essential.</li>
+          <li><strong>CAC Payback Period:</strong> Aim for customer payback within 6 to 12 months.</li>
+          <li><strong>Market Sizing:</strong> Top-down (industry reports) and Bottom-up (price x target customers). Bottom-up sizing earns maximum points.</li>
+        </ul>
+
+        <h3>Common Pitfall to Avoid</h3>
+        <p>Do not present a solution looking for a problem. Clearly prove customer pain points with survey data or prototype feedback before demonstrating feature sets.</p>
+      `
+    },
+    {
+      id: "ad",
+      name: "Ad Making",
+      tagline: "Brand Campaign & Creative Strategy",
+      type: "creative",
+      img: "XIII Vectors/AD raw.png",
+      overview: "Conceptualize, produce, and execute a comprehensive advertising campaign across video, digital media, and guerilla marketing channels for a surprise brand prompt.",
+      rounds: [
+        "Round 1: Brand Positioning Statement & Storyboard Draft",
+        "Round 2: Video Commercial Production & Editing",
+        "Round 3: Multi-Channel Marketing Campaign Presentation"
+      ],
+      keyConcepts: [
+        "AIDA Model (Attention, Interest, Desire, Action)",
+        "Consumer Psychology & Emotional Triggers",
+        "Omnichannel Brand Architecture",
+        "Visual Storyboarding & Copywriting Mechanics"
+      ],
+      proTips: "Ensure your commercial delivers a clear Call-to-Action (CTA). High production value helps, but strong narrative clarity wins the category.",
+      fullGuide: `
+        <h3>Campaign Execution Framework</h3>
+        <p>Your presentation must include the 4 Ps of Marketing aligned with contemporary digital tactics: Influencer partnerships, viral short-form video hooks (Reels/TikTok), and targeted display channels.</p>
+        
+        <h3>Scoring Rubric Breakdown</h3>
+        <ul>
+          <li><strong>Originality & Hook (30%):</strong> Does the first 5 seconds grab immediate audience attention?</li>
+          <li><strong>Brand Alignment (30%):</strong> Is the brand voice consistent with the targeted demographic?</li>
+          <li><strong>Execution & Editing (40%):</strong> Sound design, color grading, and crisp copywriting.</li>
+        </ul>
+      `
+    },
+    {
+      id: "investomania",
+      name: "Investomania",
+      tagline: "Equity Research & Portfolio Strategy",
+      type: "finance",
+      img: "XIII Vectors/Investo raw.png",
+      overview: "Simulate institutional portfolio management, macroeconomic analysis, and stock selection under real-time simulated market shocks and earnings releases.",
+      rounds: [
+        "Round 1: Asset Allocation & Fundamental Valuation Model",
+        "Round 2: Live Trading Simulation & Risk Hedging",
+        "Round 3: Boardroom Investment Committee Defense"
+      ],
+      keyConcepts: [
+        "Discounted Cash Flow (DCF) Valuation & WACC",
+        "Sharpe Ratio & Beta-adjusted Risk Return",
+        "Macroeconomic Indicators (Inflation, Yield Curves, FX)",
+        "Derivative Hedging (Options & Futures)"
+      ],
+      proTips: "Never trade without a stop-loss strategy. In the live simulation, capital preservation during market downturns separates podium teams from the rest.",
+      fullGuide: `
+        <h3>Valuation Essentials</h3>
+        <p>Be prepared to calculate Enterprise Value (EV/EBITDA), Price-to-Earnings (P/E), and Price-to-Book (P/B) ratios relative to peer groups.</p>
+        
+        <h3>Portfolio Diversification</h3>
+        <ul>
+          <li>Maintain defensive positions (Utilities, Consumer Staples) alongside growth assets (Tech, Biotech).</li>
+          <li>Use Options delta-hedging to protect portfolio downside prior to volatile earnings announcements.</li>
+        </ul>
+      `
+    },
+    {
+      id: "socio",
+      name: "Social Entrepreneurship",
+      tagline: "Sustainable Impact & ESG Innovation",
+      type: "entrepreneurship",
+      img: "XIII Vectors/Socio raw.png",
+      overview: "Engineered for ventures that balance financial viability with measurable social or environmental impact, aligned with UN Sustainable Development Goals (SDGs).",
+      rounds: [
+        "Round 1: Impact Model & SDG Alignment Blueprint",
+        "Round 2: Financial Sustainability & Revenue Mechanism",
+        "Round 3: Stakeholder Pitch & Impact Metrics Defense"
+      ],
+      keyConcepts: [
+        "Triple Bottom Line (People, Planet, Profit)",
+        "Social Return on Investment (SROI)",
+        "Blended Finance & Impact Investing",
+        "Theory of Change (Inputs -> Outputs -> Impact)"
+      ],
+      proTips: "Social enterprises cannot rely solely on grants. Prove how your business model generates recurring commercial revenue to sustain long-term impact.",
+      fullGuide: `
+        <h3>Theory of Change Framework</h3>
+        <p>Map your initiative through 5 steps: Problem Statement -> Inputs -> Activities -> Outputs (Immediate results) -> Outcomes (Long-term systemic change).</p>
+        
+        <h3>Key Metrics</h3>
+        <ul>
+          <li>Calculate SROI = (Net Present Value of Social Benefits) / (Value of Investments).</li>
+          <li>Demonstrate alignment with specific UN SDG targets (e.g., SDG 4 Quality Education, SDG 13 Climate Action).</li>
+        </ul>
+      `
+    },
+    {
+      id: "espionage",
+      name: "Corporate Espionage",
+      tagline: "Competitive Intelligence & Crisis Tactics",
+      type: "strategy",
+      img: "XIII Vectors/Espionage raw.png",
+      overview: "Navigate high-stakes corporate intelligence challenges, trade secret defense, counter-surveillance, and tactical crisis communication.",
+      rounds: [
+        "Round 1: OSINT Data Gathering & Vulnerability Assessment",
+        "Round 2: Crisis Escalation & Threat Countermeasures",
+        "Round 3: Executive Board Defense & Whistleblower Protocol"
+      ],
+      keyConcepts: [
+        "OSINT (Open Source Intelligence) Collection",
+        "Game Theory & Nash Equilibrium Strategy",
+        "Crisis Communications & PR Damage Control",
+        "IP Protection & Regulatory Compliance"
+      ],
+      proTips: "Analyze competitor vulnerabilities without breaking ethical or legal boundaries. Strategic foresight and rapid response timing dominate this category.",
+      fullGuide: `
+        <h3>Strategic Frameworks</h3>
+        <p>Utilize Porter's Five Forces combined with OSINT asset mapping to anticipate competitor product launches and market maneuvers.</p>
+        
+        <h3>Crisis Playbook</h3>
+        <ul>
+          <li>First 15 minutes: Containment statement and factual audit.</li>
+          <li>Hour 1 to 4: Root-cause identification and stakeholder communication.</li>
+          <li>Post-crisis: Remediation plan and brand reputation recovery.</li>
+        </ul>
+      `
+    },
+    {
+      id: "leadership",
+      name: "Leadership Lab",
+      tagline: "Organizational Behavior & Executive Negotiations",
+      type: "strategy",
+      img: "XIII Vectors/50.png",
+      overview: "Tests executive decision-making, workplace conflict resolution, cross-functional leadership, and high-pressure boardroom negotiations.",
+      rounds: [
+        "Round 1: Organizational Restructuring Case",
+        "Round 2: Live Stakeholder Negotiation Simulation",
+        "Round 3: CEO Emergency Press Conference"
+      ],
+      keyConcepts: [
+        "Situational Leadership Model (Hersey-Blanchard)",
+        "BATNA (Best Alternative to a Negotiated Agreement)",
+        "Change Management (Kotter's 8-Step Model)",
+        "Emotional Intelligence (EQ) in Crisis Management"
+      ],
+      proTips: "In negotiations, identify the other party's underlying interests rather than locking into rigid positions. Collaborative value creation wins.",
+      fullGuide: `
+        <h3>Negotiation Mechanics</h3>
+        <p>Always establish your ZOPA (Zone of Possible Agreement) and BATNA before entering the negotiation room. Never accept an offer below your walk-away threshold.</p>
+        
+        <h3>Change Management Steps</h3>
+        <ul>
+          <li>Create a sense of urgency.</li>
+          <li>Form a powerful guiding coalition.</li>
+          <li>Communicate the strategic vision relentlessly.</li>
+        </ul>
+      `
+    },
+    {
+      id: "ff",
+      name: "Fiscal Frontier",
+      tagline: "Macroeconomics, Taxation & Monetary Policy",
+      type: "finance",
+      img: "XIII Vectors/FF raw.png",
+      overview: "Analyze sovereign debt crises, central bank interest rate decisions, global inflation dynamics, and fiscal policy reform packages.",
+      rounds: [
+        "Round 1: Country Macroeconomic Diagnostic Paper",
+        "Round 2: Central Bank Policy Committee Simulation",
+        "Round 3: IMF Emergency Bailout Structural Adjustment Pitch"
+      ],
+      keyConcepts: [
+        "IS-LM & AD-AS Macroeconomic Models",
+        "Taylor Rule for Central Bank Interest Rates",
+        "Sovereign Debt-to-GDP & Fiscal Deficit Dynamics",
+        "Quantitative Easing & Inflation Targeting"
+      ],
+      proTips: "Support all economic policy proposals with empirical data (GDP growth rate, CPI inflation, current account balances, reserves cover).",
+      fullGuide: `
+        <h3>Monetary Policy Preparation</h3>
+        <p>Understand the trade-off between inflation control and employment (Phillips Curve) and how central banks adjust policy rates to steer economic growth.</p>
+        
+        <h3>IMF Bailout Package Elements</h3>
+        <ul>
+          <li>Fiscal Consolidation (Tax revenue expansion + expenditure rationalization).</li>
+          <li>Structural Reforms (Privatization, energy sector subsidies reduction).</li>
+          <li>Exchange Rate Flexibility & Balance of Payments adjustment.</li>
+        </ul>
+      `
+    },
+    {
+      id: "mall",
+      name: "Mall Street",
+      tagline: "Retail Dynamics, Merchandising & Supply Chain",
+      type: "strategy",
+      img: "XIII Vectors/Mall raw.png",
+      overview: "Master brick-and-mortar commercial retail strategy, tenant mix planning, footfall optimization, and e-commerce omnichannel integration.",
+      rounds: [
+        "Round 1: Retail Real Estate Layout & Tenant Mix Proposal",
+        "Round 2: Supply Chain Disruption Resolution",
+        "Round 3: Omnichannel Retail Expansion Strategy"
+      ],
+      keyConcepts: [
+        "Sales per Square Foot & Footfall Conversion Rates",
+        "Inventory Turnover & Just-In-Time (JIT) Logistics",
+        "Visual Merchandising & Impulse Purchase Placement",
+        "Omnichannel Fulfillment (Click & Collect, Last-Mile)"
+      ],
+      proTips: "Anchor tenant placement dictates footfall across the entire shopping complex. Strategic layout design drives tenant revenue.",
+      fullGuide: `
+        <h3>Key Retail Formulas</h3>
+        <p>Sales Density = Total Retail Sales / Total Selling Square Feet. Inventory Turnover = COGS / Average Inventory. Aim for high inventory velocity.</p>
+        
+        <h3>Tenant Mix Strategy</h3>
+        <ul>
+          <li>Anchor Tenants (Department stores/Supermarkets) placed at extremities to force customer movement.</li>
+          <li>High-margin Impulse Outlets placed near escalators and central concourses.</li>
+        </ul>
+      `
+    },
+    {
+      id: "juris",
+      name: "Jurisprudential",
+      tagline: "Corporate Law, M&A Antitrust & IP Defense",
+      type: "strategy",
+      img: "XIII Vectors/Juris raw.png",
+      overview: "Simulate corporate legal disputes, merger regulatory approvals, intellectual property litigation, and contract breach arbitration.",
+      rounds: [
+        "Round 1: Legal Brief Submission & Case Precedent Citation",
+        "Round 2: Oral Arguments before Moot Court Bench",
+        "Round 3: Emergency Injunction & Settlement Negotiation"
+      ],
+      keyConcepts: [
+        "Contract Law (Offer, Acceptance, Consideration, Breach)",
+        "Antitrust & Monopoly Market Dominance Evaluation",
+        "Intellectual Property Rights (Patents, Trademarks, Trade Secrets)",
+        "Fiduciary Duties of Board Directors"
+      ],
+      proTips: "Always ground oral arguments in specific statutory clauses and established judicial precedents. Professional courtroom etiquette is heavily weighted.",
+      fullGuide: `
+        <h3>IRAC Legal Analysis Method</h3>
+        <ul>
+          <li><strong>Issue:</strong> State the key legal question clearly.</li>
+          <li><strong>Rule:</strong> Cite the relevant statutory provision or case law.</li>
+          <li><strong>Application:</strong> Apply the legal rule directly to case facts.</li>
+          <li><strong>Conclusion:</strong> Deliver a unambiguous, logical conclusion.</li>
+        </ul>
+      `
+    },
+    {
+      id: "rubicon",
+      name: "Rubicon",
+      tagline: "High-Stakes Decision Making & Turnaround Operations",
+      type: "strategy",
+      img: "XIII Vectors/Rubicon raw.png",
+      overview: "Navigate near-bankrupt enterprises through rapid restructuring, cost rationalization, stakeholder alignment, and strategic repositioning.",
+      rounds: [
+        "Round 1: 100-Day Corporate Turnaround Blueprint",
+        "Round 2: Creditor Debt Restructuring Negotiation",
+        "Round 3: Live Boardroom Repositioning Defense"
+      ],
+      keyConcepts: [
+        "Z-Score Bankruptcy Prediction Model (Altman)",
+        "Debt-for-Equity Swaps & Haircuts",
+        "Zero-Based Budgeting (ZBB)",
+        "Core Asset Divestiture & Liquidity Creation"
+      ],
+      proTips: "Cash runway is oxygen. In turnaround scenarios, immediate cash preservation takes priority over long-term speculative growth projects.",
+      fullGuide: `
+        <h3>Turnaround Execution Matrix</h3>
+        <p>Phase 1: Emergency Liquidity Management (Freeze non-essential capex). Phase 2: Operational Stabilization (Divest non-core units). Phase 3: Strategic Growth.</p>
+        
+        <h3>Altman Z-Score Zones</h3>
+        <ul>
+          <li>Z < 1.81: Distress Zone (Immediate restructuring imperative).</li>
+          <li>1.81 < Z < 2.99: Grey Zone.</li>
+          <li>Z > 2.99: Safe Zone.</li>
+        </ul>
+      `
+    },
+    {
+      id: "chess",
+      name: "Chess",
+      tagline: "Strategic Game Theory & Competitive Intelligence",
+      type: "strategy",
+      img: "XIII Vectors/Chess raw.png",
+      overview: "Tests pure analytical reasoning, game-theoretic multi-move planning, resource allocation, and competitive counter-strategy.",
+      rounds: [
+        "Round 1: Game Theory Matrix & Prisoner's Dilemma Case",
+        "Round 2: Multi-Agent Market Entry & Price War Simulation",
+        "Round 3: Final Grandmaster Strategy Shootout"
+      ],
+      keyConcepts: [
+        "Nash Equilibrium & Dominant Strategies",
+        "Backward Induction in Sequential Games",
+        "Zero-Sum vs Non-Zero-Sum Market Dynamics",
+        "Payoff Matrix Construction & Decision Trees"
+      ],
+      proTips: "Think 3 moves ahead. Anticipate how competitors will react to your price or product decisions before finalizing your initial move.",
+      fullGuide: `
+        <h3>Game Theory Essentials</h3>
+        <p>Construct Payoff Matrices with Player 1 (Rows) and Player 2 (Columns). Identify Dominant Strategies where one choice yields higher payoffs regardless of opponent choice.</p>
+        
+        <h3>Sequential Game Analysis</h3>
+        <ul>
+          <li>Use Game Trees to diagram sequential decision nodes.</li>
+          <li>Apply Backward Induction starting from terminal nodes back to the initial decision point.</li>
+        </ul>
+      `
+    },
+    {
+      id: "muney",
+      name: "Muney",
+      tagline: "Venture Finance, Cap Tables & Valuation",
+      type: "finance",
+      img: "XIII Vectors/Muney raw.png",
+      overview: "Deep-dive into startup capitalization tables, SAFE notes, convertible debt terms, dilution calculations, and exit distributions.",
+      rounds: [
+        "Round 1: Cap Table Modeling & Dilution Analysis",
+        "Round 2: Term Sheet Negotiation (Liquidation Preferences)",
+        "Round 3: M&A Acquisition Exit Waterfall"
+      ],
+      keyConcepts: [
+        "Pre-Money vs Post-Money Valuation Mechanics",
+        "Liquidation Preferences (1x Non-Participating vs Participating)",
+        "Option Pool Shuffle & Dilution Calculations",
+        "SAFE Notes (Valuation Caps & Discount Rates)"
+      ],
+      proTips: "Pay attention to participating preference clauses; they drastically alter investor returns during liquidity events.",
+      fullGuide: `
+        <h3>Cap Table Formulas</h3>
+        <p>Post-Money Valuation = Pre-Money Valuation + Investment Amount. Investor Ownership % = Investment Amount / Post-Money Valuation.</p>
+        
+        <h3>Term Sheet Key Terms</h3>
+        <ul>
+          <li><strong>Liquidation Preference:</strong> Determines payout order during company sale or liquidation.</li>
+          <li><strong>Anti-Dilution Protection:</strong> Full Ratchet vs Broad-Based Weighted Average protection during down rounds.</li>
+        </ul>
+      `
+    },
+    {
+      id: "race",
+      name: "The Amazing Race",
+      tagline: "Agile Problem-Solving & Operational Logistics",
+      type: "creative",
+      img: "XIII Vectors/Race raw.png",
+      overview: "A fast-paced, multi-location operational sprint testing team coordination, rapid crisis solving, resource efficiency, and physical-mental agility.",
+      rounds: [
+        "Checkpoint 1: Cryptic Business Riddle & Location Hunt",
+        "Checkpoint 2: Rapid Prototype Assembly Challenge",
+        "Final Sprint: Live Pitch & Logistics Task"
+      ],
+      keyConcepts: [
+        "Critical Path Method (CPM) in Project Management",
+        "Agile Sprint Execution & Team Role Division",
+        "Resource Allocation under Extreme Time Constraints",
+        "Lateral Problem Solving under Stress"
+      ],
+      proTips: "Assign specialized roles (Navigator, Solver, Communicator) before the race begins. Clear delegation saves crucial minutes.",
+      fullGuide: `
+        <h3>Team Execution Strategy</h3>
+        <p>Divide and conquer. Never have the whole team focus on a single sub-task unless required by rules. Maintain constant timekeeping.</p>
+        
+        <h3>Sprint Mindset</h3>
+        <ul>
+          <li>Read problem statements twice before taking action.</li>
+          <li>If stuck for more than 3 minutes, pivot to alternative tactical approaches.</li>
+        </ul>
+      `
+    },
+    {
+      id: "canvas",
+      name: "Corporate Canvas",
+      tagline: "UI/UX Product Design & Visual Architecture",
+      type: "creative",
+      img: "XIII Vectors/Canvas raw.png",
+      overview: "Design digital product experiences, interactive wireframes, brand design systems, and user journey maps for cutting-edge tech products.",
+      rounds: [
+        "Round 1: User Persona Definition & Wireframe Deck",
+        "Round 2: Interactive High-Fidelity Design Prototype",
+        "Round 3: Product Design Critique & UX Defense"
+      ],
+      keyConcepts: [
+        "Figma Prototyping & Design Systems",
+        "Information Architecture & User Journey Mapping",
+        "Usability Heuristics (Nielsen Norman Group)",
+        "Accessibility (WCAG 2.1) & Color Contrast Standards"
+      ],
+      proTips: "Design for the end user, not yourself. Showcase interactive micro-animations and accessibility consideration during judging.",
+      fullGuide: `
+        <h3>UX Design Process</h3>
+        <p>Empathize -> Define -> Ideate -> Prototype -> Test. Your presentation must clearly document user testing insights and iteration loops.</p>
+        
+        <h3>Visual Hierarchy Rules</h3>
+        <ul>
+          <li>Use consistent spacing systems (8pt grid).</li>
+          <li>Limit color palette to 60-30-10 rule (Primary 60%, Secondary 30%, Accent 10%).</li>
+        </ul>
+      `
+    },
+    {
+      id: "tech",
+      name: "Techeneurship",
+      tagline: "AI, FinTech & Frontier Technology Ventures",
+      type: "entrepreneurship",
+      img: "XIII Vectors/Tech raw.png",
+      overview: "Commercialize deep-tech, artificial intelligence, blockchain, or SaaS innovations. Focus on technical feasibility, IP defensibility, and scalable cloud architecture.",
+      rounds: [
+        "Round 1: Deep Tech Architecture & Commercial Blueprint",
+        "Round 2: Live API / Algorithm Demo & Security Audit",
+        "Round 3: Enterprise Sales & Scale Pitch"
+      ],
+      keyConcepts: [
+        "SaaS Metrics (ARR, MRR, Net Revenue Retention, Churn Rate)",
+        "API Monitization & Ecosystem Network Effects",
+        "AI / ML Product Deployment Pipelines",
+        "Data Privacy (GDPR, SOC2) & Cybersecurity Defensibility"
+      ],
+      proTips: "Explain complex technical architectures in simple, high-business-value terms. Investors buy outcomes, not raw code.",
+      fullGuide: `
+        <h3>SaaS Metrics Mastery</h3>
+        <ul>
+          <li><strong>Magic Number:</strong> (Quarter Net New ARR * 4) / Quarter Sales & Marketing Expense. Target > 0.75.</li>
+          <li><strong>Net Revenue Retention (NRR):</strong> Target > 110% for top-tier enterprise SaaS.</li>
+        </ul>
+        
+        <h3>Tech Architecture Slide</h3>
+        <p>Diagram your data flow: Frontend Client -> API Gateway -> Microservices -> AI/ML Pipeline -> Cloud Database (AWS/GCP).</p>
+      `
+    },
+    {
+      id: "enterprise",
+      name: "Enterprise",
+      tagline: "Global Conglomerate Strategy & Cross-Border Expansion",
+      type: "strategy",
+      img: "XIII Vectors/Enterprise raw.png",
+      overview: "Guide Fortune 500 conglomerates through cross-border mergers, global supply chain optimization, and market diversification strategies.",
+      rounds: [
+        "Round 1: Global Market Selection & Entry Mode Analysis",
+        "Round 2: Conglomerate Restructuring & M&A Valuation",
+        "Round 3: International Boardroom Strategy Presentation"
+      ],
+      keyConcepts: [
+        "CAGE Distance Framework (Cultural, Admin, Geographic, Economic)",
+        "M&A Synergy Valuation (Cost Synergies vs Revenue Synergies)",
+        "Global Value Chain (GVC) Resilience",
+        "Foreign Currency Exchange (FX) Risk Hedging"
+      ],
+      proTips: "Differentiate between Greenfield Investment, Joint Ventures, and Cross-Border Acquisitions when pitching international market entry.",
+      fullGuide: `
+        <h3>CAGE Expansion Framework</h3>
+        <ul>
+          <li><strong>Cultural:</strong> Language, social norms, consumer habits.</li>
+          <li><strong>Administrative:</strong> Trade agreements, tariffs, regulatory legal environment.</li>
+          <li><strong>Geographic:</strong> Physical distance, time zones, infrastructure readiness.</li>
+          <li><strong>Economic:</strong> Per capita income, labor costs, currency volatility.</li>
+        </ul>
+      `
+    }
+  ];
+
+  // RENDER CATEGORY CARDS
+  function renderCategories(items) {
+    const grid = document.getElementById('categoriesGrid');
+    grid.innerHTML = '';
+
+    if (items.length === 0) {
+      grid.innerHTML = '<div style="grid-column: 1/-1; text-align:center; padding: 4rem; color: var(--text-muted);">No categories match your search query.</div>';
+      return;
+    }
+
+    items.forEach((cat) => {
+      const card = document.createElement('div');
+      card.className = 'category-card';
+      card.innerHTML = `
+        <div class="card-banner">
+          <img src="${cat.img}" alt="${cat.name}" loading="lazy">
+          <span class="card-category-badge">${cat.type}</span>
+        </div>
+        <div class="card-body">
+          <h3 class="category-title">${cat.name}</h3>
+          <div class="category-tagline">${cat.tagline}</div>
+          <p class="category-desc">${cat.overview}</p>
+          
+          <div class="guide-section-box">
+            <h4>Key Concepts to Master</h4>
+            <ul>
+              ${cat.keyConcepts.slice(0, 2).map(c => `<li>${c}</li>`).join('')}
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <span class="pro-tip"><i class="fas fa-lightbulb" style="color:var(--accent-gold-bright);"></i> Pro Tip Included</span>
+            <button class="expand-btn" onclick="openModal('${cat.id}')">Study Guide <i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  // INITIAL RENDER
+  renderCategories(studyGuideData);
+
+  // SEARCH FILTER
+  function filterCategories() {
+    const query = document.getElementById('searchInput').value.toLowerCase();
+    const filtered = studyGuideData.filter(cat => 
+      cat.name.toLowerCase().includes(query) || 
+      cat.tagline.toLowerCase().includes(query) ||
+      cat.overview.toLowerCase().includes(query) ||
+      cat.keyConcepts.some(c => c.toLowerCase().includes(query))
+    );
+    renderCategories(filtered);
+  }
+
+  // PILL FILTER
+  function filterPill(categoryType, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    if (categoryType === 'all') {
+      renderCategories(studyGuideData);
+    } else {
+      const filtered = studyGuideData.filter(cat => cat.type.toLowerCase() === categoryType.toLowerCase());
+      renderCategories(filtered);
+    }
+  }
+
+  // MODAL FUNCTIONS
+  function openModal(catId) {
+    const cat = studyGuideData.find(c => c.id === catId);
+    if (!cat) return;
+
+    document.getElementById('modalTitle').textContent = cat.name;
+    document.getElementById('modalTagline').textContent = cat.tagline;
+
+    const modalBody = document.getElementById('modalBody');
+    modalBody.innerHTML = `
+      <h3>Category Overview</h3>
+      <p>${cat.overview}</p>
+
+      <h3>Event Format & Competition Rounds</h3>
+      <ul>
+        ${cat.rounds.map(r => `<li><strong>${r}</strong></li>`).join('')}
+      </ul>
+
+      <h3>Essential Concepts & Frameworks</h3>
+      <ul>
+        ${cat.keyConcepts.map(c => `<li>${c}</li>`).join('')}
+      </ul>
+
+      <h3>Master Strategy & Pro Tips</h3>
+      <p style="background: var(--bg-surface); padding: 1rem; border-left: 3px solid var(--accent-gold-bright); color: var(--text-primary); border-radius: 4px;">
+        ${cat.proTips}
+      </p>
+
+      ${cat.fullGuide}
+    `;
+
+    document.getElementById('modalOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(e) {
+    if (e.target.id === 'modalOverlay') {
+      closeModalDirect();
+    }
+  }
+
+  function closeModalDirect() {
+    document.getElementById('modalOverlay').classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+
+  function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('show');
+  }
+</script>
+</body>
+</html>
