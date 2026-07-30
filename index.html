@@ -1,5 +1,4 @@
-
-html_code = '''<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -189,11 +188,25 @@ html_code = '''<!DOCTYPE html>
   .mobile-menu-btn {
     display: none;
     background: none;
-    border: none;
+    border: 1px solid var(--border-subtle);
     color: var(--accent-gold);
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     cursor: pointer;
+    padding: 0.5rem 0.75rem;
+    z-index: 1001;
+    position: relative;
   }
+
+  .menu-backdrop {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+  }
+
+  .menu-backdrop.show { display: block; }
 
   /* ==================== PAGES ==================== */
   .page {
@@ -680,17 +693,36 @@ html_code = '''<!DOCTYPE html>
   @media (max-width: 768px) {
     .loader-logo { width: 180px; height: 180px; }
     .nav-links {
-      display: none;
-      position: absolute;
-      top: 100%; left: 0;
-      width: 100%;
+      display: flex;
+      position: fixed;
+      top: 0; right: -100%;
+      width: 70%;
+      max-width: 300px;
+      height: 100vh;
       background: var(--bg-deep);
       flex-direction: column;
-      padding: 1.5rem;
-      border-bottom: 1px solid var(--border-subtle);
-      gap: 1.25rem;
+      padding: 5rem 2rem 2rem;
+      border-left: 1px solid var(--border-subtle);
+      gap: 0;
+      z-index: 1000;
+      transition: right 0.35s ease;
+      box-shadow: -10px 0 30px rgba(0,0,0,0.5);
     }
-    .nav-links.show { display: flex; }
+    .nav-links.show { right: 0; }
+    .nav-links li {
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .nav-links li:last-child {
+      border-bottom: none;
+    }
+    .nav-links a {
+      display: block;
+      padding: 1.25rem 0;
+      font-size: 0.9rem;
+    }
+    .nav-links a::after {
+      display: none;
+    }
     .mobile-menu-btn { display: block; }
     .hero h1 { font-size: 1.75rem; }
     .hero-logo { width: 160px; height: 160px; }
@@ -702,6 +734,7 @@ html_code = '''<!DOCTYPE html>
     .advisor-pfp { width: 160px; height: 160px; }
   }
 </style>
+<base target="_blank">
 </head>
 <body>
 
@@ -713,16 +746,17 @@ html_code = '''<!DOCTYPE html>
 </div>
 
 <!-- ==================== NAVIGATION ==================== -->
+<div class="menu-backdrop" id="menuBackdrop" onclick="closeMenu()"></div>
 <nav>
   <a href="#" class="nav-brand" onclick="showTab('abc')">
     <img src="lg.png" alt="ABC">
     <span><strong>ABC</strong> XIV</span>
   </a>
-  <button class="mobile-menu-btn" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+  <button class="mobile-menu-btn" onclick="toggleMenu()">Menu<i class="fas fa-bars"></i></button>
   <ul class="nav-links" id="navLinks">
-    <li><a class="active" onclick="showTab('abc')" id="link-abc">ABC</a></li>
-    <li><a onclick="showTab('society')" id="link-society">Society</a></li>
-    <li><a onclick="showTab('response')" id="link-response">Response</a></li>
+    <li><a href="javascript:void(0)" class="active" onclick="showTab('abc')" id="link-abc">ABC</a></li>
+    <li><a href="javascript:void(0)" onclick="showTab('society')" id="link-society">Society</a></li>
+    <li><a href="javascript:void(0)" onclick="showTab('response')" id="link-response">Response</a></li>
   </ul>
 </nav>
 
@@ -843,7 +877,7 @@ html_code = '''<!DOCTYPE html>
       <h2 class="society-heading">The Society Itself</h2>
 
       <p class="society-paragraph">
-       The Aitchison College Entrepreneurial Society has established itself as one of Pakistan’s leading extracurricular societies. Its influence extends beyond Aitchison College, inspiring similar societies in schools across the country. Over the years, the Society has achieved remarkable success in prestigious competitions, both locally and internationally, including the Young Learners Entrepreneurial Summit, the Blue Ocean Entrepreneurship Challenge, and the International Business Olympiad. These accomplishments reflect the Society’s commitment to excellence, innovation, and developing the next generation of young entrepreneurs.There are various tangible opportunities one can avail by joining the Entrepreneurial Society. First and foremost, one could use the society as a basis to secure points for the prestigious Co-Curricular Blazer. The society has a rich history laden with past recipients.  By securing 5 wins at various olympiads, you are eligible to receive 1.5 points towards the Blazer. You may also reciprocate points by taking up a leadership position within the society. Such laurels help bolster your university applications tremendously. Look no further than the Notable Alumni Section right underneath. The society also serves as an important means of polishing various soft skills such as public speaking, teamwork, ingenuity and problem solving. Such skills are of paramount importance within one’s professional life.Over the years, the Society has consistently performed well, across multiple categories such as Start-up Pitches and simulations of Stock Markets at a plethora of  prestigious national competitions such as the Young Learners Entrepreneurial Summit by LUMS and the Karachi Grammar Entrepreneurial Summit.The Aitchison College Entrepreneurial Society hosts the Aitchison Business Concept (ABC), Pakistan’s largest high-school business olympiad. ABC serves as a lodestone for top students from across the country, giving them a prestigious platform to showcase their entrepreneurial talent across multiple categories. It remains a hallmark of innovative leadership, and youth entrepreneurship. Alongside ABC, the Society also conducts the Inter-House Entrepreneurial Competition, where students from all 17 houses present unique and original business ideas. This event fosters creativity within the Aitchison community and encourages healthy competition among students. The Society is also responsible for the Aitchison Business Review, Pakistan’s only high-school business magazine. It is a great opportunity for students interested in business writing, research, and editorial work. Aside these, the Society takes part in various initiatives.
+       The Aitchison College Entrepreneurial Society has established itself as one of Pakistan's leading extracurricular societies. Its influence extends beyond Aitchison College, inspiring similar societies in schools across the country. Over the years, the Society has achieved remarkable success in prestigious competitions, both locally and internationally, including the Young Learners Entrepreneurial Summit, the Blue Ocean Entrepreneurship Challenge, and the International Business Olympiad. These accomplishments reflect the Society's commitment to excellence, innovation, and developing the next generation of young entrepreneurs.There are various tangible opportunities one can avail by joining the Entrepreneurial Society. First and foremost, one could use the society as a basis to secure points for the prestigious Co-Curricular Blazer. The society has a rich history laden with past recipients.  By securing 5 wins at various olympiads, you are eligible to receive 1.5 points towards the Blazer. You may also reciprocate points by taking up a leadership position within the society. Such laurels help bolster your university applications tremendously. Look no further than the Notable Alumni Section right underneath. The society also serves as an important means of polishing various soft skills such as public speaking, teamwork, ingenuity and problem solving. Such skills are of paramount importance within one's professional life.Over the years, the Society has consistently performed well, across multiple categories such as Start-up Pitches and simulations of Stock Markets at a plethora of  prestigious national competitions such as the Young Learners Entrepreneurial Summit by LUMS and the Karachi Grammar Entrepreneurial Summit.The Aitchison College Entrepreneurial Society hosts the Aitchison Business Concept (ABC), Pakistan's largest high-school business olympiad. ABC serves as a lodestone for top students from across the country, giving them a prestigious platform to showcase their entrepreneurial talent across multiple categories. It remains a hallmark of innovative leadership, and youth entrepreneurship. Alongside ABC, the Society also conducts the Inter-House Entrepreneurial Competition, where students from all 17 houses present unique and original business ideas. This event fosters creativity within the Aitchison community and encourages healthy competition among students. The Society is also responsible for the Aitchison Business Review, Pakistan's only high-school business magazine. It is a great opportunity for students interested in business writing, research, and editorial work. Aside these, the Society takes part in various initiatives.
       </p>
 
       <a href="society_landing.html" class="landing-link">
@@ -955,11 +989,17 @@ if (document.readyState === 'complete') {
     document.getElementById(tabName).classList.add('active');
     document.getElementById('link-' + tabName).classList.add('active');
     window.scrollTo(0, 0);
-    document.getElementById('navLinks').classList.remove('show');
+    closeMenu();
   }
 
   function toggleMenu() {
     document.getElementById('navLinks').classList.toggle('show');
+    document.getElementById('menuBackdrop').classList.toggle('show');
+  }
+
+  function closeMenu() {
+    document.getElementById('navLinks').classList.remove('show');
+    document.getElementById('menuBackdrop').classList.remove('show');
   }
 
   // ==================== EVENTS ====================
