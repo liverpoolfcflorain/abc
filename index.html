@@ -1133,6 +1133,20 @@
   <div id="abc" class="page">
     <div class="container">
 
+      <div class="hero">
+        <img src="lg.png" alt="ABC Logo" class="hero-logo" onerror="this.style.display='none'">
+        <h1>Aitchison Business Concept</h1>
+        <div class="roman">XIV</div>
+        <p>
+          The Aitchison College Business Concept is the definitive platform for cultivating
+          entrepreneurial leadership, strategic innovation, and financial discipline among the youth.
+          We operate at the intersection of academic rigor and commercial execution, forging
+          the next generation of institutional leaders.
+        </p>
+        <div class="divider"></div>
+      </div>
+
+
 
 
       <!-- Countdown Timer -->
@@ -1216,6 +1230,18 @@
       <div class="section-title">Events Calendar</div>
       <div class="events-list" id="eventsList"></div>
 
+      <!-- Registration Link -->
+      <div class="section-title" style="margin-top: 4rem;">Registration</div>
+      <div style="text-align: center; padding: 2rem 0 1rem;">
+        <a href="register.html"
+          style="display: inline-block; padding: 1rem 2.5rem; border: 1px solid var(--accent-bronze); color: var(--accent-gold); font-size: 0.8rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; transition: all 0.3s;"
+          onmouseover="this.style.background='var(--accent-gold)'; this.style.color='var(--bg-void)';"
+          onmouseout="this.style.background='transparent'; this.style.color='var(--accent-gold)';">
+          Register for ABC XIV <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
+        </a>
+      </div>
+
+
     </div>
   </div>
 
@@ -1224,15 +1250,8 @@
     <div class="container">
 
       <div class="hero">
-        <img src="lg.png" alt="ABC Logo" class="hero-logo" onerror="this.style.display='none'">
         <h1>Aitchison Business Concept</h1>
         <div class="roman">XIV</div>
-        <p>
-          The Aitchison College Business Concept is the definitive platform for cultivating
-          entrepreneurial leadership, strategic innovation, and financial discipline among the youth.
-          We operate at the intersection of academic rigor and commercial execution, forging
-          the next generation of institutional leaders.
-        </p>
         <div class="divider"></div>
       </div>
 
@@ -1344,6 +1363,17 @@
 
       </div>
 
+      <!-- Social Links -->
+      <div style="text-align: center; padding: 2rem 0 0;">
+        <a href="https://instagram.com" target="_blank"
+          style="display: inline-flex; align-items: center; gap: 0.75rem; color: var(--text-muted); text-decoration: none; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s;"
+          onmouseover="this.style.color='var(--accent-gold)'" onmouseout="this.style.color='var(--text-muted)'">
+          <i class="fab fa-instagram" style="font-size: 1.25rem;"></i>
+          <span>Follow us on Instagram</span>
+        </a>
+      </div>
+
+
     </div>
   </div>
 
@@ -1410,7 +1440,7 @@
 
         setTimeout(() => {
           loader.style.display = 'none';
-        }, 1200);
+        }, 3000);
       }
     }
 
