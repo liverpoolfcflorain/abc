@@ -1096,6 +1096,7 @@
       }
     }
   </style>
+  <base target="_blank">
 </head>
 
 <body>
@@ -1109,9 +1110,9 @@
   <!-- ==================== NAVIGATION ==================== -->
   <div class="menu-backdrop" id="menuBackdrop" onclick="closeMenu()"></div>
   <nav>
-    <a href="#" class="nav-brand" onclick="showTab('abc')">
-      <img src="lg.png" alt="ABC">
-      <span><strong>ABC</strong> XIV</span>
+    <a href="#" class="nav-brand" onclick="showTab('society')">
+      <img src="lg.png" alt="ACES">
+      <span id="navBrandText"><strong>ACES</strong></span>
     </a>
     <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle Navigation">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="2.5"
@@ -1219,7 +1220,7 @@
           <div class="ec-card exec">
             <img src="./XIII Vectors/muahid.jpeg" alt="Executive" class="ec-img"
               onerror="this.src='https://via.placeholder.com/100/060d16/4a5568?text=E3'">
-            <div class="ec-name">Muahid Ahmed</div>
+            <div class="ec-name">Muahid Ahmad</div>
             <div class="ec-role">executive member</div>
           </div>
 
@@ -1250,7 +1251,7 @@
     <div class="container">
 
       <div class="hero">
-        <h1>Aitchison Business Concept</h1>
+        <h1>Aitchison college entrepreneurial society</h1>
         <div class="roman">XIV</div>
         <div class="divider"></div>
       </div>
@@ -1333,15 +1334,7 @@
         <!-- Flagship Initiatives -->
         <div class="initiatives-list">
 
-          <div class="initiative-panel">
-            <div class="initiative-label">National Olympiad</div>
-            <div class="initiative-title">Aitchison Business Concept</div>
-            <div class="initiative-desc">Pakistan's largest high-school business olympiad — convening the nation's top
-              student minds across 16 specialized competitive categories, from startup pitching to financial strategy.
-            </div>
-            <div class="initiative-stat"><i class="fas fa-circle"></i> 16 Categories &nbsp;&middot;&nbsp; National Scale
-            </div>
-          </div>
+
 
           <div class="initiative-panel">
             <div class="initiative-label">Internal Competition</div>
@@ -1359,6 +1352,16 @@
             <div class="initiative-stat"><i class="fas fa-circle"></i> Premier Publication</div>
           </div>
 
+          <div class="initiative-panel">
+            <div class="initiative-label">Startup Incubator</div>
+            <div class="initiative-title">Spark Tank</div>
+            <div class="initiative-desc">A dedicated startup incubator and funding programme designed to transform
+              student ideas into viable ventures — providing seed capital, mentorship from industry veterans, and
+              structured guidance through every stage of commercial development.</div>
+            <div class="initiative-stat"><i class="fas fa-circle"></i> Seed Funding &nbsp;&middot;&nbsp; Mentorship
+            </div>
+          </div>
+
         </div>
 
       </div>
@@ -1369,7 +1372,7 @@
           style="display: inline-flex; align-items: center; gap: 0.75rem; color: var(--text-muted); text-decoration: none; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s;"
           onmouseover="this.style.color='var(--accent-gold)'" onmouseout="this.style.color='var(--text-muted)'">
           <i class="fab fa-instagram" style="font-size: 1.25rem;"></i>
-          <span>Follow us on Instagram</span>
+          <span>For more queries visit our instagram page</span>
         </a>
       </div>
 
@@ -1479,6 +1482,17 @@
       document.getElementById('link-' + tabName).classList.add('active');
       window.scrollTo(0, 0);
       closeMenu();
+      // Update nav brand based on tab
+      const brandText = document.getElementById('navBrandText');
+      if (brandText) {
+        if (tabName === 'abc') {
+          brandText.innerHTML = '<strong>ABC</strong> XIV';
+        } else if (tabName === 'society') {
+          brandText.innerHTML = '<strong>ACES</strong>';
+        } else if (tabName === 'response') {
+          brandText.innerHTML = '<strong>ACES</strong>';
+        }
+      }
     }
 
     function toggleMenu() {
@@ -1497,7 +1511,6 @@
       { name: "ad making", img: "XIII Vectors/AD raw.png", icon: "fa-microphone" },
       { name: "Investomania", img: "XIII Vectors/Investo raw.png", icon: "fa-store" },
       { name: "social entrepeneurship", img: "XIII Vectors/Socio raw.png", icon: "fa-coins" },
-      { name: "Leadership Lab", img: "XIII Vectors/50.png", icon: "fa-users" },
       { name: "fiscal frontier", img: "XIII Vectors/FF raw.png", icon: "fa-comments" },
       { name: "Mall street", img: "XIII Vectors/Mall raw.png", icon: "fa-chess" },
       { name: "Jurisprudential", img: "XIII Vectors/Juris raw.png", icon: "fa-heart" },
