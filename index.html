@@ -979,6 +979,67 @@
       opacity: 1;
     }
 
+
+    /* ==================== FAQ ACCORDION ==================== */
+    .faq-section {
+      margin-top: 4rem;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 1.25rem 0;
+      background: transparent;
+      border: none;
+      color: var(--accent-gold);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: color 0.3s;
+      font-family: inherit;
+    }
+
+    .faq-question:hover {
+      color: #ffd700;
+    }
+
+    .faq-question i {
+      font-size: 0.75rem;
+      color: var(--accent-bronze);
+      transition: transform 0.3s;
+    }
+
+    .faq-item.open .faq-question i {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+      padding: 0 0;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding: 0 0 1.25rem;
+    }
+
+    .faq-answer p {
+      color: #ffffff;
+      font-size: 0.88rem;
+      line-height: 1.75;
+      max-width: 90%;
+    }
+
     /* ==================== RESPONSIVE ==================== */
     @media (max-width: 768px) {
       .loader-logo {
@@ -1096,7 +1157,6 @@
       }
     }
   </style>
-  <base target="_blank">
 </head>
 
 <body>
@@ -1243,6 +1303,142 @@
       </div>
 
 
+
+      <!-- FAQ Section -->
+      <div class="section-title faq-section">Frequently Asked Questions</div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            What is the registration deadline?
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>The registration deadline for ABC XIV will be announced on our Instagram page and via email to all
+              registered schools. We recommend registering as early as possible to secure your spot and take advantage
+              of early-bird pricing.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            How do I register for the event?
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Click the "Register for ABC XIV" button on this page, fill out your team details, select your preferred
+              competition categories, and complete the payment process. A confirmation email will be sent upon
+              successful registration.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            Can I participate individually, or do I need a team?
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>It depends on the category. Some events like Chess and Muney are individual, while others such as Build
+              Your Own Idea and Corporate Espionage require teams of 2–4 members. Check the specific category rules
+              before registering.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            What is the event schedule?
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>The detailed event schedule will be shared with all registered participants one week prior to the
+              olympiad. It typically spans two days, with opening ceremonies, competition rounds, networking sessions,
+              and the closing awards ceremony.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            What is the competition format?
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Each category follows a unique format — ranging from live pitching and case-study analysis to simulated
+              trading and creative presentations. Preliminary rounds are held on Day 1, with finals and showdowns on Day
+              2.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            What should I bring to the event?
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Bring your school ID, a notepad, pens, a laptop (if required for your category), and any presentation
+              materials pre-approved by the organizing committee. Dress code is formal business attire.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            Will all participants receive certificates or prizes?
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>All participants receive a certificate of participation. Winners and runners-up in each category receive
+              trophies, cash prizes, and merit certificates. Special awards such as Best Delegation are also presented.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            Who can I contact if I have any questions?
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>For any queries, reach out to the ABC XIV organizing team via the Suggestion tab on this website, DM our
+              Instagram page, or email the General Secretary directly at the address provided in your registration
+              confirmation.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            How many days is the event?
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>ABC XIV is a two-day event. Day 1 features registration, opening ceremonies, and preliminary rounds
+              across all categories. Day 2 hosts the finals, special sessions, and the grand closing and awards
+              ceremony.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            How many categories are delegates required to participate in?
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Delegates may participate in as many categories as they wish, provided there are no scheduling conflicts.
+              There is no minimum requirement, though we encourage exploring multiple disciplines to maximize the
+              experience.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            What benefits do I get from participating in the event?
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Participants gain exposure to high-stakes competition, networking with peers nationwide, mentorship from
+              industry professionals, certificates for their portfolios, and eligibility for the Spark Tank incubation
+              programme and ACES executive board positions.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            What is the criteria for best delegation and what overall awards will be available?
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>every category has a winner a runners up and a second runner up and they contribute double points to the
+              best delegation, and Enterprise does not have any wieghtage to the award, as well there is a best
+              delegation runner up, a outstatuin best delgation as well as best team </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -1364,6 +1560,66 @@
 
         </div>
 
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="section-title faq-section">Frequently Asked Questions</div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            How do I become a member of ACES?
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Membership is open to all Aitchison College students. Simply attend our orientation session at the start
+              of each academic year, or reach out to any Executive Council member. Active participation in events and
+              competitions is the fastest path to full membership and blazer points.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            What competitions does ACES participate in?
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>ACES fields teams in LUMS YLES, KGES, Blue Ocean Challenge, the International Business Olympiad, and
+              numerous other national and international business competitions. Members receive dedicated training and
+              mentorship for each event.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            What is the Co-Curricular Blazer and how do I earn points?
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>The Co-Curricular Blazer is one of Aitchison's highest honors. ACES members earn 1.5 points for securing
+              5 national or international competition wins, with additional points awarded for executive board
+              leadership and exceptional society contribution.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            How does Spark Tank support student startups?
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Spark Tank provides seed funding, structured mentorship from industry professionals, workspace access,
+              and a guided incubation curriculum. Selected ventures progress through pitch rounds, receiving capital and
+              strategic support at each milestone.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            Can I join ACES without prior business experience?
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Absolutely. ACES is designed to cultivate business acumen from the ground up. Our training programmes,
+              workshops, and peer mentorship structure ensure that every member — regardless of starting point —
+              develops the skills to compete and lead.</p>
+          </div>
+        </div>
       </div>
 
       <!-- Social Links -->
