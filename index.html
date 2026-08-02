@@ -1710,25 +1710,24 @@
     if (document.readyState === 'complete') {
       hideLoader();
     }
-    // ==================== COUNTDOWN ====================
-    const targetDate = new Date();
-    targetDate.setDate(targetDate.getDate() + 30);
 
-    function updateTimer() {
-      const now = new Date().getTime();
-      const distance = targetDate - now;
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    async function time() {
+      const res = await fetch("https://timer-v22m.onrender.com/api/countdown")
+      const json = await res.json()
+
+      const days = json.days;
+      const hours = json.hours;
+      const minutes = json.minutes;
+      const seconds = json.seconds;
 
       document.getElementById('days').textContent = String(days).padStart(2, '0');
       document.getElementById('hours').textContent = String(hours).padStart(2, '0');
       document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
       document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
     }
-    updateTimer();
-    setInterval(updateTimer, 1000);
+
+    setInterval(time, 1000);
+
 
     // ==================== TABS ====================
     function showTab(tabName) {
