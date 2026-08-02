@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ABC XIV — Category Study Guide</title>
 <meta name="description" content="Official Study Guide for Aitchison Business Concept XIV categories. Strategic frameworks, rules, case preparation, and master tactics.">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
   :root {
     --bg-void: #040A12;
@@ -16,10 +18,10 @@
     --text-primary: #e2e8f0;
     --text-secondary: #94a3b8;
     --text-muted: #64748b;
-    --accent-bronze: #8b6914;
-    --accent-gold: #a67c00;
+    --accent-bronze: #b8860b;
+    --accent-gold: #d4af37;
     --accent-gold-bright: #ffd700;
-    --accent-gold-dim: rgba(166,124,0,0.12);
+    --accent-gold-dim: rgba(212,175,55,0.12);
     --accent-steel: #4a5568;
     --card-hover-border: #ffd700;
   }
@@ -77,6 +79,7 @@
   .nav-brand span strong {
     color: var(--accent-gold-bright);
     font-weight: 800;
+    font-family: 'Cinzel', serif;
   }
 
   .nav-links {
@@ -129,6 +132,7 @@
   .header-section {
     text-align: center;
     padding: 2.5rem 0 3rem;
+    font-family: 'Cinzel', serif;
   }
 
   .header-section h1 {
@@ -251,12 +255,13 @@
     display: flex;
     flex-direction: column;
     position: relative;
+    cursor: pointer;
   }
 
   .category-card:hover {
     border-color: var(--card-hover-border);
     transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5), 0 0 15px rgba(255,215,0,0.15);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5), 0 0 20px rgba(255,215,0,0.25);
   }
 
   .card-banner {
@@ -317,7 +322,7 @@
     font-size: 0.8rem;
     color: var(--accent-gold-bright);
     font-weight: 600;
-    letter-spacing: 1.5.px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     margin-bottom: 1rem;
   }
@@ -370,32 +375,12 @@
     font-style: italic;
   }
 
-  .expand-btn {
-    background: transparent;
-    border: 1px solid var(--accent-bronze);
-    color: var(--accent-gold-bright);
-    padding: 0.4rem 0.85rem;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.25s;
-  }
-
-  .expand-btn:hover {
-    background: var(--accent-gold-bright);
-    color: var(--bg-void);
-  }
-
   /* MODAL FOR FULL STUDY GUIDE */
   .modal-overlay {
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: rgba(0,0,0,0.85);
-    backdrop-filter: blur(8px);
+    background: var(--bg-void);
     z-index: 10000;
     display: flex;
     align-items: center;
@@ -550,10 +535,9 @@
 
   <!-- HEADER -->
   <div class="header-section">
-    <div class="badge-tag">Official Preparation Portal</div>
     <h1>Category <span>Study Guide</span></h1>
     <p class="subtitle">
-      Master the strategic frameworks, case methodologies, scoring rubrics, and competitive tactics for all 16 official event categories of the Aitchison Business Concept XIV.
+      Explore the official category formats, rounds, and competition details for Aitchison Business Concept XIV.
     </p>
   </div>
 
@@ -564,7 +548,7 @@
       <input type="text" id="searchInput" placeholder="Search category, topic, or concept..." onkeyup="filterCategories()">
     </div>
     <div class="filter-pills">
-      <button class="filter-btn active" onclick="filterPill('all', this)">All (16)</button>
+      <button class="filter-btn active" onclick="filterPill('all', this)">All (14)</button>
       <button class="filter-btn" onclick="filterPill('entrepreneurship', this)">Entrepreneurship</button>
       <button class="filter-btn" onclick="filterPill('finance', this)">Finance & Markets</button>
       <button class="filter-btn" onclick="filterPill('strategy', this)">Strategy & Law</button>
@@ -595,496 +579,190 @@
 </footer>
 
 <script>
-  // 16 CATEGORIES DATA WITH COMPREHENSIVE STUDY GUIDES
+  // OFFICIAL CATEGORY DATA
   const studyGuideData = [
-    {
-      id: "byoi",
-      name: "Build Your Own Idea",
-      tagline: "Venture Pitch & Prototype Masterclass",
-      type: "entrepreneurship",
-      img: "XIII Vectors/BYOI raw.png",
-      overview: "Develop an original product or service from concept to investor deck. Participants pitch before a panel of venture capitalists and battle-tested entrepreneurs.",
-      rounds: [
-        "Round 1: Executive Summary & Problem-Solution Fit Deck",
-        "Round 2: MVP Prototype Demonstration & Unit Economics",
-        "Round 3: Live VC Shark-Tank Pitch & Q&A Defense"
-      ],
-      keyConcepts: [
-        "TAM / SAM / SOM (Total Addressable Market calculations)",
-        "Customer Acquisition Cost (CAC) vs Lifetime Value (LTV)",
-        "Minimum Viable Product (MVP) prototyping frameworks",
-        "Value Proposition Canvas & Lean Business Model Canvas"
-      ],
-      proTips: "Focus 60% of your time on proving customer demand and unit economics. Judges value traction and realistic financial projections over futuristic buzzwords.",
-      fullGuide: `
-        <h3>Executive Summary & Pitch Structure</h3>
-        <p>A winning BYOI pitch deck follows a crisp 10-slide structure: Problem, Solution, Unique Value Proposition, Market Size, Product/MVP Demo, Business Model, Go-to-Market Strategy, Competitor Matrix, Financial Projections, and Team/Ask.</p>
-        
-        <h3>Key Metrics & Financial Modeling</h3>
-        <ul>
-          <li><strong>Unit Economics:</strong> Calculate Gross Margin % = (Revenue - COGS) / Revenue. Proving a healthy margin (>40%) is essential.</li>
-          <li><strong>CAC Payback Period:</strong> Aim for customer payback within 6 to 12 months.</li>
-          <li><strong>Market Sizing:</strong> Top-down (industry reports) and Bottom-up (price x target customers). Bottom-up sizing earns maximum points.</li>
-        </ul>
-
-        <h3>Common Pitfall to Avoid</h3>
-        <p>Do not present a solution looking for a problem. Clearly prove customer pain points with survey data or prototype feedback before demonstrating feature sets.</p>
-      `
-    },
-    {
-      id: "ad",
-      name: "Ad Making",
-      tagline: "Brand Campaign & Creative Strategy",
-      type: "creative",
-      img: "XIII Vectors/AD raw.png",
-      overview: "Conceptualize, produce, and execute a comprehensive advertising campaign across video, digital media, and guerilla marketing channels for a surprise brand prompt.",
-      rounds: [
-        "Round 1: Brand Positioning Statement & Storyboard Draft",
-        "Round 2: Video Commercial Production & Editing",
-        "Round 3: Multi-Channel Marketing Campaign Presentation"
-      ],
-      keyConcepts: [
-        "AIDA Model (Attention, Interest, Desire, Action)",
-        "Consumer Psychology & Emotional Triggers",
-        "Omnichannel Brand Architecture",
-        "Visual Storyboarding & Copywriting Mechanics"
-      ],
-      proTips: "Ensure your commercial delivers a clear Call-to-Action (CTA). High production value helps, but strong narrative clarity wins the category.",
-      fullGuide: `
-        <h3>Campaign Execution Framework</h3>
-        <p>Your presentation must include the 4 Ps of Marketing aligned with contemporary digital tactics: Influencer partnerships, viral short-form video hooks (Reels/TikTok), and targeted display channels.</p>
-        
-        <h3>Scoring Rubric Breakdown</h3>
-        <ul>
-          <li><strong>Originality & Hook (30%):</strong> Does the first 5 seconds grab immediate audience attention?</li>
-          <li><strong>Brand Alignment (30%):</strong> Is the brand voice consistent with the targeted demographic?</li>
-          <li><strong>Execution & Editing (40%):</strong> Sound design, color grading, and crisp copywriting.</li>
-        </ul>
-      `
-    },
-    {
-      id: "investomania",
-      name: "Investomania",
-      tagline: "Equity Research & Portfolio Strategy",
-      type: "finance",
-      img: "XIII Vectors/Investo raw.png",
-      overview: "Simulate institutional portfolio management, macroeconomic analysis, and stock selection under real-time simulated market shocks and earnings releases.",
-      rounds: [
-        "Round 1: Asset Allocation & Fundamental Valuation Model",
-        "Round 2: Live Trading Simulation & Risk Hedging",
-        "Round 3: Boardroom Investment Committee Defense"
-      ],
-      keyConcepts: [
-        "Discounted Cash Flow (DCF) Valuation & WACC",
-        "Sharpe Ratio & Beta-adjusted Risk Return",
-        "Macroeconomic Indicators (Inflation, Yield Curves, FX)",
-        "Derivative Hedging (Options & Futures)"
-      ],
-      proTips: "Never trade without a stop-loss strategy. In the live simulation, capital preservation during market downturns separates podium teams from the rest.",
-      fullGuide: `
-        <h3>Valuation Essentials</h3>
-        <p>Be prepared to calculate Enterprise Value (EV/EBITDA), Price-to-Earnings (P/E), and Price-to-Book (P/B) ratios relative to peer groups.</p>
-        
-        <h3>Portfolio Diversification</h3>
-        <ul>
-          <li>Maintain defensive positions (Utilities, Consumer Staples) alongside growth assets (Tech, Biotech).</li>
-          <li>Use Options delta-hedging to protect portfolio downside prior to volatile earnings announcements.</li>
-        </ul>
-      `
-    },
-    {
-      id: "socio",
-      name: "Social Entrepreneurship",
-      tagline: "Sustainable Impact & ESG Innovation",
-      type: "entrepreneurship",
-      img: "XIII Vectors/Socio raw.png",
-      overview: "Engineered for ventures that balance financial viability with measurable social or environmental impact, aligned with UN Sustainable Development Goals (SDGs).",
-      rounds: [
-        "Round 1: Impact Model & SDG Alignment Blueprint",
-        "Round 2: Financial Sustainability & Revenue Mechanism",
-        "Round 3: Stakeholder Pitch & Impact Metrics Defense"
-      ],
-      keyConcepts: [
-        "Triple Bottom Line (People, Planet, Profit)",
-        "Social Return on Investment (SROI)",
-        "Blended Finance & Impact Investing",
-        "Theory of Change (Inputs -> Outputs -> Impact)"
-      ],
-      proTips: "Social enterprises cannot rely solely on grants. Prove how your business model generates recurring commercial revenue to sustain long-term impact.",
-      fullGuide: `
-        <h3>Theory of Change Framework</h3>
-        <p>Map your initiative through 5 steps: Problem Statement -> Inputs -> Activities -> Outputs (Immediate results) -> Outcomes (Long-term systemic change).</p>
-        
-        <h3>Key Metrics</h3>
-        <ul>
-          <li>Calculate SROI = (Net Present Value of Social Benefits) / (Value of Investments).</li>
-          <li>Demonstrate alignment with specific UN SDG targets (e.g., SDG 4 Quality Education, SDG 13 Climate Action).</li>
-        </ul>
-      `
-    },
-    {
-      id: "espionage",
-      name: "Corporate Espionage",
-      tagline: "Competitive Intelligence & Crisis Tactics",
-      type: "strategy",
-      img: "XIII Vectors/Espionage raw.png",
-      overview: "Navigate high-stakes corporate intelligence challenges, trade secret defense, counter-surveillance, and tactical crisis communication.",
-      rounds: [
-        "Round 1: OSINT Data Gathering & Vulnerability Assessment",
-        "Round 2: Crisis Escalation & Threat Countermeasures",
-        "Round 3: Executive Board Defense & Whistleblower Protocol"
-      ],
-      keyConcepts: [
-        "OSINT (Open Source Intelligence) Collection",
-        "Game Theory & Nash Equilibrium Strategy",
-        "Crisis Communications & PR Damage Control",
-        "IP Protection & Regulatory Compliance"
-      ],
-      proTips: "Analyze competitor vulnerabilities without breaking ethical or legal boundaries. Strategic foresight and rapid response timing dominate this category.",
-      fullGuide: `
-        <h3>Strategic Frameworks</h3>
-        <p>Utilize Porter's Five Forces combined with OSINT asset mapping to anticipate competitor product launches and market maneuvers.</p>
-        
-        <h3>Crisis Playbook</h3>
-        <ul>
-          <li>First 15 minutes: Containment statement and factual audit.</li>
-          <li>Hour 1 to 4: Root-cause identification and stakeholder communication.</li>
-          <li>Post-crisis: Remediation plan and brand reputation recovery.</li>
-        </ul>
-      `
-    },
-    {
-      id: "leadership",
-      name: "Leadership Lab",
-      tagline: "Organizational Behavior & Executive Negotiations",
-      type: "strategy",
-      img: "XIII Vectors/50.png",
-      overview: "Tests executive decision-making, workplace conflict resolution, cross-functional leadership, and high-pressure boardroom negotiations.",
-      rounds: [
-        "Round 1: Organizational Restructuring Case",
-        "Round 2: Live Stakeholder Negotiation Simulation",
-        "Round 3: CEO Emergency Press Conference"
-      ],
-      keyConcepts: [
-        "Situational Leadership Model (Hersey-Blanchard)",
-        "BATNA (Best Alternative to a Negotiated Agreement)",
-        "Change Management (Kotter's 8-Step Model)",
-        "Emotional Intelligence (EQ) in Crisis Management"
-      ],
-      proTips: "In negotiations, identify the other party's underlying interests rather than locking into rigid positions. Collaborative value creation wins.",
-      fullGuide: `
-        <h3>Negotiation Mechanics</h3>
-        <p>Always establish your ZOPA (Zone of Possible Agreement) and BATNA before entering the negotiation room. Never accept an offer below your walk-away threshold.</p>
-        
-        <h3>Change Management Steps</h3>
-        <ul>
-          <li>Create a sense of urgency.</li>
-          <li>Form a powerful guiding coalition.</li>
-          <li>Communicate the strategic vision relentlessly.</li>
-        </ul>
-      `
-    },
-    {
-      id: "ff",
-      name: "Fiscal Frontier",
-      tagline: "Macroeconomics, Taxation & Monetary Policy",
-      type: "finance",
-      img: "XIII Vectors/FF raw.png",
-      overview: "Analyze sovereign debt crises, central bank interest rate decisions, global inflation dynamics, and fiscal policy reform packages.",
-      rounds: [
-        "Round 1: Country Macroeconomic Diagnostic Paper",
-        "Round 2: Central Bank Policy Committee Simulation",
-        "Round 3: IMF Emergency Bailout Structural Adjustment Pitch"
-      ],
-      keyConcepts: [
-        "IS-LM & AD-AS Macroeconomic Models",
-        "Taylor Rule for Central Bank Interest Rates",
-        "Sovereign Debt-to-GDP & Fiscal Deficit Dynamics",
-        "Quantitative Easing & Inflation Targeting"
-      ],
-      proTips: "Support all economic policy proposals with empirical data (GDP growth rate, CPI inflation, current account balances, reserves cover).",
-      fullGuide: `
-        <h3>Monetary Policy Preparation</h3>
-        <p>Understand the trade-off between inflation control and employment (Phillips Curve) and how central banks adjust policy rates to steer economic growth.</p>
-        
-        <h3>IMF Bailout Package Elements</h3>
-        <ul>
-          <li>Fiscal Consolidation (Tax revenue expansion + expenditure rationalization).</li>
-          <li>Structural Reforms (Privatization, energy sector subsidies reduction).</li>
-          <li>Exchange Rate Flexibility & Balance of Payments adjustment.</li>
-        </ul>
-      `
-    },
-    {
-      id: "mall",
-      name: "Mall Street",
-      tagline: "Retail Dynamics, Merchandising & Supply Chain",
-      type: "strategy",
-      img: "XIII Vectors/Mall raw.png",
-      overview: "Master brick-and-mortar commercial retail strategy, tenant mix planning, footfall optimization, and e-commerce omnichannel integration.",
-      rounds: [
-        "Round 1: Retail Real Estate Layout & Tenant Mix Proposal",
-        "Round 2: Supply Chain Disruption Resolution",
-        "Round 3: Omnichannel Retail Expansion Strategy"
-      ],
-      keyConcepts: [
-        "Sales per Square Foot & Footfall Conversion Rates",
-        "Inventory Turnover & Just-In-Time (JIT) Logistics",
-        "Visual Merchandising & Impulse Purchase Placement",
-        "Omnichannel Fulfillment (Click & Collect, Last-Mile)"
-      ],
-      proTips: "Anchor tenant placement dictates footfall across the entire shopping complex. Strategic layout design drives tenant revenue.",
-      fullGuide: `
-        <h3>Key Retail Formulas</h3>
-        <p>Sales Density = Total Retail Sales / Total Selling Square Feet. Inventory Turnover = COGS / Average Inventory. Aim for high inventory velocity.</p>
-        
-        <h3>Tenant Mix Strategy</h3>
-        <ul>
-          <li>Anchor Tenants (Department stores/Supermarkets) placed at extremities to force customer movement.</li>
-          <li>High-margin Impulse Outlets placed near escalators and central concourses.</li>
-        </ul>
-      `
-    },
-    {
-      id: "juris",
-      name: "Jurisprudential",
-      tagline: "Corporate Law, M&A Antitrust & IP Defense",
-      type: "strategy",
-      img: "XIII Vectors/Juris raw.png",
-      overview: "Simulate corporate legal disputes, merger regulatory approvals, intellectual property litigation, and contract breach arbitration.",
-      rounds: [
-        "Round 1: Legal Brief Submission & Case Precedent Citation",
-        "Round 2: Oral Arguments before Moot Court Bench",
-        "Round 3: Emergency Injunction & Settlement Negotiation"
-      ],
-      keyConcepts: [
-        "Contract Law (Offer, Acceptance, Consideration, Breach)",
-        "Antitrust & Monopoly Market Dominance Evaluation",
-        "Intellectual Property Rights (Patents, Trademarks, Trade Secrets)",
-        "Fiduciary Duties of Board Directors"
-      ],
-      proTips: "Always ground oral arguments in specific statutory clauses and established judicial precedents. Professional courtroom etiquette is heavily weighted.",
-      fullGuide: `
-        <h3>IRAC Legal Analysis Method</h3>
-        <ul>
-          <li><strong>Issue:</strong> State the key legal question clearly.</li>
-          <li><strong>Rule:</strong> Cite the relevant statutory provision or case law.</li>
-          <li><strong>Application:</strong> Apply the legal rule directly to case facts.</li>
-          <li><strong>Conclusion:</strong> Deliver a unambiguous, logical conclusion.</li>
-        </ul>
-      `
-    },
-    {
-      id: "rubicon",
-      name: "Rubicon",
-      tagline: "High-Stakes Decision Making & Turnaround Operations",
-      type: "strategy",
-      img: "XIII Vectors/Rubicon raw.png",
-      overview: "Navigate near-bankrupt enterprises through rapid restructuring, cost rationalization, stakeholder alignment, and strategic repositioning.",
-      rounds: [
-        "Round 1: 100-Day Corporate Turnaround Blueprint",
-        "Round 2: Creditor Debt Restructuring Negotiation",
-        "Round 3: Live Boardroom Repositioning Defense"
-      ],
-      keyConcepts: [
-        "Z-Score Bankruptcy Prediction Model (Altman)",
-        "Debt-for-Equity Swaps & Haircuts",
-        "Zero-Based Budgeting (ZBB)",
-        "Core Asset Divestiture & Liquidity Creation"
-      ],
-      proTips: "Cash runway is oxygen. In turnaround scenarios, immediate cash preservation takes priority over long-term speculative growth projects.",
-      fullGuide: `
-        <h3>Turnaround Execution Matrix</h3>
-        <p>Phase 1: Emergency Liquidity Management (Freeze non-essential capex). Phase 2: Operational Stabilization (Divest non-core units). Phase 3: Strategic Growth.</p>
-        
-        <h3>Altman Z-Score Zones</h3>
-        <ul>
-          <li>Z < 1.81: Distress Zone (Immediate restructuring imperative).</li>
-          <li>1.81 < Z < 2.99: Grey Zone.</li>
-          <li>Z > 2.99: Safe Zone.</li>
-        </ul>
-      `
-    },
-    {
-      id: "chess",
-      name: "Chess",
-      tagline: "Strategic Game Theory & Competitive Intelligence",
-      type: "strategy",
-      img: "XIII Vectors/Chess raw.png",
-      overview: "Tests pure analytical reasoning, game-theoretic multi-move planning, resource allocation, and competitive counter-strategy.",
-      rounds: [
-        "Round 1: Game Theory Matrix & Prisoner's Dilemma Case",
-        "Round 2: Multi-Agent Market Entry & Price War Simulation",
-        "Round 3: Final Grandmaster Strategy Shootout"
-      ],
-      keyConcepts: [
-        "Nash Equilibrium & Dominant Strategies",
-        "Backward Induction in Sequential Games",
-        "Zero-Sum vs Non-Zero-Sum Market Dynamics",
-        "Payoff Matrix Construction & Decision Trees"
-      ],
-      proTips: "Think 3 moves ahead. Anticipate how competitors will react to your price or product decisions before finalizing your initial move.",
-      fullGuide: `
-        <h3>Game Theory Essentials</h3>
-        <p>Construct Payoff Matrices with Player 1 (Rows) and Player 2 (Columns). Identify Dominant Strategies where one choice yields higher payoffs regardless of opponent choice.</p>
-        
-        <h3>Sequential Game Analysis</h3>
-        <ul>
-          <li>Use Game Trees to diagram sequential decision nodes.</li>
-          <li>Apply Backward Induction starting from terminal nodes back to the initial decision point.</li>
-        </ul>
-      `
-    },
-    {
-      id: "muney",
-      name: "Muney",
-      tagline: "Venture Finance, Cap Tables & Valuation",
-      type: "finance",
-      img: "XIII Vectors/Muney raw.png",
-      overview: "Deep-dive into startup capitalization tables, SAFE notes, convertible debt terms, dilution calculations, and exit distributions.",
-      rounds: [
-        "Round 1: Cap Table Modeling & Dilution Analysis",
-        "Round 2: Term Sheet Negotiation (Liquidation Preferences)",
-        "Round 3: M&A Acquisition Exit Waterfall"
-      ],
-      keyConcepts: [
-        "Pre-Money vs Post-Money Valuation Mechanics",
-        "Liquidation Preferences (1x Non-Participating vs Participating)",
-        "Option Pool Shuffle & Dilution Calculations",
-        "SAFE Notes (Valuation Caps & Discount Rates)"
-      ],
-      proTips: "Pay attention to participating preference clauses; they drastically alter investor returns during liquidity events.",
-      fullGuide: `
-        <h3>Cap Table Formulas</h3>
-        <p>Post-Money Valuation = Pre-Money Valuation + Investment Amount. Investor Ownership % = Investment Amount / Post-Money Valuation.</p>
-        
-        <h3>Term Sheet Key Terms</h3>
-        <ul>
-          <li><strong>Liquidation Preference:</strong> Determines payout order during company sale or liquidation.</li>
-          <li><strong>Anti-Dilution Protection:</strong> Full Ratchet vs Broad-Based Weighted Average protection during down rounds.</li>
-        </ul>
-      `
-    },
-    {
-      id: "race",
-      name: "The Amazing Race",
-      tagline: "Agile Problem-Solving & Operational Logistics",
-      type: "creative",
-      img: "XIII Vectors/Race raw.png",
-      overview: "A fast-paced, multi-location operational sprint testing team coordination, rapid crisis solving, resource efficiency, and physical-mental agility.",
-      rounds: [
-        "Checkpoint 1: Cryptic Business Riddle & Location Hunt",
-        "Checkpoint 2: Rapid Prototype Assembly Challenge",
-        "Final Sprint: Live Pitch & Logistics Task"
-      ],
-      keyConcepts: [
-        "Critical Path Method (CPM) in Project Management",
-        "Agile Sprint Execution & Team Role Division",
-        "Resource Allocation under Extreme Time Constraints",
-        "Lateral Problem Solving under Stress"
-      ],
-      proTips: "Assign specialized roles (Navigator, Solver, Communicator) before the race begins. Clear delegation saves crucial minutes.",
-      fullGuide: `
-        <h3>Team Execution Strategy</h3>
-        <p>Divide and conquer. Never have the whole team focus on a single sub-task unless required by rules. Maintain constant timekeeping.</p>
-        
-        <h3>Sprint Mindset</h3>
-        <ul>
-          <li>Read problem statements twice before taking action.</li>
-          <li>If stuck for more than 3 minutes, pivot to alternative tactical approaches.</li>
-        </ul>
-      `
-    },
-    {
-      id: "canvas",
-      name: "Corporate Canvas",
-      tagline: "UI/UX Product Design & Visual Architecture",
-      type: "creative",
-      img: "XIII Vectors/Canvas raw.png",
-      overview: "Design digital product experiences, interactive wireframes, brand design systems, and user journey maps for cutting-edge tech products.",
-      rounds: [
-        "Round 1: User Persona Definition & Wireframe Deck",
-        "Round 2: Interactive High-Fidelity Design Prototype",
-        "Round 3: Product Design Critique & UX Defense"
-      ],
-      keyConcepts: [
-        "Figma Prototyping & Design Systems",
-        "Information Architecture & User Journey Mapping",
-        "Usability Heuristics (Nielsen Norman Group)",
-        "Accessibility (WCAG 2.1) & Color Contrast Standards"
-      ],
-      proTips: "Design for the end user, not yourself. Showcase interactive micro-animations and accessibility consideration during judging.",
-      fullGuide: `
-        <h3>UX Design Process</h3>
-        <p>Empathize -> Define -> Ideate -> Prototype -> Test. Your presentation must clearly document user testing insights and iteration loops.</p>
-        
-        <h3>Visual Hierarchy Rules</h3>
-        <ul>
-          <li>Use consistent spacing systems (8pt grid).</li>
-          <li>Limit color palette to 60-30-10 rule (Primary 60%, Secondary 30%, Accent 10%).</li>
-        </ul>
-      `
-    },
-    {
-      id: "tech",
-      name: "Techeneurship",
-      tagline: "AI, FinTech & Frontier Technology Ventures",
-      type: "entrepreneurship",
-      img: "XIII Vectors/Tech raw.png",
-      overview: "Commercialize deep-tech, artificial intelligence, blockchain, or SaaS innovations. Focus on technical feasibility, IP defensibility, and scalable cloud architecture.",
-      rounds: [
-        "Round 1: Deep Tech Architecture & Commercial Blueprint",
-        "Round 2: Live API / Algorithm Demo & Security Audit",
-        "Round 3: Enterprise Sales & Scale Pitch"
-      ],
-      keyConcepts: [
-        "SaaS Metrics (ARR, MRR, Net Revenue Retention, Churn Rate)",
-        "API Monitization & Ecosystem Network Effects",
-        "AI / ML Product Deployment Pipelines",
-        "Data Privacy (GDPR, SOC2) & Cybersecurity Defensibility"
-      ],
-      proTips: "Explain complex technical architectures in simple, high-business-value terms. Investors buy outcomes, not raw code.",
-      fullGuide: `
-        <h3>SaaS Metrics Mastery</h3>
-        <ul>
-          <li><strong>Magic Number:</strong> (Quarter Net New ARR * 4) / Quarter Sales & Marketing Expense. Target > 0.75.</li>
-          <li><strong>Net Revenue Retention (NRR):</strong> Target > 110% for top-tier enterprise SaaS.</li>
-        </ul>
-        
-        <h3>Tech Architecture Slide</h3>
-        <p>Diagram your data flow: Frontend Client -> API Gateway -> Microservices -> AI/ML Pipeline -> Cloud Database (AWS/GCP).</p>
-      `
-    },
-    {
-      id: "enterprise",
-      name: "Enterprise",
-      tagline: "Global Conglomerate Strategy & Cross-Border Expansion",
-      type: "strategy",
-      img: "XIII Vectors/Enterprise raw.png",
-      overview: "Guide Fortune 500 conglomerates through cross-border mergers, global supply chain optimization, and market diversification strategies.",
-      rounds: [
-        "Round 1: Global Market Selection & Entry Mode Analysis",
-        "Round 2: Conglomerate Restructuring & M&A Valuation",
-        "Round 3: International Boardroom Strategy Presentation"
-      ],
-      keyConcepts: [
-        "CAGE Distance Framework (Cultural, Admin, Geographic, Economic)",
-        "M&A Synergy Valuation (Cost Synergies vs Revenue Synergies)",
-        "Global Value Chain (GVC) Resilience",
-        "Foreign Currency Exchange (FX) Risk Hedging"
-      ],
-      proTips: "Differentiate between Greenfield Investment, Joint Ventures, and Cross-Border Acquisitions when pitching international market entry.",
-      fullGuide: `
-        <h3>CAGE Expansion Framework</h3>
-        <ul>
-          <li><strong>Cultural:</strong> Language, social norms, consumer habits.</li>
-          <li><strong>Administrative:</strong> Trade agreements, tariffs, regulatory legal environment.</li>
-          <li><strong>Geographic:</strong> Physical distance, time zones, infrastructure readiness.</li>
-          <li><strong>Economic:</strong> Per capita income, labor costs, currency volatility.</li>
-        </ul>
-      `
-    }
-  ];
+  {
+    "id": "byoi",
+    "name": "Build Your Own Idea",
+    "tagline": "Product Creation & Business Thinking",
+    "type": "entrepreneurship",
+    "img": "XIII Vectors/BYOI raw.png",
+    "overview": "Build Your Own Idea combines creative product development with business knowledge, testing resource management, prototyping, quick thinking, market understanding, and logic.",
+    "rounds": [
+      "Round 1 — Build Your Own Product: Idea Auction and Prototype Creation",
+      "Round 2 — Family Feud"
+    ],
+    "details": "Round 1 requires teams to acquire components through a live auction and use them to create a physical handmade product. Teams manage limited capital, build a prototype from purchased items and standardized DIY materials, and present their product followed by a Q&A. Round 2 is a Family Feud-style knockout competition based on business and entrepreneurship questions, where teams are rewarded for popular and practical answers."
+  },
+  {
+    "id": "ad",
+    "name": "Ad Making",
+    "tagline": "Advertising & Creative Strategy",
+    "type": "creative",
+    "img": "XIII Vectors/AD raw.png",
+    "overview": "Ad Making tests delegates' creativity, marketing insight, storytelling ability, and their capacity to defend advertising decisions under pressure.",
+    "rounds": [
+      "Round 1 — Advertisement Creation",
+      "Round 2 — Ad Defense"
+    ],
+    "details": "Round 1 requires teams to create and submit an advertisement for an assigned product using permitted devices and software, without pre-recorded clips, external assistance, or external assets. Round 2 gives qualifying teams a controversial advertisement to defend from the perspective of the responsible brand or agency, including its intent, creative choices, strategic value, ethics, and public criticism."
+  },
+  {
+    "id": "investomania",
+    "name": "Investomania",
+    "tagline": "Interactive Stock Market Simulation",
+    "type": "finance",
+    "img": "XIII Vectors/Investo raw.png",
+    "overview": "Investomania is an interactive stock market simulation in which teams manage an allocated budget, respond to market updates, and make strategic investment decisions across a fictional portfolio of companies.",
+    "rounds": [
+      "Round 1 — Stock Market Simulation",
+      "Round 2 — Stock Market Simulation"
+    ],
+    "details": "Delegates receive company portfolios and an allocated budget, then buy and sell shares based on crisis updates. Teams must bring their own device, with laptops recommended, and a stable Internet connection. Investomania is not an elimination category; trades from Round 1 carry into Round 2. At the end, assets are liquidated and the team with the most capital wins."
+  },
+  {
+    "id": "socio",
+    "name": "Social Entrepreneurship",
+    "tagline": "Business Solutions & Social Responsibility",
+    "type": "entrepreneurship",
+    "img": "XIII Vectors/Socio raw.png",
+    "overview": "Social Entrepreneurship challenges delegates to analyze company problems, develop practical solutions, and consider the wider effects of business decisions on stakeholders and communities.",
+    "rounds": [
+      "Round 1 — Company Portfolio Presentation",
+      "Round 2 — Press Conference"
+    ],
+    "details": "Round 1 provides a company portfolio containing its history, ownership, structure, and recent developments or crises. Teams identify the core problem and present practical solutions, considering customers, employees, and the community. Round 2 is a press conference in which judges question teams about social responsibility, credibility, objectives, ethics, community engagement, and social value."
+  },
+  {
+    "id": "espionage",
+    "name": "Corporate Espionage",
+    "tagline": "Investigation & Corporate Intelligence",
+    "type": "strategy",
+    "img": "XIII Vectors/Espionage raw.png",
+    "overview": "Corporate Espionage challenges teams to investigate a corporate incident, distinguish useful evidence from deliberate misdirection, identify suspects and motives, and build a coherent theory from fragmented information.",
+    "rounds": [
+      "Round 1 — Case File Analysis",
+      "Round 2 — Cipher Room Investigation & Crime Board"
+    ],
+    "details": "Round 1 gives teams a confidential case file containing company background, incident summaries, employee profiles, communications, security logs, and media leaks. Teams analyze evidence, create a timeline, shortlist two to three prime suspects, and present a preliminary theory. Round 2 consists of a cipher and evidence room, witness interrogation, and crime-board construction, followed by a two-to-three-minute presentation."
+  },
+  {
+    "id": "ff",
+    "name": "Fiscal Frontier",
+    "tagline": "Finance & Accounting",
+    "type": "finance",
+    "img": "XIII Vectors/FF raw.png",
+    "overview": "Fiscal Frontier tests delegates' understanding of accounting and finance through timed questions, numerical reasoning, and practical financial decision-making.",
+    "rounds": [
+      "Round 1 — Multiple Choice Challenge",
+      "Round 2 — Structured Problem Solving"
+    ],
+    "details": "Round 1 consists of 30 multiple-choice questions in 45–50 minutes covering liquidity, profit versus cash, cost classification, receivables, payables, financing decisions, and financial ratios. Round 2 has 20 structured questions and gives qualified teams 60–70 minutes to solve financial scenarios involving working capital, costs, cash flow, financing, and pricing."
+  },
+  {
+    "id": "wall",
+    "name": "Wall Street",
+    "tagline": "Interactive Investment Challenge",
+    "type": "finance",
+    "img": "XIII Vectors/Mall raw.png",
+    "overview": "Wall Street is an interactive investment challenge in which teams manage a budget, respond to market updates, and make strategic decisions about buying and selling shares.",
+    "rounds": [
+      "Round 1 — Stock Market Simulation",
+      "Round 2 — Stock Market Simulation"
+    ],
+    "details": "Delegates are introduced to a fictional stock market through company portfolios and receive a budget to invest according to crisis updates. They buy and sell shares through an online platform and must bring their own device and a stable Internet connection. Trades carry over from Round 1 to Round 2, and the winner is the team with the most capital after all assets are liquidated."
+  },
+  {
+    "id": "rubicon",
+    "name": "Rubicon",
+    "tagline": "Business Negotiation & Strategic Decision-Making",
+    "type": "strategy",
+    "img": "XIII Vectors/Rubicon raw.png",
+    "overview": "Rubicon tests teams' ability to negotiate, collaborate, make strategic compromises, and defend business decisions under pressure.",
+    "rounds": [
+      "Round 1 — Strategic Alliance",
+      "Round 2 — The Weakest Link: Partnership Reckoning"
+    ],
+    "details": "Round 1 pairs teams representing different companies in a negotiation over a shared business opportunity. Teams identify common goals, negotiate terms such as profit sharing, roles, control, and resources, and present a partnership agreement. Round 2 is an elimination-based challenge in which teams answer rapid questions about their Round 1 partnerships until three teams remain, followed by a final stage of questioning."
+  },
+  {
+    "id": "chess",
+    "name": "Chess",
+    "tagline": "Strategy & Business Acumen",
+    "type": "strategy",
+    "img": "XIII Vectors/Chess raw.png",
+    "overview": "Chess combines strategic thinking, foresight, and composure with a business-focused rapid-fire challenge that tests knowledge and decision-making under pressure.",
+    "rounds": [
+      "Round 1 — The Gentleman's Game",
+      "Round 2 — Snakes and Ladders"
+    ],
+    "details": "Round 1 is a classic knockout chess tournament with fixed time controls; draws may be resolved through blitz or sudden-death tie-breakers. In Round 2, teams play a business-oriented Snakes and Ladders challenge where they must answer rapid-fire questions correctly to earn a dice roll and advance."
+  },
+  {
+    "id": "muney",
+    "name": "MUNey",
+    "tagline": "CEO Diplomacy & Crisis Simulation",
+    "type": "finance",
+    "img": "XIII Vectors/Muney raw.png",
+    "overview": "MUNey reimagines Model United Nations by placing delegates in the roles of global CEOs, combining traditional MUN procedure with corporate strategy, alliances, and crisis management.",
+    "rounds": [
+      "CEO-Based MUN Committee",
+      "Public & Private Directives",
+      "Crisis Simulation"
+    ],
+    "details": "Delegates represent renowned CEOs rather than countries. They receive a study guide about the global challenge, company perspectives, and strategic interests. Delegates collaborate on a public directive while private directives allow strategic decision-making, alliances, and maneuvering. A crisis simulation introduces real-time challenges that test adaptability and leadership. The committee follows regular MUN rules and judging criteria."
+  },
+  {
+    "id": "canvas",
+    "name": "Corporate Canvas",
+    "tagline": "Brand Identity & Visual Marketing",
+    "type": "creative",
+    "img": "XIII Vectors/Canvas raw.png",
+    "overview": "Corporate Canvas challenges teams to build a coherent brand identity and translate that identity from digital marketing into a real-world brand experience.",
+    "rounds": [
+      "Round 1 — Brand Identity & Visual Marketing",
+      "Round 2 — Brand Experience & Stall Setup"
+    ],
+    "details": "Round 1 requires teams to select exactly three colours representing their product, target market, and brand personality, then apply them consistently across a mock Instagram page. Round 2 requires teams to use the same colour scheme to create a physical stall, display their products, and engage visitors while reflecting the brand's personality."
+  },
+  {
+    "id": "tech",
+    "name": "Techeneurship",
+    "tagline": "Startup Creation, Expansion & Crisis Management",
+    "type": "entrepreneurship",
+    "img": "XIII Vectors/Tech raw.png",
+    "overview": "Techeneurship challenges delegates to develop an innovative start-up, turn it into a viable business model, and defend its value under a high-pressure crisis.",
+    "rounds": [
+      "Round 1 — Elevator Pitch",
+      "Round 2 — Business Expansion & Strategic Evaluation",
+      "Round 3 — Crisis: Sell Your Business"
+    ],
+    "details": "Round 1 is a 90-second elevator pitch for an original product or service, followed by Q&A. Round 2 asks qualified teams to develop their idea into a structured, feasible, investment-ready business plan through a 6–8 minute presentation and 2–3 minute Q&A. Round 3 presents a major crisis and gives teams 10 minutes to prepare, 2 minutes to present risk mitigation, 3 minutes to negotiate for investment, and 2 minutes for Q&A."
+  },
+  {
+    "id": "race",
+    "name": "The Amazing Race",
+    "tagline": "Scavenger Hunt & Problem Solving",
+    "type": "creative",
+    "img": "XIII Vectors/Race raw.png",
+    "overview": "The Amazing Race is an interactive category designed to test delegates' thinking and detective skills through a simulated scavenger hunt.",
+    "rounds": [],
+    "details": "The competition is simulated as a scavenger hunt and is designed to test delegates' thinking skills alongside their detective skills."
+  },
+  {
+    "id": "juris",
+    "name": "Jurisprudential",
+    "tagline": "Corporate Law & Courtroom Advocacy",
+    "type": "strategy",
+    "img": "XIII Vectors/Juris raw.png",
+    "overview": "This category tests delegates' ability to understand legal issues in a corporate setting, propose practical legal corrections, and apply legal principles through structured argument and courtroom advocacy.",
+    "rounds": [
+      "Round 1 — Contract Analysis & Rectification",
+      "Round 2 — Corporate Crime Moot Court"
+    ],
+    "details": "The category combines corporate legal analysis with courtroom advocacy. Delegates work through legal issues and propose corrections before applying legal principles through structured arguments and cross-questioning in a moot-court setting."
+  }
+];
 
   // RENDER CATEGORY CARDS
   function renderCategories(items) {
@@ -1099,6 +777,7 @@
     items.forEach((cat) => {
       const card = document.createElement('div');
       card.className = 'category-card';
+      card.setAttribute('onclick', `openModal('${cat.id}')`);
       card.innerHTML = `
         <div class="card-banner">
           <img src="${cat.img}" alt="${cat.name}" loading="lazy">
@@ -1110,15 +789,14 @@
           <p class="category-desc">${cat.overview}</p>
           
           <div class="guide-section-box">
-            <h4>Key Concepts to Master</h4>
+            <h4>Competition Rounds</h4>
             <ul>
-              ${cat.keyConcepts.slice(0, 2).map(c => `<li>${c}</li>`).join('')}
+              ${cat.rounds.length ? cat.rounds.slice(0, 2).map(r => `<li>${r}</li>`).join('') : '<li>Scavenger hunt</li>'}
             </ul>
           </div>
 
           <div class="card-footer">
-            <span class="pro-tip"><i class="fas fa-lightbulb" style="color:var(--accent-gold-bright);"></i> Pro Tip Included</span>
-            <button class="expand-btn" onclick="openModal('${cat.id}')">Study Guide <i class="fas fa-arrow-right"></i></button>
+            <span class="pro-tip"><i class="fas fa-lightbulb" style="color:var(--accent-gold-bright);"></i> Click to explore</span>
           </div>
         </div>
       `;
@@ -1166,23 +844,9 @@
     modalBody.innerHTML = `
       <h3>Category Overview</h3>
       <p>${cat.overview}</p>
-
-      <h3>Event Format & Competition Rounds</h3>
-      <ul>
-        ${cat.rounds.map(r => `<li><strong>${r}</strong></li>`).join('')}
-      </ul>
-
-      <h3>Essential Concepts & Frameworks</h3>
-      <ul>
-        ${cat.keyConcepts.map(c => `<li>${c}</li>`).join('')}
-      </ul>
-
-      <h3>Master Strategy & Pro Tips</h3>
-      <p style="background: var(--bg-surface); padding: 1rem; border-left: 3px solid var(--accent-gold-bright); color: var(--text-primary); border-radius: 4px;">
-        ${cat.proTips}
-      </p>
-
-      ${cat.fullGuide}
+      ${cat.rounds.length ? `<h3>Competition Rounds</h3><ul>${cat.rounds.map(r => `<li>${r}</li>`).join('')}</ul>` : ''}
+      <h3>Study Guide</h3>
+      <p>${cat.details}</p>
     `;
 
     document.getElementById('modalOverlay').classList.add('active');
