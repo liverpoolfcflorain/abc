@@ -585,7 +585,7 @@
     "overview": "Build Your Own Idea combines creative product development with business knowledge, testing resource management, prototyping, quick thinking, market understanding, and logic.",
     "rounds": [
       "Round 1 — Build Your Own Product: Idea Auction and Prototype Creation",
-      "Round 2 — Family Feud"
+      "Round 2 — Porduct presentation"
     ],
     "details": "Round 1 requires teams to acquire components through a live auction and use them to create a physical handmade product. Teams manage limited capital, build a prototype from purchased items and standardized DIY materials, and present their product followed by a Q&A. Round 2 is a Family Feud-style knockout competition based on business and entrepreneurship questions, where teams are rewarded for popular and practical answers."
   },
@@ -782,12 +782,6 @@
           <div class="category-tagline">${cat.tagline}</div>
           <p class="category-desc">${cat.overview}</p>
           
-          <div class="guide-section-box">
-            <h4>Category Rounds</h4>
-            <ul>
-              ${cat.rounds.length ? cat.rounds.slice(0, 2).map(r => `<li>${r}</li>`).join('') : '<li>Scavenger hunt</li>'}
-            </ul>
-          </div>
 
           <div class="card-footer">
             <span class="pro-tip"><i class="fas fa-lightbulb" style="color:var(--accent-gold-bright);"></i> </span>
