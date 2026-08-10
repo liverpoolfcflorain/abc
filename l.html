@@ -574,287 +574,453 @@
 </footer>
 
 <script>
-  // OFFICIAL CATEGORY DATA
-  const studyGuideData = [
+  // ==========================================
+// OFFICIAL CATEGORY DATA
+// ==========================================
+
+const studyGuideData = [
   {
-    "id": "byoi",
-    "name": "Build Your Own Idea",
-    "tagline": "Product Creation & Business Thinking",
-    "type": "entrepreneurship",
-    "img": "XIII Vectors/BYOI raw.png",
-    "overview": "Build Your Own Idea combines creative product development with business knowledge, testing resource management, prototyping, quick thinking, market understanding, and logic.",
-    "rounds": [
+    id: "byoi",
+    page: 1,
+    name: "Build Your Own Idea",
+    tagline: "Product Creation & Business Thinking",
+    type: "entrepreneurship",
+    img: "XIII Vectors/BYOI raw.png",
+    overview:
+      "Build Your Own Idea combines creative product development with business knowledge, testing resource management, prototyping, quick thinking, market understanding, and logic.",
+    rounds: [
       "Round 1 — Build Your Own Product: Idea Auction and Prototype Creation",
-      "Round 2 — Product presentation"
+      "Round 2 — Product Presentation"
     ],
-    "details": "Round 1 requires teams to acquire components through a live auction and use them to create a physical handmade product. Teams manage limited capital, build a prototype from purchased items and standardized DIY materials, and present their product followed by a Q&A.round 2 is a product presentation where teams present their product to the judges and answer questions."
+    details:
+      "Round 1 requires teams to acquire components through a live auction and use them to create a physical handmade product. Teams manage limited capital, build a prototype from purchased items and standardized DIY materials, and present their product followed by a Q&A. Round 2 is a product presentation where teams present their product to the judges and answer questions."
   },
+
   {
-    "id": "ad",
-    "name": "Ad Making",
-    "tagline": "Advertising & Creative Strategy",
-    "type": "creative",
-    "img": "XIII Vectors/AD raw.png",
-    "overview": "Ad Making tests delegates' creativity, marketing insight, storytelling ability, and their capacity to defend advertising decisions under pressure.",
-    "rounds": [
+    id: "ad",
+    page: 2,
+    name: "Ad Making",
+    tagline: "Advertising & Creative Strategy",
+    type: "creative",
+    img: "XIII Vectors/AD raw.png",
+    overview:
+      "Ad Making tests delegates' creativity, marketing insight, storytelling ability, and their capacity to defend advertising decisions under pressure.",
+    rounds: [
       "Round 1 — Advertisement Creation",
       "Round 2 — Ad Defense"
     ],
-    "details": "Round 1 requires teams to create and submit an advertisement for an assigned product using permitted devices and software, without pre-recorded clips, external assistance, or external assets. Round 2 gives qualifying teams a controversial advertisement to defend from the perspective of the responsible brand or agency, including its intent, creative choices, strategic value, ethics, and public criticism."
+    details:
+      "Round 1 requires teams to create and submit an advertisement for an assigned product using permitted devices and software, without pre-recorded clips, external assistance, or external assets. Round 2 gives qualifying teams a controversial advertisement to defend from the perspective of the responsible brand or agency, including its intent, creative choices, strategic value, ethics, and public criticism."
   },
+
   {
-    "id": "investomania",
-    "name": "Investomania",
-    "tagline": "Interactive Stock Market Simulation",
-    "type": "finance",
-    "img": "XIII Vectors/Investo raw.png",
-    "overview": "Investomania is an interactive stock market simulation in which teams manage an allocated budget, respond to market updates, and make strategic investment decisions across a fictional portfolio of companies.",
-    "rounds": [
+    id: "investomania",
+    page: 3,
+    name: "Investomania",
+    tagline: "Interactive Stock Market Simulation",
+    type: "finance",
+    img: "XIII Vectors/Investo raw.png",
+    overview:
+      "Investomania is an interactive stock market simulation in which teams manage an allocated budget, respond to market updates, and make strategic investment decisions across a fictional portfolio of companies.",
+    rounds: [
       "Round 1 — Stock Market Simulation",
       "Round 2 — Stock Market Simulation"
     ],
-    "details": "Delegates receive company portfolios and an allocated budget, then buy and sell shares based on crisis updates. Teams must bring their own device, with laptops recommended, and a stable Internet connection. Investomania is not an elimination category; trades from Round 1 carry into Round 2. At the end, assets are liquidated and the team with the most capital wins."
+    details:
+      "Delegates receive company portfolios and an allocated budget, then buy and sell shares based on crisis updates. Teams must bring their own device, with laptops recommended, and a stable Internet connection. Investomania is not an elimination category; trades from Round 1 carry into Round 2. At the end, assets are liquidated and the team with the most capital wins."
   },
+
   {
-    "id": "socio",
-    "name": "Social Entrepreneurship",
-    "tagline": "Business Solutions & Social Responsibility",
-    "type": "entrepreneurship",
-    "img": "XIII Vectors/Socio raw.png",
-    "overview": "Social Entrepreneurship challenges delegates to analyze company problems, develop practical solutions, and consider the wider effects of business decisions on stakeholders and communities.",
-    "rounds": [
+    id: "socio",
+    page: 4,
+    name: "Social Entrepreneurship",
+    tagline: "Business Solutions & Social Responsibility",
+    type: "entrepreneurship",
+    img: "XIII Vectors/Socio raw.png",
+    overview:
+      "Social Entrepreneurship challenges delegates to analyze company problems, develop practical solutions, and consider the wider effects of business decisions on stakeholders and communities.",
+    rounds: [
       "Round 1 — Company Portfolio Presentation",
       "Round 2 — Press Conference"
     ],
-    "details": "Round 1 provides a company portfolio containing its history, ownership, structure, and recent developments or crises. Teams identify the core problem and present practical solutions, considering customers, employees, and the community. Round 2 is a press conference in which judges question teams about social responsibility, credibility, objectives, ethics, community engagement, and social value."
+    details:
+      "Round 1 provides a company portfolio containing its history, ownership, structure, and recent developments or crises. Teams identify the core problem and present practical solutions, considering customers, employees, and the community. Round 2 is a press conference in which judges question teams about social responsibility, credibility, objectives, ethics, community engagement, and social value."
   },
+
   {
-    "id": "espionage",
-    "name": "Corporate Espionage",
-    "tagline": "Investigation & Corporate Intelligence",
-    "type": "strategy",
-    "img": "XIII Vectors/Espionage raw.png",
-    "overview": "Corporate Espionage challenges teams to investigate a corporate incident, distinguish useful evidence from deliberate misdirection, identify suspects and motives, and build a coherent theory from fragmented information.",
-    "rounds": [
+    id: "espionage",
+    page: 5,
+    name: "Corporate Espionage",
+    tagline: "Investigation & Corporate Intelligence",
+    type: "strategy",
+    img: "XIII Vectors/Espionage raw.png",
+    overview:
+      "Corporate Espionage challenges teams to investigate a corporate incident, distinguish useful evidence from deliberate misdirection, identify suspects and motives, and build a coherent theory from fragmented information.",
+    rounds: [
       "Round 1 — Case File Analysis",
       "Round 2 — Cipher Room Investigation & Crime Board"
     ],
-    "details": "Round 1 gives teams a confidential case file containing company background, incident summaries, employee profiles, communications, security logs, and media leaks. Teams analyze evidence, create a timeline, shortlist two to three prime suspects, and present a preliminary theory. Round 2 consists of a cipher and evidence room, witness interrogation, and crime-board construction, followed by a two-to-three-minute presentation."
+    details:
+      "Round 1 gives teams a confidential case file containing company background, incident summaries, employee profiles, communications, security logs, and media leaks. Teams analyze evidence, create a timeline, shortlist two to three prime suspects, and present a preliminary theory. Round 2 consists of a cipher and evidence room, witness interrogation, and crime-board construction, followed by a two-to-three-minute presentation."
   },
+
   {
-    "id": "ff",
-    "name": "Fiscal Frontier",
-    "tagline": "Finance & Accounting",
-    "type": "finance",
-    "img": "XIII Vectors/FF raw.png",
-    "overview": "Fiscal Frontier tests delegates' understanding of accounting and finance through timed questions, numerical reasoning, and practical financial decision-making.",
-    "rounds": [
+    id: "ff",
+    page: 6,
+    name: "Fiscal Frontier",
+    tagline: "Finance & Accounting",
+    type: "finance",
+    img: "XIII Vectors/FF raw.png",
+    overview:
+      "Fiscal Frontier tests delegates' understanding of accounting and finance through timed questions, numerical reasoning, and practical financial decision-making.",
+    rounds: [
       "Round 1 — Multiple Choice Challenge",
       "Round 2 — Structured Problem Solving"
     ],
-    "details": "Round 1 consists of 30 multiple-choice questions in 45–50 minutes covering liquidity, profit versus cash, cost classification, receivables, payables, financing decisions, and financial ratios. Round 2 has 20 structured questions and gives qualified teams 60–70 minutes to solve financial scenarios involving working capital, costs, cash flow, financing, and pricing."
+    details:
+      "Round 1 consists of 30 multiple-choice questions in 45–50 minutes covering liquidity, profit versus cash, cost classification, receivables, payables, financing decisions, and financial ratios. Round 2 has 20 structured questions and gives qualified teams 60–70 minutes to solve financial scenarios involving working capital, costs, cash flow, financing, and pricing."
   },
+
   {
-    "id": "wall",
-    "name": "Wall Street",
-    "tagline": "Interactive Investment Challenge",
-    "type": "finance",
-    "img": "XIII Vectors/Mall raw.png",
-    "overview": "Wall Street is an interactive investment challenge in which teams manage a budget, respond to market updates, and make strategic decisions about buying and selling shares.",
-    "rounds": [
+    id: "wall",
+    page: 7,
+    name: "Wall Street",
+    tagline: "Interactive Investment Challenge",
+    type: "finance",
+    img: "XIII Vectors/Mall raw.png",
+    overview:
+      "Wall Street is an interactive investment challenge in which teams manage a budget, respond to market updates, and make strategic decisions about buying and selling shares.",
+    rounds: [
       "Round 1 — Stock Market Simulation",
       "Round 2 — Stock Market Simulation"
     ],
-    "details": "Delegates are introduced to a fictional stock market through company portfolios and receive a budget to invest according to crisis updates. They buy and sell shares through an online platform and must bring their own device and a stable Internet connection. Trades carry over from Round 1 to Round 2, and the winner is the team with the most capital after all assets are liquidated."
+    details:
+      "Delegates are introduced to a fictional stock market through company portfolios and receive a budget to invest according to crisis updates. They buy and sell shares through an online platform and must bring their own device and a stable Internet connection. Trades carry over from Round 1 to Round 2, and the winner is the team with the most capital after all assets are liquidated."
   },
+
   {
-    "id": "rubicon",
-    "name": "Rubicon",
-    "tagline": "Business Negotiation & Strategic Decision-Making",
-    "type": "strategy",
-    "img": "XIII Vectors/Rubicon raw.png",
-    "overview": "Rubicon tests teams' ability to negotiate, collaborate, make strategic compromises, and defend business decisions under pressure.",
-    "rounds": [
+    id: "rubicon",
+    page: 8,
+    name: "Rubicon",
+    tagline: "Business Negotiation & Strategic Decision-Making",
+    type: "strategy",
+    img: "XIII Vectors/Rubicon raw.png",
+    overview:
+      "Rubicon tests teams' ability to negotiate, collaborate, make strategic compromises, and defend business decisions under pressure.",
+    rounds: [
       "Round 1 — Strategic Alliance",
       "Round 2 — The Weakest Link: Partnership Reckoning"
     ],
-    "details": "Round 1 pairs teams representing different companies in a negotiation over a shared business opportunity. Teams identify common goals, negotiate terms such as profit sharing, roles, control, and resources, and present a partnership agreement. Round 2 is an elimination-based challenge in which teams answer rapid questions about their Round 1 partnerships until three teams remain, followed by a final stage of questioning."
+    details:
+      "Round 1 pairs teams representing different companies in a negotiation over a shared business opportunity. Teams identify common goals, negotiate terms such as profit sharing, roles, control, and resources, and present a partnership agreement. Round 2 is an elimination-based challenge in which teams answer rapid questions about their Round 1 partnerships until three teams remain, followed by a final stage of questioning."
   },
+
   {
-    "id": "chess",
-    "name": "Chess",
-    "tagline": "Strategy & Business Acumen",
-    "type": "strategy",
-    "img": "XIII Vectors/Chess raw.png",
-    "overview": "Chess combines strategic thinking, foresight, and composure with a business-focused rapid-fire challenge that tests knowledge and decision-making under pressure.",
-    "rounds": [
+    id: "chess",
+    page: 9,
+    name: "Chess",
+    tagline: "Strategy & Business Acumen",
+    type: "strategy",
+    img: "XIII Vectors/Chess raw.png",
+    overview:
+      "Chess combines strategic thinking, foresight, and composure with a business-focused rapid-fire challenge that tests knowledge and decision-making under pressure.",
+    rounds: [
       "Round 1 — The Gentleman's Game",
       "Round 2 — Snakes and Ladders"
     ],
-    "details": "Round 1 is a classic knockout chess tournament with fixed time controls; draws may be resolved through blitz or sudden-death tie-breakers. In Round 2, teams play a business-oriented Snakes and Ladders challenge where they must answer rapid-fire questions correctly to earn a dice roll and advance."
+    details:
+      "Round 1 is a classic knockout chess tournament with fixed time controls; draws may be resolved through blitz or sudden-death tie-breakers. In Round 2, teams play a business-oriented Snakes and Ladders challenge where they must answer rapid-fire questions correctly to earn a dice roll and advance."
   },
+
   {
-    "id": "muney",
-    "name": "MUNey",
-    "tagline": "CEO Diplomacy & Crisis Simulation",
-    "type": "finance",
-    "img": "XIII Vectors/Muney raw.png",
-    "overview": "MUNey reimagines Model United Nations by placing delegates in the roles of global CEOs, combining traditional MUN procedure with corporate strategy, alliances, and crisis management.",
-    "rounds": [
+    id: "muney",
+    page: 10,
+    name: "MUNey",
+    tagline: "CEO Diplomacy & Crisis Simulation",
+    type: "finance",
+    img: "XIII Vectors/Muney raw.png",
+    overview:
+      "MUNey reimagines Model United Nations by placing delegates in the roles of global CEOs, combining traditional MUN procedure with corporate strategy, alliances, and crisis management.",
+    rounds: [
       "CEO-Based MUN Committee",
       "Public & Private Directives",
       "Crisis Simulation"
     ],
-    "details": "Delegates represent renowned CEOs rather than countries. They receive a study guide about the global challenge, company perspectives, and strategic interests. Delegates collaborate on a public directive while private directives allow strategic decision-making, alliances, and maneuvering. A crisis simulation introduces real-time challenges that test adaptability and leadership. The committee follows regular MUN rules and judging criteria."
+    details:
+      "Delegates represent renowned CEOs rather than countries. They receive a study guide about the global challenge, company perspectives, and strategic interests. Delegates collaborate on a public directive while private directives allow strategic decision-making, alliances, and maneuvering. A crisis simulation introduces real-time challenges that test adaptability and leadership. The committee follows regular MUN rules and judging criteria."
   },
+
   {
-    "id": "canvas",
-    "name": "Corporate Canvas",
-    "tagline": "Brand Identity & Visual Marketing",
-    "type": "creative",
-    "img": "XIII Vectors/Canvas raw.png",
-    "overview": "Corporate Canvas challenges teams to build a coherent brand identity and translate that identity from digital marketing into a real-world brand experience.",
-    "rounds": [
+    id: "canvas",
+    page: 11,
+    name: "Corporate Canvas",
+    tagline: "Brand Identity & Visual Marketing",
+    type: "creative",
+    img: "XIII Vectors/Canvas raw.png",
+    overview:
+      "Corporate Canvas challenges teams to build a coherent brand identity and translate that identity from digital marketing into a real-world brand experience.",
+    rounds: [
       "Round 1 — Brand Identity & Visual Marketing",
       "Round 2 — Brand Experience & Stall Setup"
     ],
-    "details": "Round 1 requires teams to select exactly three colours representing their product, target market, and brand personality, then apply them consistently across a mock Instagram page. Round 2 requires teams to use the same colour scheme to create a physical stall, display their products, and engage visitors while reflecting the brand's personality."
+    details:
+      "Round 1 requires teams to select exactly three colours representing their product, target market, and brand personality, then apply them consistently across a mock Instagram page. Round 2 requires teams to use the same colour scheme to create a physical stall, display their products, and engage visitors while reflecting the brand's personality."
   },
+
   {
-    "id": "tech",
-    "name": "Techeneurship",
-    "tagline": "Startup Creation, Expansion & Crisis Management",
-    "type": "entrepreneurship",
-    "img": "XIII Vectors/Tech raw.png",
-    "overview": "Techeneurship challenges delegates to develop an innovative start-up, turn it into a viable business model, and defend its value under a high-pressure crisis.",
-    "rounds": [
+    id: "tech",
+    page: 12,
+    name: "Techeneurship",
+    tagline: "Startup Creation, Expansion & Crisis Management",
+    type: "entrepreneurship",
+    img: "XIII Vectors/Tech raw.png",
+    overview:
+      "Techeneurship challenges delegates to develop an innovative start-up, turn it into a viable business model, and defend its value under a high-pressure crisis.",
+    rounds: [
       "Round 1 — Elevator Pitch",
       "Round 2 — Business Expansion & Strategic Evaluation",
       "Round 3 — Crisis: Sell Your Business"
     ],
-    "details": "Round 1 is a 90-second elevator pitch for an original product or service, followed by Q&A. Round 2 asks qualified teams to develop their idea into a structured, feasible, investment-ready business plan through a 6–8 minute presentation and 2–3 minute Q&A. Round 3 presents a major crisis and gives teams 10 minutes to prepare, 2 minutes to present risk mitigation, 3 minutes to negotiate for investment, and 2 minutes for Q&A."
+    details:
+      "Round 1 is a 90-second elevator pitch for an original product or service, followed by Q&A. Round 2 asks qualified teams to develop their idea into a structured, feasible, investment-ready business plan through a 6–8 minute presentation and 2–3 minute Q&A. Round 3 presents a major crisis and gives teams 10 minutes to prepare, 2 minutes to present risk mitigation, 3 minutes to negotiate for investment, and 2 minutes for Q&A."
   },
+
   {
-    "id": "race",
-    "name": "The Amazing Race",
-    "tagline": "Scavenger Hunt & Problem Solving",
-    "type": "creative",
-    "img": "XIII Vectors/Race raw.png",
-    "overview": "The Amazing Race is an interactive category designed to test delegates' thinking and detective skills through a simulated scavenger hunt.",
-    "rounds": [],
-    "details": "The competition is simulated as a scavenger hunt and is designed to test delegates' thinking skills alongside their detective skills."
+    id: "race",
+    page: 13,
+    name: "The Amazing Race",
+    tagline: "Scavenger Hunt & Problem Solving",
+    type: "creative",
+    img: "XIII Vectors/Race raw.png",
+    overview:
+      "The Amazing Race is an interactive category designed to test delegates' thinking and detective skills through a simulated scavenger hunt.",
+    rounds: [],
+    details:
+      "The competition is simulated as a scavenger hunt and is designed to test delegates' thinking skills alongside their detective skills."
   },
+
   {
-    "id": "juris",
-    "name": "Jurisprudential",
-    "tagline": "Corporate Law & Courtroom Advocacy",
-    "type": "strategy",
-    "img": "XIII Vectors/Juris raw.png",
-    "overview": "This category tests delegates' ability to understand legal issues in a corporate setting, propose practical legal corrections, and apply legal principles through structured argument and courtroom advocacy.",
-    "rounds": [
+    id: "juris",
+    page: 14,
+    name: "Jurisprudential",
+    tagline: "Corporate Law & Courtroom Advocacy",
+    type: "strategy",
+    img: "XIII Vectors/Juris raw.png",
+    overview:
+      "This category tests delegates' ability to understand legal issues in a corporate setting, propose practical legal corrections, and apply legal principles through structured argument and courtroom advocacy.",
+    rounds: [
       "Round 1 — Contract Analysis & Rectification",
       "Round 2 — Corporate Crime Moot Court"
     ],
-    "details": "The category combines corporate legal analysis with courtroom advocacy. Delegates work through legal issues and propose corrections before applying legal principles through structured arguments and cross-questioning in a moot-court setting."
+    details:
+      "The category combines corporate legal analysis with courtroom advocacy. Delegates work through legal issues and propose corrections before applying legal principles through structured arguments and cross-questioning in a moot-court setting."
   }
 ];
 
-  // RENDER CATEGORY CARDS
-  function renderCategories(items) {
-    const grid = document.getElementById('categoriesGrid');
-    grid.innerHTML = '';
 
-    if (items.length === 0) {
-      grid.innerHTML = '<div style="grid-column: 1/-1; text-align:center; padding: 4rem; color: var(--text-muted);">No categories match your search query.</div>';
-      return;
-    }
+// ==========================================
+// RENDER CATEGORY CARDS
+// ==========================================
 
-    items.forEach((cat) => {
-      const card = document.createElement('div');
-      card.className = 'category-card';
-      card.setAttribute('onclick', `openModal('${cat.id}')`);
-      card.innerHTML = `
-        <div class="card-banner">
-          <img src="${cat.img}" alt="${cat.name}" loading="lazy">
-        </div>
-        <div class="card-body">
-          <h3 class="category-title">${cat.name}</h3>
-          <div class="category-tagline">${cat.tagline}</div>
-          <p class="category-desc">${cat.overview}</p>
-          
+function renderCategories(items) {
+  const grid = document.getElementById("categoriesGrid");
 
-          <div class="card-footer">
-            <span class="pro-tip"><i class="fas fa-lightbulb" style="color:var(--accent-gold-bright);"></i> </span>
-          </div>
-        </div>
-      `;
-      grid.appendChild(card);
+  if (!grid) return;
+
+  grid.innerHTML = "";
+
+  if (items.length === 0) {
+    grid.innerHTML = `
+      <div style="
+        grid-column: 1/-1;
+        text-align: center;
+        padding: 4rem;
+        color: var(--text-muted);
+      ">
+        No categories match your search query.
+      </div>
+    `;
+    return;
+  }
+
+  items.forEach((cat) => {
+
+    const card = document.createElement("div");
+
+    card.className = "category-card";
+
+    // OPEN EVENT PAGE
+    card.addEventListener("click", function () {
+      window.location.href = `event-${cat.page}.html`;
     });
-  }
 
-  // INITIAL RENDER
-  renderCategories(studyGuideData);
+    card.innerHTML = `
+      <div class="card-banner">
+        <img
+          src="${cat.img}"
+          alt="${cat.name}"
+          loading="lazy"
+        >
+      </div>
 
-  // SEARCH FILTER
-  function filterCategories() {
-    const query = document.getElementById('searchInput').value.toLowerCase();
-    const filtered = studyGuideData.filter(cat => 
-      cat.name.toLowerCase().includes(query) || 
-      cat.tagline.toLowerCase().includes(query) ||
-      cat.overview.toLowerCase().includes(query) ||
-      cat.keyConcepts.some(c => c.toLowerCase().includes(query))
-    );
-    renderCategories(filtered);
-  }
+      <div class="card-body">
 
-  // PILL FILTER
-  function filterPill(categoryType, btn) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
+        <h3 class="category-title">
+          ${cat.name}
+        </h3>
 
-    if (categoryType === 'all') {
-      renderCategories(studyGuideData);
-    } else {
-      const filtered = studyGuideData.filter(cat => cat.type.toLowerCase() === categoryType.toLowerCase());
-      renderCategories(filtered);
-    }
-  }
+        <div class="category-tagline">
+          ${cat.tagline}
+        </div>
 
-  // MODAL FUNCTIONS
-  function openModal(catId) {
-    const cat = studyGuideData.find(c => c.id === catId);
-    if (!cat) return;
+        <p class="category-desc">
+          ${cat.overview}
+        </p>
 
-    document.getElementById('modalTitle').textContent = cat.name;
-    document.getElementById('modalTagline').textContent = cat.tagline;
+        <div class="card-footer">
+          <span class="pro-tip">
+            <i
+              class="fas fa-lightbulb"
+              style="color:var(--accent-gold-bright);"
+            ></i>
+          </span>
+        </div>
 
-    const modalBody = document.getElementById('modalBody');
-    modalBody.innerHTML = `
-      <h3>Category Overview</h3>
-      <p>${cat.overview}</p>
-      ${cat.rounds.length ? `<h3>Competition Rounds</h3><ul>${cat.rounds.map(r => `<li>${r}</li>`).join('')}</ul>` : ''}
-      <h3>Study Guide</h3>
-      <p>${cat.details}</p>
+      </div>
     `;
 
-    document.getElementById('modalOverlay').classList.add('active');
-    document.body.style.overflow = 'hidden';
+    grid.appendChild(card);
+  });
+}
+
+
+// ==========================================
+// INITIAL RENDER
+// ==========================================
+
+renderCategories(studyGuideData);
+
+
+// ==========================================
+// SEARCH FILTER
+// ==========================================
+
+function filterCategories() {
+
+  const searchInput = document.getElementById("searchInput");
+
+  if (!searchInput) return;
+
+  const query = searchInput.value.toLowerCase().trim();
+
+  const filtered = studyGuideData.filter((cat) => {
+
+    return (
+      cat.name.toLowerCase().includes(query) ||
+      cat.tagline.toLowerCase().includes(query) ||
+      cat.overview.toLowerCase().includes(query) ||
+      cat.type.toLowerCase().includes(query)
+    );
+
+  });
+
+  renderCategories(filtered);
+}
+
+
+// ==========================================
+// PILL FILTER
+// ==========================================
+
+function filterPill(categoryType, btn) {
+
+  document
+    .querySelectorAll(".filter-btn")
+    .forEach((b) => b.classList.remove("active"));
+
+  if (btn) {
+    btn.classList.add("active");
   }
 
-  function closeModal(e) {
-    if (e.target.id === 'modalOverlay') {
-      closeModalDirect();
+  if (categoryType === "all") {
+
+    renderCategories(studyGuideData);
+
+  } else {
+
+    const filtered = studyGuideData.filter(
+      (cat) =>
+        cat.type.toLowerCase() === categoryType.toLowerCase()
+    );
+
+    renderCategories(filtered);
+  }
+}
+
+
+// ==========================================
+// MOBILE MENU
+// ==========================================
+
+function toggleMenu() {
+
+  const navLinks = document.getElementById("navLinks");
+
+  if (!navLinks) return;
+
+  navLinks.classList.toggle("show");
+}
+
+
+// ==========================================
+// CLOSE MOBILE MENU WHEN LINK IS CLICKED
+// ==========================================
+
+document.querySelectorAll(".nav-links a").forEach((link) => {
+
+  link.addEventListener("click", () => {
+
+    const navLinks = document.getElementById("navLinks");
+
+    if (navLinks) {
+      navLinks.classList.remove("show");
     }
+
+  });
+
+});
+
+
+// ==========================================
+// SEARCH INPUT LISTENER
+// ==========================================
+
+const searchInput = document.getElementById("searchInput");
+
+if (searchInput) {
+
+  searchInput.addEventListener("input", filterCategories);
+
+}
+
+
+// ==========================================
+// ESCAPE KEY
+// ==========================================
+
+document.addEventListener("keydown", (event) => {
+
+  if (event.key === "Escape") {
+
+    const navLinks = document.getElementById("navLinks");
+
+    if (navLinks) {
+      navLinks.classList.remove("show");
+    }
+
   }
 
-  function closeModalDirect() {
-    document.getElementById('modalOverlay').classList.remove('active');
-    document.body.style.overflow = 'auto';
-  }
-
-  function toggleMenu() {
-    document.getElementById('navLinks').classList.toggle('show');
-  }
+});
 </script>
 </body>
 </html>
