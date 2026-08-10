@@ -430,6 +430,39 @@
       position: relative;
     }
 
+    .initiative-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.2rem;
+  padding: 0.7rem 1.4rem;
+
+  border: 1px solid #c9a44d;
+  color: #c9a44d;
+  background: transparent;
+
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.initiative-button:hover {
+  background: #c9a44d;
+  color: #07101a;
+  transform: translateY(-2px);
+}
+
+.initiative-button::after {
+  content: " →";
+  margin-left: 0.5rem;
+}
     .ec-card {
       text-align: center;
       transition: all 0.3s;
@@ -1974,32 +2007,45 @@
 
 
 
+          <div class="initiative-panel" style="opacity: 1;">
+            <div class="initiative-label">Publication</div>
+            <div class="initiative-title">Aitchison Business Review</div>
+            <div class="initiative-desc">
+              Pakistan's premier high-school business journal — a platform for student
+              research, economic journalism, and editorial analysis that shapes discourse
+              beyond the classroom.
+            </div>
+            
+          
+            <a href="abr.html" class="initiative-button">Explore Publication</a>
+          </div>
+          
+          <div class="initiative-panel">
+            <div class="initiative-label">Startup Incubator</div>
+            <div class="initiative-title">Aitchison Incubation Programme</div>
+            <div class="initiative-desc">
+              A dedicated startup incubator and funding programme designed to transform
+              student ideas into viable ventures — providing seed capital, mentorship from
+              industry veterans, and structured guidance through every stage of commercial
+              development.
+            </div>
+           
+          
+            <a href="incubation.html" class="initiative-button">Explore Programme</a>
+          </div>
+          
           <div class="initiative-panel">
             <div class="initiative-label">Internal Competition</div>
             <div class="initiative-title">Inter-House Championship</div>
-            <div class="initiative-desc">An intra-college tournament where delegates from all 17 Aitchison houses pitch
-              original business ventures, driving structured rivalry, innovation, and cross-house collaboration.</div>
-            <div class="initiative-stat"><i class="fas fa-circle"></i> 17 Houses &nbsp;&middot;&nbsp; Annual</div>
-          </div>
-          <button onclick='document.location.href="abr.html"'>
-          <div class="initiative-panel">
-            <div class="initiative-label">Publication</div>
-            <div class="initiative-title">Aitchison Business Review</div>
-            <div class="initiative-desc">Pakistan's premier high-school business journal — a platform for student
-              research, economic journalism, and editorial analysis that shapes discourse beyond the classroom.</div>
-            <div class="initiative-stat"><i class="fas fa-circle"></i> Premier Publication</div>
-          </div>
-        </button>
-          <div class="initiative-panel">
-            <div class="initiative-label">Startup Incubator</div>
-            <div class="initiative-title">aitchison incubation programm</div>
-            <div class="initiative-desc">A dedicated startup incubator and funding programme designed to transform
-              student ideas into viable ventures — providing seed capital, mentorship from industry veterans, and
-              structured guidance through every stage of commercial development.</div>
-            <div class="initiative-stat"><i class="fas fa-circle"></i> Seed Funding &nbsp;&middot;&nbsp; Mentorship
+            <div class="initiative-desc">
+              An intra-college tournament where delegates from all 17 Aitchison houses
+              pitch original business ventures, driving structured rivalry, innovation,
+              and cross-house collaboration.
             </div>
+            
+          
+            <a href="inter-house.html" class="initiative-button">View Championship</a>
           </div>
-
         </div>
 
       </div>
