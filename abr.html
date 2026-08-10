@@ -298,6 +298,57 @@
         bottom: 16px;
       }
     }
+
+    @media (max-width: 700px) {
+
+.reader {
+  padding: 8px 5px 60px;
+}
+
+#book {
+  width: 92vw;
+  height: auto;
+  margin: 0 auto;
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  overflow: hidden;
+}
+
+.page canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.nav button {
+  width: 40px;
+  height: 40px;
+}
+
+#prev {
+  left: 5px;
+}
+
+#next {
+  right: 5px;
+}
+
+.hint {
+  display: none;
+}
+
+.bottom-bar {
+  bottom: 14px;
+  width: calc(100% - 35px);
+}
+
+}
+
   </style>
 </head>
 
@@ -338,125 +389,232 @@
   </main>
 
   <script>
-    pdfjsLib.GlobalWorkerOptions.workerSrc =
+ 
+/* =========================================================
+   ABR DIGITAL MAGAZINE
+   ========================================================= */
+
+pdfjsLib.GlobalWorkerOptions.workerSrc =
   "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
+
+/* =========================================================
+   CONFIGURATION
+   ========================================================= */
 
 const PDF_URL = "ABR.pdf";
 const TOTAL_PAGES = 102;
+
+const MOBILE_BREAKPOINT = 700;
+
+
+/* =========================================================
+   STATE
+   ========================================================= */
 
 let pdf = null;
 let flipBook = null;
 
 let currentPage = 1;
+
 let pageWidth = 595;
 let pageHeight = 842;
+
+let isMobile = false;
 
 const renderedPages = new Set();
 const loadingPages = new Set();
 
-const bookEl = document.getElementById("book");
-const counterEl = document.getElementById("counter");
-const progressEl = document.getElementById("progress");
 
-const loadingEl = document.getElementById("loading");
-const loadingTextEl = document.getElementById("loadingText");
+/* =========================================================
+   DOM ELEMENTS
+   ========================================================= */
 
-const errorEl = document.getElementById("error");
-const errorTextEl = document.getElementById("errorText");
+const bookEl =
+  document.getElementById("book");
+
+const counterEl =
+  document.getElementById("counter");
+
+const progressEl =
+  document.getElementById("progress");
+
+const loadingEl =
+  document.getElementById("loading");
+
+const loadingTextEl =
+  document.getElementById("loadingText");
+
+const errorEl =
+  document.getElementById("error");
+
+const errorTextEl =
+  document.getElementById("errorText");
+
+const previousButton =
+  document.getElementById("prev");
+
+const nextButton =
+  document.getElementById("next");
 
 
 /* =========================================================
-   LOADING / ERROR
-========================================================= */
+   DEVICE DETECTION
+   ========================================================= */
+
+function detectDevice() {
+
+  isMobile =
+    window.matchMedia(
+      `(max-width: ${MOBILE_BREAKPOINT}px)`
+    ).matches;
+
+}
+
+
+/* =========================================================
+   LOADING SCREEN
+   ========================================================= */
 
 function setLoading(text) {
-  if (loadingTextEl) {
-    loadingTextEl.textContent = text;
-  }
+
+  if (!loadingTextEl) return;
+
+  loadingTextEl.textContent = text;
+
 }
 
 
 function hideLoading() {
-  if (loadingEl) {
-    loadingEl.classList.add("hidden");
-  }
+
+  if (!loadingEl) return;
+
+  loadingEl.classList.add("hidden");
+
 }
 
+
+function showLoading() {
+
+  if (!loadingEl) return;
+
+  loadingEl.classList.remove("hidden");
+
+}
+
+
+/* =========================================================
+   ERROR HANDLING
+   ========================================================= */
 
 function showError(message) {
 
   console.error(message);
 
   if (errorTextEl) {
-    errorTextEl.textContent = message;
+
+    errorTextEl.textContent =
+      message;
+
   }
 
   if (errorEl) {
+
     errorEl.classList.add("show");
+
   }
 
   hideLoading();
+
 }
 
 
 /* =========================================================
    PAGE COUNTER
-========================================================= */
+   ========================================================= */
 
 function updateCounter(pageNumber) {
 
-  currentPage = Math.max(
-    1,
-    Math.min(TOTAL_PAGES, pageNumber)
-  );
+  currentPage =
+    Math.max(
+      1,
+      Math.min(
+        TOTAL_PAGES,
+        Number(pageNumber)
+      )
+    );
+
 
   if (counterEl) {
+
     counterEl.textContent =
       `${currentPage} / ${TOTAL_PAGES}`;
+
   }
 
+
   if (progressEl) {
-    progressEl.value = currentPage;
+
+    progressEl.value =
+      currentPage;
+
   }
+
 }
 
 
 /* =========================================================
-   CREATE PAGE ELEMENTS
-========================================================= */
+   CREATE EMPTY PAGE
+   ========================================================= */
 
 function createPageElement(pageNumber) {
 
-  const page = document.createElement("div");
+  const page =
+    document.createElement("div");
 
-  page.className = "page";
+  page.className =
+    "page";
 
-  page.dataset.pageNumber = pageNumber;
-  page.dataset.rendered = "false";
 
-  const canvas = document.createElement("canvas");
+  page.dataset.pageNumber =
+    pageNumber;
 
-  canvas.className = "pdf-page";
+
+  page.dataset.rendered =
+    "false";
+
+
+  const canvas =
+    document.createElement("canvas");
+
+
+  canvas.className =
+    "pdf-page";
+
 
   canvas.setAttribute(
     "aria-label",
     `Magazine page ${pageNumber}`
   );
 
+
   page.appendChild(canvas);
 
+
   return page;
+
 }
 
 
 /* =========================================================
-   CREATE ALL EMPTY PAGE CONTAINERS
-========================================================= */
+   CREATE ALL PAGE CONTAINERS
+   ========================================================= */
 
 function createPageContainers() {
 
   const fragment =
     document.createDocumentFragment();
+
 
   for (
     let pageNumber = 1;
@@ -470,13 +628,15 @@ function createPageContainers() {
 
   }
 
+
   bookEl.appendChild(fragment);
+
 }
 
 
 /* =========================================================
-   GET PAGE ELEMENT
-========================================================= */
+   FIND PAGE ELEMENT
+   ========================================================= */
 
 function getPageElement(pageNumber) {
 
@@ -488,39 +648,56 @@ function getPageElement(pageNumber) {
 
 
 /* =========================================================
-   RENDER ONE PAGE
-========================================================= */
+   RENDER ONE PDF PAGE
+   ========================================================= */
 
 async function renderPage(pageNumber) {
 
   /*
-    Don't render a page twice.
+    Don't render outside PDF.
   */
-
-  if (renderedPages.has(pageNumber)) {
-    return;
-  }
-
-
-  /*
-    Don't allow the same page to be
-    rendered multiple times simultaneously.
-  */
-
-  if (loadingPages.has(pageNumber)) {
-    return;
-  }
-
 
   if (
     pageNumber < 1 ||
     pageNumber > TOTAL_PAGES
   ) {
+
     return;
+
   }
 
 
-  loadingPages.add(pageNumber);
+  /*
+    Don't render an already
+    rendered page.
+  */
+
+  if (
+    renderedPages.has(pageNumber)
+  ) {
+
+    return;
+
+  }
+
+
+  /*
+    Prevent duplicate simultaneous
+    renders.
+  */
+
+  if (
+    loadingPages.has(pageNumber)
+  ) {
+
+    return;
+
+  }
+
+
+  loadingPages.add(
+    pageNumber
+  );
 
 
   try {
@@ -530,33 +707,48 @@ async function renderPage(pageNumber) {
     );
 
 
+    setLoading(
+      `Loading page ${pageNumber}`
+    );
+
+
     /*
-      Get the PDF page.
+      Get PDF page.
     */
 
     const pdfPage =
-      await pdf.getPage(pageNumber);
+      await pdf.getPage(
+        pageNumber
+      );
 
 
     /*
-      Find the corresponding HTML page.
+      Get HTML page.
     */
 
     const pageElement =
-      getPageElement(pageNumber);
+      getPageElement(
+        pageNumber
+      );
 
 
     if (!pageElement) {
+
       return;
+
     }
 
 
     const canvas =
-      pageElement.querySelector("canvas");
+      pageElement.querySelector(
+        "canvas"
+      );
 
 
     if (!canvas) {
+
       return;
+
     }
 
 
@@ -570,10 +762,10 @@ async function renderPage(pageNumber) {
 
 
     /*
-      Get the original PDF dimensions.
+      Get original PDF dimensions.
     */
 
-    const baseViewport =
+    const viewport =
       pdfPage.getViewport({
         scale: 1
       });
@@ -592,25 +784,25 @@ async function renderPage(pageNumber) {
     const containerHeight =
       pageElement.clientHeight ||
       bookEl.clientHeight ||
-      800;
+      850;
 
 
     /*
-      Fit the PDF page inside
-      the flipbook page.
+      Calculate scale while
+      preserving PDF proportions.
     */
 
     const widthScale =
       containerWidth /
-      baseViewport.width;
+      viewport.width;
 
 
     const heightScale =
       containerHeight /
-      baseViewport.height;
+      viewport.height;
 
 
-    const scale =
+    const fitScale =
       Math.min(
         widthScale,
         heightScale
@@ -618,84 +810,107 @@ async function renderPage(pageNumber) {
 
 
     /*
-      Device pixel ratio gives
-      sharper pages on Retina displays.
+      Retina support.
     */
 
-    const dpr =
+    const devicePixelRatio =
       Math.min(
         window.devicePixelRatio || 1,
         2
       );
 
 
-    const viewport =
+    const renderScale =
+      fitScale *
+      devicePixelRatio;
+
+
+    const renderViewport =
       pdfPage.getViewport({
-        scale: scale * dpr
+        scale: renderScale
       });
 
 
     /*
-      Set canvas resolution.
+      Canvas resolution.
     */
 
     canvas.width =
-      Math.floor(viewport.width);
+      Math.floor(
+        renderViewport.width
+      );
+
 
     canvas.height =
-      Math.floor(viewport.height);
+      Math.floor(
+        renderViewport.height
+      );
 
 
     /*
-      Keep the canvas visually
-      inside the page.
+      Canvas display size.
     */
 
-    canvas.style.width = "100%";
-    canvas.style.height = "100%";
+    canvas.style.width =
+      "100%";
+
+    canvas.style.height =
+      "100%";
+
+
+    canvas.style.objectFit =
+      "contain";
 
 
     /*
-      Render PDF → Canvas.
+      Render PDF page.
     */
 
     await pdfPage.render({
 
-      canvasContext: context,
+      canvasContext:
+        context,
 
-      viewport: viewport,
+      viewport:
+        renderViewport,
 
-      background: "white"
+      background:
+        "white"
 
     }).promise;
 
 
     /*
-      Mark page as finished.
+      Mark as rendered.
     */
 
-    renderedPages.add(pageNumber);
+    renderedPages.add(
+      pageNumber
+    );
+
 
     pageElement.dataset.rendered =
       "true";
 
 
     console.log(
-      `Finished page ${pageNumber}`
+      `Page ${pageNumber} ready`
     );
 
 
   } catch (error) {
 
     console.error(
-      `Failed to render page ${pageNumber}`,
+      `Failed rendering page ${pageNumber}`,
       error
     );
 
 
   } finally {
 
-    loadingPages.delete(pageNumber);
+    loadingPages.delete(
+      pageNumber
+    );
 
   }
 
@@ -703,19 +918,22 @@ async function renderPage(pageNumber) {
 
 
 /* =========================================================
-   PRELOAD FIRST 3 PAGES
-========================================================= */
+   PRELOAD FIRST THREE PAGES
+   ========================================================= */
 
 async function preloadFirstPages() {
 
   /*
     IMPORTANT:
-    These are deliberately loaded
-    one after another.
 
-    1 → finish
-    2 → finish
-    3 → finish
+    These pages are loaded
+    sequentially.
+
+    Page 1
+       ↓
+    Page 2
+       ↓
+    Page 3
   */
 
   for (
@@ -725,10 +943,13 @@ async function preloadFirstPages() {
   ) {
 
     setLoading(
-      `Loading page ${pageNumber} of 3`
+      `Preparing page ${pageNumber} of 3`
     );
 
-    await renderPage(pageNumber);
+
+    await renderPage(
+      pageNumber
+    );
 
   }
 
@@ -736,33 +957,27 @@ async function preloadFirstPages() {
 
 
 /* =========================================================
-   LOAD NEXT PAGE WHEN REQUIRED
-========================================================= */
+   LOAD CURRENT PAGE
+   ========================================================= */
 
-async function loadPageOnDemand(pageNumber) {
+async function loadCurrentPage(
+  pageNumber
+) {
 
-  if (
-    pageNumber < 1 ||
-    pageNumber > TOTAL_PAGES
-  ) {
-    return;
-  }
-
-
-  /*
-    Render ONLY this page.
-  */
-
-  await renderPage(pageNumber);
+  await renderPage(
+    pageNumber
+  );
 
 }
 
 
 /* =========================================================
-   PREPARE NEXT PAGE
-========================================================= */
+   LOAD ONE PAGE AHEAD
+   ========================================================= */
 
-function preloadNextPage(pageNumber) {
+function preloadNextPage(
+  pageNumber
+) {
 
   const nextPage =
     pageNumber + 1;
@@ -771,33 +986,40 @@ function preloadNextPage(pageNumber) {
   if (
     nextPage > TOTAL_PAGES
   ) {
+
     return;
+
   }
 
 
   /*
-    Wait until the page turn has
-    completed before rendering the
-    next page.
-
-    This prevents several pages
-    loading together.
+    Delay this slightly so
+    it doesn't compete with
+    the page currently being
+    rendered.
   */
 
-  setTimeout(() => {
+  setTimeout(
+    () => {
 
-    renderPage(nextPage);
+      renderPage(
+        nextPage
+      );
 
-  }, 250);
+    },
+    300
+  );
 
 }
 
 
 /* =========================================================
-   PREPARE PREVIOUS PAGE
-========================================================= */
+   LOAD ONE PAGE BEHIND
+   ========================================================= */
 
-function preloadPreviousPage(pageNumber) {
+function preloadPreviousPage(
+  pageNumber
+) {
 
   const previousPage =
     pageNumber - 1;
@@ -806,31 +1028,42 @@ function preloadPreviousPage(pageNumber) {
   if (
     previousPage < 1
   ) {
+
     return;
+
   }
 
 
-  setTimeout(() => {
+  setTimeout(
+    () => {
 
-    renderPage(previousPage);
+      renderPage(
+        previousPage
+      );
 
-  }, 250);
+    },
+    300
+  );
 
 }
 
 
 /* =========================================================
-   PAGE TURN EVENT
-========================================================= */
+   PAGE FLIP EVENTS
+   ========================================================= */
 
 function setupFlipEvents() {
 
+  if (!flipBook) return;
+
+
   flipBook.on(
     "flip",
-    async (event) => {
+    async function(event) {
 
       /*
-        StPageFlip uses a zero-based index.
+        PageFlip uses zero-based
+        page indexes.
       */
 
       const pageNumber =
@@ -843,17 +1076,17 @@ function setupFlipEvents() {
 
 
       /*
-        Render the page the user
-        has just reached.
+        Load only the page
+        the user has reached.
       */
 
-      await loadPageOnDemand(
+      await loadCurrentPage(
         pageNumber
       );
 
 
       /*
-        Prepare ONLY the next page.
+        Load ONE page ahead.
       */
 
       preloadNextPage(
@@ -862,7 +1095,7 @@ function setupFlipEvents() {
 
 
       /*
-        Prepare ONLY the previous page.
+        Load ONE page behind.
       */
 
       preloadPreviousPage(
@@ -874,33 +1107,23 @@ function setupFlipEvents() {
 
 
   /*
-    Orientation changes.
+    Orientation change.
   */
 
   flipBook.on(
     "changeOrientation",
-    () => {
+    function() {
 
-      /*
-        Give the browser time
-        to resize the book.
-      */
+      setTimeout(
+        function() {
 
-      setTimeout(() => {
+          renderPage(
+            currentPage
+          );
 
-        /*
-          We don't re-render
-          everything here.
-
-          Existing pages remain
-          cached.
-        */
-
-        loadPageOnDemand(
-          currentPage
-        );
-
-      }, 150);
+        },
+        200
+      );
 
     }
   );
@@ -909,10 +1132,222 @@ function setupFlipEvents() {
 
 
 /* =========================================================
-   GO TO PAGE
-========================================================= */
+   CALCULATE BOOK SIZE
+   ========================================================= */
 
-async function goToPage(pageNumber) {
+function calculateBookSize() {
+
+  detectDevice();
+
+
+  const aspectRatio =
+    pageHeight /
+    pageWidth;
+
+
+  let width;
+
+
+  if (isMobile) {
+
+    /*
+      MOBILE:
+
+      One page.
+
+      Almost the entire
+      width of the phone.
+    */
+
+    width =
+      Math.min(
+        window.innerWidth * 0.90,
+        560
+      );
+
+
+  } else {
+
+    /*
+      DESKTOP:
+
+      The flipbook will show
+      two pages side by side.
+    */
+
+    width =
+      Math.min(
+        window.innerWidth * 0.42,
+        620
+      );
+
+  }
+
+
+  const height =
+    width *
+    aspectRatio;
+
+
+  return {
+    width,
+    height
+  };
+
+}
+
+
+/* =========================================================
+   CREATE FLIPBOOK
+   ========================================================= */
+
+function createFlipBook() {
+
+  const size =
+    calculateBookSize();
+
+
+  flipBook =
+    new St.PageFlip(
+      bookEl,
+      {
+
+        width:
+          size.width,
+
+        height:
+          size.height,
+
+
+        /*
+          Stretch to available
+          container.
+        */
+
+        size:
+          "stretch",
+
+
+        minWidth:
+          280,
+
+        maxWidth:
+          900,
+
+
+        minHeight:
+          400,
+
+        maxHeight:
+          1200,
+
+
+        /*
+          Do NOT use showCover.
+
+          This avoids the first
+          pages being rotated/
+          rearranged unexpectedly.
+        */
+
+        showCover:
+          false,
+
+
+        /*
+          THIS IS THE IMPORTANT
+          MOBILE SETTING.
+
+          Desktop:
+          false = two-page spread
+
+          Mobile:
+          true = one-page view
+        */
+
+        usePortrait:
+          isMobile,
+
+
+        /*
+          Allow touch/swipe.
+        */
+
+        mobileScrollSupport:
+          false,
+
+
+        /*
+          Page turn speed.
+        */
+
+        flippingTime:
+          650,
+
+
+        /*
+          Page shadows.
+        */
+
+        drawShadow:
+          true,
+
+        maxShadowOpacity:
+          0.35,
+
+
+        /*
+          Responsive sizing.
+        */
+
+        autoSize:
+          true,
+
+
+        /*
+          Start on page 1.
+        */
+
+        startPage:
+          0,
+
+
+        startZIndex:
+          0
+
+      }
+    );
+
+
+  /*
+    Load the empty pages.
+  */
+
+  flipBook.loadFromHTML(
+    Array.from(
+      bookEl.querySelectorAll(
+        ".page"
+      )
+    )
+  );
+
+
+  /*
+    Setup swipe/flip events.
+  */
+
+  setupFlipEvents();
+
+}
+
+
+/* =========================================================
+   GO TO SPECIFIC PAGE
+   ========================================================= */
+
+async function goToPage(
+  pageNumber
+) {
 
   pageNumber =
     Math.max(
@@ -925,13 +1360,14 @@ async function goToPage(pageNumber) {
 
 
   if (!flipBook) {
+
     return;
+
   }
 
 
   /*
-    Make sure the destination
-    page has been rendered.
+    Render destination first.
   */
 
   await renderPage(
@@ -940,7 +1376,7 @@ async function goToPage(pageNumber) {
 
 
   /*
-    PageFlip is zero-indexed.
+    PageFlip starts at index 0.
   */
 
   flipBook.flip(
@@ -956,350 +1392,21 @@ async function goToPage(pageNumber) {
 
 
 /* =========================================================
-   INITIALIZE FLIPBOOK
-========================================================= */
-
-async function initializeFlipbook() {
-
-  try {
-
-    setLoading(
-      "Opening magazine..."
-    );
-
-
-    /*
-      Load PDF.
-    */
-
-    pdf =
-      await pdfjsLib
-        .getDocument({
-          url: PDF_URL,
-
-          /*
-            Normal network loading.
-          */
-
-          disableAutoFetch: false,
-
-          disableStream: false
-
-        })
-        .promise;
-
-
-    console.log(
-      `PDF loaded: ${pdf.numPages} pages`
-    );
-
-
-    /*
-      Verify page count.
-    */
-
-    if (
-      pdf.numPages !== TOTAL_PAGES
-    ) {
-
-      console.warn(
-        `Expected ${TOTAL_PAGES} pages but PDF contains ${pdf.numPages}`
-      );
-
-    }
-
-
-    /*
-      Get dimensions from page 1.
-    */
-
-    const firstPage =
-      await pdf.getPage(1);
-
-
-    const firstViewport =
-      firstPage.getViewport({
-        scale: 1
-      });
-
-
-    pageWidth =
-      firstViewport.width;
-
-
-    pageHeight =
-      firstViewport.height;
-
-
-    /*
-      Create the empty page
-      containers.
-    */
-
-    createPageContainers();
-
-
-    /*
-      Determine whether we're
-      on mobile.
-    */
-
-    const isMobile =
-      window.matchMedia(
-        "(max-width: 700px)"
-      ).matches;
-
-
-    /*
-      Calculate proper PDF ratio.
-    */
-
-    const aspectRatio =
-      pageHeight / pageWidth;
-
-
-    let bookWidth;
-
-    if (isMobile) {
-
-      bookWidth =
-        Math.min(
-          window.innerWidth * 0.90,
-          560
-        );
-
-    } else {
-
-      bookWidth =
-        Math.min(
-          window.innerWidth * 0.42,
-          620
-        );
-
-    }
-
-
-    const bookHeight =
-      bookWidth * aspectRatio;
-
-
-    /*
-      Create StPageFlip.
-    */
-
-    flipBook =
-      new St.PageFlip(
-        bookEl,
-        {
-
-          width:
-            bookWidth,
-
-          height:
-            bookHeight,
-
-
-          /*
-            Allow the book to
-            resize responsively.
-          */
-
-          size:
-            "stretch",
-
-
-          minWidth:
-            280,
-
-          maxWidth:
-            900,
-
-
-          minHeight:
-            400,
-
-          maxHeight:
-            1200,
-
-
-          /*
-            IMPORTANT:
-            Do not use showCover
-            to avoid the initial
-            pages being rotated/
-            rearranged incorrectly.
-          */
-
-          showCover:
-            false,
-
-
-          /*
-            Keep the page orientation
-            consistent.
-          */
-
-          usePortrait:
-            false,
-
-
-          /*
-            Mobile swipe support.
-          */
-
-          mobileScrollSupport:
-            false,
-
-
-          /*
-            Page turn speed.
-          */
-
-          flippingTime:
-            650,
-
-
-          /*
-            Page shadows.
-          */
-
-          drawShadow:
-            true,
-
-          maxShadowOpacity:
-            0.35,
-
-
-          /*
-            Automatically size
-            the flipbook.
-          */
-
-          autoSize:
-            true,
-
-
-          /*
-            Start at page 1.
-          */
-
-          startPage:
-            0,
-
-
-          startZIndex:
-            0
-
-        }
-      );
-
-
-    /*
-      Load the HTML page
-      containers into PageFlip.
-    */
-
-    flipBook.loadFromHTML(
-      Array.from(
-        bookEl.querySelectorAll(
-          ".page"
-        )
-      )
-    );
-
-
-    /*
-      Attach events.
-    */
-
-    setupFlipEvents();
-
-
-    /*
-      Update initial counter.
-    */
-
-    updateCounter(1);
-
-
-    /*
-      IMPORTANT:
-      Render only pages 1 → 2 → 3.
-    */
-
-    await preloadFirstPages();
-
-
-    /*
-      Hide loading screen
-      after first 3 pages are
-      ready.
-    */
-
-    setLoading(
-      "Ready"
-    );
-
-
-    setTimeout(
-      () => {
-
-        hideLoading();
-
-      },
-      200
-    );
-
-
-    console.log(
-      "Magazine ready."
-    );
-
-
-  } catch (error) {
-
-    console.error(
-      "Magazine initialization error:",
-      error
-    );
-
-
-    showError(
-      "The magazine could not be loaded. " +
-      "Make sure ABR.pdf is beside index.html. " +
-      "Error: " +
-      (
-        error &&
-        error.message
-          ? error.message
-          : "Unknown error"
-      )
-    );
-
-  }
-
-}
-
-
-/* =========================================================
    PREVIOUS BUTTON
-========================================================= */
-
-const previousButton =
-  document.getElementById(
-    "prev"
-  );
-
+   ========================================================= */
 
 if (previousButton) {
 
   previousButton.addEventListener(
     "click",
-    () => {
+    function() {
 
       if (!flipBook) {
+
         return;
+
       }
+
 
       flipBook.flipPrev();
 
@@ -1311,23 +1418,20 @@ if (previousButton) {
 
 /* =========================================================
    NEXT BUTTON
-========================================================= */
-
-const nextButton =
-  document.getElementById(
-    "next"
-  );
-
+   ========================================================= */
 
 if (nextButton) {
 
   nextButton.addEventListener(
     "click",
-    () => {
+    function() {
 
       if (!flipBook) {
+
         return;
+
       }
+
 
       flipBook.flipNext();
 
@@ -1338,8 +1442,8 @@ if (nextButton) {
 
 
 /* =========================================================
-   PROGRESS BAR
-========================================================= */
+   PROGRESS SLIDER
+   ========================================================= */
 
 if (progressEl) {
 
@@ -1355,7 +1459,7 @@ if (progressEl) {
 
   progressEl.addEventListener(
     "change",
-    async (event) => {
+    async function(event) {
 
       await goToPage(
         event.target.value
@@ -1368,17 +1472,23 @@ if (progressEl) {
 
 
 /* =========================================================
-   KEYBOARD CONTROLS
-========================================================= */
+   KEYBOARD NAVIGATION
+   ========================================================= */
 
 window.addEventListener(
   "keydown",
-  (event) => {
+  function(event) {
 
     if (!flipBook) {
+
       return;
+
     }
 
+
+    /*
+      Previous page.
+    */
 
     if (
       event.key ===
@@ -1392,6 +1502,10 @@ window.addEventListener(
     }
 
 
+    /*
+      Next page.
+    */
+
     if (
       event.key ===
       "ArrowRight"
@@ -1404,6 +1518,10 @@ window.addEventListener(
     }
 
 
+    /*
+      First page.
+    */
+
     if (
       event.key ===
       "Home"
@@ -1411,10 +1529,16 @@ window.addEventListener(
 
       event.preventDefault();
 
-      goToPage(1);
+      goToPage(
+        1
+      );
 
     }
 
+
+    /*
+      Last page.
+    */
 
     if (
       event.key ===
@@ -1434,15 +1558,15 @@ window.addEventListener(
 
 
 /* =========================================================
-   RESPONSIVE RESIZE
-========================================================= */
+   RESIZE HANDLING
+   ========================================================= */
 
-let resizeTimer = null;
+let resizeTimer;
 
 
 window.addEventListener(
   "resize",
-  () => {
+  function() {
 
     clearTimeout(
       resizeTimer
@@ -1451,26 +1575,38 @@ window.addEventListener(
 
     resizeTimer =
       setTimeout(
-        () => {
-
-          if (!flipBook) {
-            return;
-          }
-
+        function() {
 
           /*
-            Don't reload the PDF.
-
-            Only resize the existing
-            flipbook.
+            Detect whether the
+            device changed between
+            mobile and desktop.
           */
 
-          loadPageOnDemand(
-            currentPage
-          );
+          const oldMobile =
+            isMobile;
+
+
+          detectDevice();
+
+
+          if (
+            oldMobile !==
+            isMobile
+          ) {
+
+            /*
+              Orientation mode changed.
+
+              Rebuild the flipbook.
+            */
+
+            rebuildFlipBook();
+
+          }
 
         },
-        300
+        350
       );
 
   }
@@ -1478,10 +1614,291 @@ window.addEventListener(
 
 
 /* =========================================================
-   START
-========================================================= */
+   REBUILD FLIPBOOK
+   ========================================================= */
 
-initializeFlipbook();
+function rebuildFlipBook() {
+
+  if (!pdf) {
+
+    return;
+
+  }
+
+
+  /*
+    Remember current page.
+  */
+
+  const savedPage =
+    currentPage;
+
+
+  /*
+    Destroy old flipbook.
+  */
+
+  if (flipBook) {
+
+    try {
+
+      flipBook.destroy();
+
+    } catch (error) {
+
+      console.warn(
+        "Could not destroy old flipbook",
+        error
+      );
+
+    }
+
+  }
+
+
+  /*
+    Clear book.
+  */
+
+  bookEl.innerHTML =
+    "";
+
+
+  /*
+    Recreate page containers.
+  */
+
+  createPageContainers();
+
+
+  /*
+    Create new flipbook.
+  */
+
+  createFlipBook();
+
+
+  /*
+    Update page counter.
+  */
+
+  updateCounter(
+    savedPage
+  );
+
+
+  /*
+    Restore current page.
+  */
+
+  setTimeout(
+    async function() {
+
+      await renderPage(
+        savedPage
+      );
+
+
+      if (flipBook) {
+
+        flipBook.flip(
+          savedPage - 1
+        );
+
+      }
+
+    },
+    150
+  );
+
+}
+
+
+/* =========================================================
+   INITIALIZE MAGAZINE
+   ========================================================= */
+
+async function initializeMagazine() {
+
+  try {
+
+    showLoading();
+
+
+    setLoading(
+      "Opening Aitchison Business Review..."
+    );
+
+
+    /*
+      Detect mobile/desktop.
+    */
+
+    detectDevice();
+
+
+    /*
+      Load the PDF.
+    */
+
+    pdf =
+      await pdfjsLib
+        .getDocument({
+
+          url:
+            PDF_URL,
+
+          disableAutoFetch:
+            false,
+
+          disableStream:
+            false
+
+        })
+        .promise;
+
+
+    console.log(
+      `PDF loaded: ${pdf.numPages} pages`
+    );
+
+
+    /*
+      Check number of pages.
+    */
+
+    if (
+      pdf.numPages !==
+      TOTAL_PAGES
+    ) {
+
+      console.warn(
+        `Expected ${TOTAL_PAGES} pages but PDF contains ${pdf.numPages}`
+      );
+
+    }
+
+
+    /*
+      Get dimensions from
+      the first PDF page.
+    */
+
+    const firstPage =
+      await pdf.getPage(
+        1
+      );
+
+
+    const firstViewport =
+      firstPage.getViewport({
+        scale: 1
+      });
+
+
+    pageWidth =
+      firstViewport.width;
+
+
+    pageHeight =
+      firstViewport.height;
+
+
+    /*
+      Create empty page elements.
+    */
+
+    createPageContainers();
+
+
+    /*
+      Create flipbook.
+    */
+
+    createFlipBook();
+
+
+    /*
+      Start counter.
+    */
+
+    updateCounter(
+      1
+    );
+
+
+    /*
+      PRELOAD ONLY:
+
+      Page 1
+      Page 2
+      Page 3
+
+      And do it sequentially.
+    */
+
+    await preloadFirstPages();
+
+
+    /*
+      Magazine is now ready.
+    */
+
+    setLoading(
+      "Ready"
+    );
+
+
+    setTimeout(
+      function() {
+
+        hideLoading();
+
+      },
+      200
+    );
+
+
+    console.log(
+      "ABR magazine ready."
+    );
+
+
+  } catch (error) {
+
+    console.error(
+      "ABR initialization failed:",
+      error
+    );
+
+
+    showError(
+
+      "The magazine could not be loaded. " +
+
+      "Make sure ABR.pdf is beside index.html. " +
+
+      "Error: " +
+
+      (
+        error &&
+        error.message
+          ? error.message
+          : "Unknown error"
+      )
+
+    );
+
+  }
+
+}
+
+
+
+
+initializeMagazine();
+
+
   </script>
 </body>
 </html>
