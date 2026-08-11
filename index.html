@@ -12,6 +12,7 @@
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/lib/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
       --bg-void: #040A12;
@@ -314,8 +315,8 @@
     }
 
     .hero-logo {
-      width: 320px;
-      height: 320px;
+      width: 2400px;
+      height: 2400px;
       object-fit: contain;
       margin-bottom: 1.5rem;
       display: block;
@@ -333,8 +334,8 @@
       margin-bottom: 0.25rem;
     }
     .hero img{
-      height: 400px;
-      width: 400px;
+      height: 240px;
+      width: 240px;
     }
 
     .hero .roman {
@@ -1368,8 +1369,8 @@
       }
 
       .hero-logo {
-        width: 240px;
-        height: 24px;
+        width: 160px;
+        height: 160px;
       }
 
       .timer-display {
@@ -1444,7 +1445,57 @@
         padding: 1.5rem;
       }
 
+
     }
+
+    .help-wrap{
+  position:fixed;right:24px;bottom:24px;z-index:3000;
+  display:flex;flex-direction:column;align-items:flex-end;gap:10px;
+}
+.help-options{
+  display:flex;flex-direction:column;gap:8px;
+  opacity:0;transform:translateY(12px) scale(.96);
+  pointer-events:none;transition:.25s ease;
+}
+.help-wrap.open .help-options{
+  opacity:1;transform:translateY(0) scale(1);pointer-events:auto;
+}
+.help-option{
+  display:flex;align-items:center;gap:10px;
+  min-width:175px;padding:.75rem 1rem;
+  border:1px solid rgba(201,164,77,.55);
+  background:rgba(6,13,22,.96);
+  color:var(--accent-gold);text-decoration:none;
+  font-size:.68rem;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;backdrop-filter:blur(12px);
+  box-shadow:0 10px 30px rgba(0,0,0,.35);
+  transition:.25s;
+}
+.help-option:hover{background:var(--accent-gold);color:#07101a}
+.help-option i{width:18px;text-align:center}
+.help-button{
+  width:58px;height:58px;border-radius:50%;
+  border:1px solid var(--accent-gold);
+  background:var(--bg-deep);color:var(--accent-gold);
+  cursor:pointer;font-size:1.1rem;
+  box-shadow:0 8px 30px rgba(0,0,0,.45),0 0 18px rgba(201,164,77,.1);
+  transition:.3s;
+}
+.help-button:hover{background:var(--accent-gold);color:#07101a;transform:scale(1.05)}
+.help-wrap.open .help-button{transform:rotate(45deg)}
+
+@media(max-width:700px){
+  nav{padding:.75rem 4%}
+  .nav-brand span{display:none}
+  .container{padding:95px 5% 55px}
+  .hero{padding-top:15px}
+  .hero-logo{width:90px;height:90px}
+  h1{letter-spacing:2px}
+  .gallery{grid-template-columns:1fr}
+  .photo,.photo:nth-child(1),.photo:nth-child(4){height:300px}
+  .info-grid{grid-template-columns:1fr;gap:1.5rem}
+  .help-wrap{right:16px;bottom:16px}
+}
   </style>
 </head>
 
@@ -1823,6 +1874,22 @@
 
 
     </div>
+    <div class="help-wrap" id="helpWrap">
+      <div class="help-options">
+        <a class="help-option" href="https://www.instagram.com/abcxiv2027/" target="_blank" rel="noopener">
+          <i class="fab fa-instagram"></i><span>Instagram</span>
+        </a>
+        <a class="help-option" href="https://www.google.com/maps/search/?api=1&query=Aitchison+College+Lahore" target="_blank" rel="noopener">
+          <i class="fas fa-location-dot"></i><span>Location</span>
+        </a>
+        <a class="help-option" href="index(7).html#registration">
+          <i class="fas fa-pen-to-square"></i><span>Registration</span>
+        </a>
+      </div>
+      <button class="help-button" id="helpButton" aria-label="Open help options" aria-expanded="false">
+        <i class="fas fa-comments"></i>
+      </button>
+    </div>
   </div>
 
   <!-- ==================== TAB 2: SOCIETY ==================== -->
@@ -1833,16 +1900,114 @@
     <div class="container">
 
       <div class="hero">
-        <img src="lg.png" alt="ABC Logo" class="hero-logo" style="height: 400px;" onerror="this.style.display='none'">
+        <img src="lg.png" alt="ABC Logo" class="hero-logo"  onerror="this.style.display='none'">
         <h1>Aitchison college entrepreneurial society</h1>
         <div class="roman">XIV</div>
         <div class="divider"></div>
+      </div>
+
+
+      <div class="highlights-section">
+        <div class="section-title">ACES Highlights</div>
+
+        <div class="highlights-carousel" id="acesHighlights">
+
+          <div class="highlight-slide active">
+            <img class="highlight-image" src="XIII Vectors/highlight-1.jpg" alt="ACES Highlight 1">
+            <div class="highlight-content">
+              <span class="highlight-number">01 / FEATURED</span>
+              <div class="highlight-title">Highlight Title One</div>
+              <div class="highlight-desc">Add the achievement, event, initiative, or milestone you want to feature here.</div>
+              <span class="highlight-arrow">Explore <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </div>
+
+          <div class="highlight-slide next">
+            <img class="highlight-image" src="XIII Vectors/highlight-2.jpg" alt="ACES Highlight 2">
+            <div class="highlight-content">
+              <span class="highlight-number">02 / FEATURE</span>
+              <div class="highlight-title">Highlight Title Two</div>
+              <div class="highlight-desc">Add the key result, achievement, or story behind this highlight.</div>
+              <span class="highlight-arrow">Explore <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </div>
+
+          <div class="highlight-slide far">
+            <img class="highlight-image" src="XIII Vectors/highlight-3.jpg" alt="ACES Highlight 3">
+            <div class="highlight-content">
+              <span class="highlight-number">03 / FEATURE</span>
+              <div class="highlight-title">Highlight Title Three</div>
+              <div class="highlight-desc">Add the key result, achievement, or story behind this highlight.</div>
+              <span class="highlight-arrow">Explore <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </div>
+
+          <div class="highlight-slide far">
+            <img class="highlight-image" src="XIII Vectors/highlight-4.jpg" alt="ACES Highlight 4">
+            <div class="highlight-content">
+              <span class="highlight-number">04 / FEATURE</span>
+              <div class="highlight-title">Highlight Title Four</div>
+              <div class="highlight-desc">Add the key result, achievement, or story behind this highlight.</div>
+              <span class="highlight-arrow">Explore <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </div>
+
+          <div class="highlight-slide far">
+            <img class="highlight-image" src="XIII Vectors/highlight-5.jpg" alt="ACES Highlight 5">
+            <div class="highlight-content">
+              <span class="highlight-number">05 / FEATURE</span>
+              <div class="highlight-title">Highlight Title Five</div>
+              <div class="highlight-desc">Add the key result, achievement, or story behind this highlight.</div>
+              <span class="highlight-arrow">Explore <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </div>
+
+          <div class="highlight-slide far">
+            <img class="highlight-image" src="XIII Vectors/highlight-6.jpg" alt="ACES Highlight 6">
+            <div class="highlight-content">
+              <span class="highlight-number">06 / FEATURE</span>
+              <div class="highlight-title">Highlight Title Six</div>
+              <div class="highlight-desc">Add the key result, achievement, or story behind this highlight.</div>
+              <span class="highlight-arrow">Explore <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </div>
+
+          <div class="highlight-slide far">
+            <img class="highlight-image" src="XIII Vectors/highlight-7.jpg" alt="ACES Highlight 7">
+            <div class="highlight-content">
+              <span class="highlight-number">07 / FEATURE</span>
+              <div class="highlight-title">Highlight Title Seven</div>
+              <div class="highlight-desc">Add the key result, achievement, or story behind this highlight.</div>
+              <span class="highlight-arrow">Explore <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </div>
+
+          <div class="highlight-nav">
+            <button type="button" onclick="moveHighlight(-1)" aria-label="Previous highlight">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button type="button" onclick="moveHighlight(1)" aria-label="Next highlight">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="highlight-dots" id="highlightDots">
+          <button class="highlight-dot active" onclick="setHighlight(0)" aria-label="Highlight 1"></button>
+          <button class="highlight-dot" onclick="setHighlight(1)" aria-label="Highlight 2"></button>
+          <button class="highlight-dot" onclick="setHighlight(2)" aria-label="Highlight 3"></button>
+          <button class="highlight-dot" onclick="setHighlight(3)" aria-label="Highlight 4"></button>
+          <button class="highlight-dot" onclick="setHighlight(4)" aria-label="Highlight 5"></button>
+          <button class="highlight-dot" onclick="setHighlight(5)" aria-label="Highlight 6"></button>
+          <button class="highlight-dot" onclick="setHighlight(6)" aria-label="Highlight 7"></button>
+        </div>
       </div>
 
       <div class="society-content">
 
         <!-- Staff Advisor Message Card -->
         <div class="advisor-card">
+          <div class="section-title">Staff advisor </div>
           <img src="./XIII Vectors/staff.jpeg" alt="Staff Advisor" class="advisor-pfp">
           <div class="advisor-info">
             <h3>Staff Advisor Directive</h3>
@@ -1868,102 +2033,7 @@
           industry.
         </p>
 
-        <!-- ==================== ACES HIGHLIGHTS ==================== -->
-        <div class="highlights-section">
-          <div class="section-title">ACES Highlights</div>
-
-          <div class="highlights-carousel" id="acesHighlights">
-
-            <div class="highlight-slide active">
-              <img class="highlight-image" src="XIII Vectors/highlight-1.jpg" alt="ACES Highlight 1">
-              <div class="highlight-content">
-                <span class="highlight-number">01 / FEATURED</span>
-                <div class="highlight-title">Highlight Title One</div>
-                <div class="highlight-desc">Add the achievement, event, initiative, or milestone you want to feature here.</div>
-                <span class="highlight-arrow">Explore <i class="fas fa-arrow-right"></i></span>
-              </div>
-            </div>
-
-            <div class="highlight-slide next">
-              <img class="highlight-image" src="XIII Vectors/highlight-2.jpg" alt="ACES Highlight 2">
-              <div class="highlight-content">
-                <span class="highlight-number">02 / FEATURE</span>
-                <div class="highlight-title">Highlight Title Two</div>
-                <div class="highlight-desc">Add the key result, achievement, or story behind this highlight.</div>
-                <span class="highlight-arrow">Explore <i class="fas fa-arrow-right"></i></span>
-              </div>
-            </div>
-
-            <div class="highlight-slide far">
-              <img class="highlight-image" src="XIII Vectors/highlight-3.jpg" alt="ACES Highlight 3">
-              <div class="highlight-content">
-                <span class="highlight-number">03 / FEATURE</span>
-                <div class="highlight-title">Highlight Title Three</div>
-                <div class="highlight-desc">Add the key result, achievement, or story behind this highlight.</div>
-                <span class="highlight-arrow">Explore <i class="fas fa-arrow-right"></i></span>
-              </div>
-            </div>
-
-            <div class="highlight-slide far">
-              <img class="highlight-image" src="XIII Vectors/highlight-4.jpg" alt="ACES Highlight 4">
-              <div class="highlight-content">
-                <span class="highlight-number">04 / FEATURE</span>
-                <div class="highlight-title">Highlight Title Four</div>
-                <div class="highlight-desc">Add the key result, achievement, or story behind this highlight.</div>
-                <span class="highlight-arrow">Explore <i class="fas fa-arrow-right"></i></span>
-              </div>
-            </div>
-
-            <div class="highlight-slide far">
-              <img class="highlight-image" src="XIII Vectors/highlight-5.jpg" alt="ACES Highlight 5">
-              <div class="highlight-content">
-                <span class="highlight-number">05 / FEATURE</span>
-                <div class="highlight-title">Highlight Title Five</div>
-                <div class="highlight-desc">Add the key result, achievement, or story behind this highlight.</div>
-                <span class="highlight-arrow">Explore <i class="fas fa-arrow-right"></i></span>
-              </div>
-            </div>
-
-            <div class="highlight-slide far">
-              <img class="highlight-image" src="XIII Vectors/highlight-6.jpg" alt="ACES Highlight 6">
-              <div class="highlight-content">
-                <span class="highlight-number">06 / FEATURE</span>
-                <div class="highlight-title">Highlight Title Six</div>
-                <div class="highlight-desc">Add the key result, achievement, or story behind this highlight.</div>
-                <span class="highlight-arrow">Explore <i class="fas fa-arrow-right"></i></span>
-              </div>
-            </div>
-
-            <div class="highlight-slide far">
-              <img class="highlight-image" src="XIII Vectors/highlight-7.jpg" alt="ACES Highlight 7">
-              <div class="highlight-content">
-                <span class="highlight-number">07 / FEATURE</span>
-                <div class="highlight-title">Highlight Title Seven</div>
-                <div class="highlight-desc">Add the key result, achievement, or story behind this highlight.</div>
-                <span class="highlight-arrow">Explore <i class="fas fa-arrow-right"></i></span>
-              </div>
-            </div>
-
-            <div class="highlight-nav">
-              <button type="button" onclick="moveHighlight(-1)" aria-label="Previous highlight">
-                <i class="fas fa-chevron-left"></i>
-              </button>
-              <button type="button" onclick="moveHighlight(1)" aria-label="Next highlight">
-                <i class="fas fa-chevron-right"></i>
-              </button>
-            </div>
-          </div>
-
-          <div class="highlight-dots" id="highlightDots">
-            <button class="highlight-dot active" onclick="setHighlight(0)" aria-label="Highlight 1"></button>
-            <button class="highlight-dot" onclick="setHighlight(1)" aria-label="Highlight 2"></button>
-            <button class="highlight-dot" onclick="setHighlight(2)" aria-label="Highlight 3"></button>
-            <button class="highlight-dot" onclick="setHighlight(3)" aria-label="Highlight 4"></button>
-            <button class="highlight-dot" onclick="setHighlight(4)" aria-label="Highlight 5"></button>
-            <button class="highlight-dot" onclick="setHighlight(5)" aria-label="Highlight 6"></button>
-            <button class="highlight-dot" onclick="setHighlight(6)" aria-label="Highlight 7"></button>
-          </div>
-        </div>
+       
 
         <!-- Section Title -->
         <div class="section-title">Society Benefits & Laurels</div>
@@ -2169,6 +2239,23 @@
 
 
     </div>
+
+    <div class="help-wrap" id="helpWrap">
+      <div class="help-options">
+        <a class="help-option" href="https://www.instagram.com/abcxiv2027/" target="_blank" rel="noopener">
+          <i class="fab fa-instagram"></i><span>Instagram</span>
+        </a>
+        <a class="help-option" href="https://www.google.com/maps/search/?api=1&query=Aitchison+College+Lahore" target="_blank" rel="noopener">
+          <i class="fas fa-location-dot"></i><span>Location</span>
+        </a>
+        <a class="help-option" href="index(7).html#registration">
+          <i class="fas fa-pen-to-square"></i><span>Registration</span>
+        </a>
+      </div>
+      <button class="help-button" id="helpButton" aria-label="Open help options" aria-expanded="false">
+        <i class="fas fa-comments"></i>
+      </button>
+    </div>
   </div>
 
   <!-- ==================== TAB 3: RESPONSE ==================== -->
@@ -2213,6 +2300,22 @@
         </form>
       </div>
 
+    </div>
+    <div class="help-wrap" id="helpWrap">
+      <div class="help-options">
+        <a class="help-option" href="https://www.instagram.com/abcxiv2027/" target="_blank" rel="noopener">
+          <i class="fab fa-instagram"></i><span>Instagram</span>
+        </a>
+        <a class="help-option" href="https://www.google.com/maps/search/?api=1&query=Aitchison+College+Lahore" target="_blank" rel="noopener">
+          <i class="fas fa-location-dot"></i><span>Location</span>
+        </a>
+        <a class="help-option" href="index(7).html#registration">
+          <i class="fas fa-pen-to-square"></i><span>Registration</span>
+        </a>
+      </div>
+      <button class="help-button" id="helpButton" aria-label="Open help options" aria-expanded="false">
+        <i class="fas fa-comments"></i>
+      </button>
     </div>
   </div>
 
@@ -2402,6 +2505,22 @@
       document.getElementById('responseForm').reset();
       setTimeout(() => toast.classList.remove('show'), 4000);
     }
+
+        const helpWrap = document.getElementById('helpWrap');
+    const helpButton = document.getElementById('helpButton');
+
+    helpButton.addEventListener('click', () => {
+      const open = helpWrap.classList.toggle('open');
+      helpButton.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!helpWrap.contains(e.target)) {
+        helpWrap.classList.remove('open');
+        helpButton.setAttribute('aria-expanded', 'false');
+      }
+    });
+
   </script>
 
 </body>
