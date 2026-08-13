@@ -916,190 +916,508 @@
     }
 
     /* ==================== ACES HIGHLIGHTS CAROUSEL ==================== */
-    .highlights-section {
-      margin: 4rem 0 3.5rem;
-    }
+   /* =========================================================
+   ACES HIGHLIGHTS CAROUSEL
+========================================================= */
 
-    .highlights-carousel {
-      position: relative;
-      width: 100%;
-      max-width: 1050px;
-      height: 470px;
-      margin: 0 auto;
-      perspective: 1200px;
-      overflow: hidden;
-    }
+.highlights-section {
+  margin: 4rem 0 3.5rem;
+}
 
-    .highlight-slide {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: min(720px, 72%);
-      height: 390px;
-      transform: translateX(-50%) scale(.82);
-      opacity: .35;
-      z-index: 1;
-      overflow: hidden;
-      border: 1px solid rgba(201, 164, 77, .18);
-      background: var(--bg-deep);
-      transition:
-        transform .55s cubic-bezier(.22,.61,.36,1),
-        opacity .55s ease,
-        z-index .1s linear,
-        filter .55s ease;
-      filter: brightness(.55);
-      cursor: pointer;
-    }
+.highlights-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 1150px;
+  height: 650px;
+  margin: 0 auto;
+  overflow: hidden;
+}
 
-    .highlight-slide.prev {
-      transform: translateX(calc(-50% - 390px)) scale(.82);
-      opacity: .5;
-      z-index: 2;
-    }
 
-    .highlight-slide.next {
-      transform: translateX(calc(-50% + 390px)) scale(.82);
-      opacity: .5;
-      z-index: 2;
-    }
+/* =========================================================
+   SLIDES
+========================================================= */
 
-    .highlight-slide.active {
-      transform: translateX(-50%) scale(1);
-      opacity: 1;
-      z-index: 5;
-      filter: brightness(1);
-      border-color: var(--accent-gold);
-      box-shadow: 0 18px 55px rgba(0,0,0,.45);
-    }
+.highlight-slide {
+  position: absolute;
 
-    .highlight-slide.far {
-      opacity: 0;
-      pointer-events: none;
-      transform: translateX(-50%) scale(.7);
-      z-index: 0;
-    }
+  top: 0;
+  left: 50%;
 
-    .highlight-image {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: grayscale(35%) contrast(1.08);
-    }
+  width: min(700px, 72%);
+  height: auto;
 
-    .highlight-slide::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to top,
-        rgba(4, 10, 18, .98) 0%,
-        rgba(4, 10, 18, .72) 52%,
-        rgba(4, 10, 18, .08) 100%
-      );
-      z-index: 1;
-    }
+  transform: translateX(-50%) scale(.78);
 
-    .highlight-content {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 2;
-      padding: 2rem 2.2rem;
-    }
+  opacity: 0;
 
-    .highlight-number {
-      display: block;
-      font-family: 'Times New Roman', serif;
-      font-size: .68rem;
-      color: var(--accent-gold);
-      letter-spacing: 3px;
-      margin-bottom: .55rem;
-    }
+  z-index: 1;
 
-    .highlight-title {
-      font-family: 'Cinzel', serif;
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: .5rem;
-    }
+  overflow: hidden;
 
-    .highlight-desc {
-      font-size: .82rem;
-      color: var(--text-secondary);
-      line-height: 1.7;
-      max-width: 600px;
-    }
+  background: var(--bg-deep);
 
-    .highlight-arrow {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      margin-top: 1rem;
-      color: var(--accent-gold);
-      font-size: .65rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
+  border: none;
 
-    .highlight-nav {
-      position: absolute;
-      top: 170px;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      padding: 0 2%;
-      z-index: 10;
-      pointer-events: none;
-    }
+  transition:
+    transform .55s cubic-bezier(.22,.61,.36,1),
+    opacity .55s ease,
+    filter .55s ease;
 
-    .highlight-nav button {
-      pointer-events: auto;
-      width: 44px;
-      height: 44px;
-      border: 1px solid rgba(201, 164, 77, .6);
-      background: rgba(4, 10, 18, .85);
-      color: var(--accent-gold);
-      cursor: pointer;
-      border-radius: 50%;
-      transition: all .25s ease;
-    }
+  filter: brightness(.55);
 
-    .highlight-nav button:hover {
-      background: var(--accent-gold);
-      color: #07101a;
-      transform: scale(1.08);
-    }
+  cursor: pointer;
+}
 
-    .highlight-dots {
-      display: flex;
-      justify-content: center;
-      gap: .55rem;
-      margin-top: .25rem;
-    }
 
-    .highlight-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      border: 1px solid var(--accent-gold);
-      background: transparent;
-      cursor: pointer;
-      padding: 0;
-      transition: all .25s ease;
-    }
+/* =========================================================
+   PREVIOUS / NEXT
+========================================================= */
 
-    .highlight-dot.active {
-      width: 25px;
-      border-radius: 5px;
-      background: var(--accent-gold);
-    }
+.highlight-slide.prev {
+  transform:
+    translateX(calc(-50% - 430px))
+    scale(.78);
+
+  opacity: .45;
+
+  z-index: 2;
+}
+
+.highlight-slide.next {
+  transform:
+    translateX(calc(-50% + 430px))
+    scale(.78);
+
+  opacity: .45;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   ACTIVE
+========================================================= */
+
+.highlight-slide.active {
+  transform:
+    translateX(-50%)
+    scale(1);
+
+  opacity: 1;
+
+  z-index: 5;
+
+  filter: brightness(1);
+
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.45);
+}
+
+
+/* Hide slides further away */
+
+.highlight-slide.far {
+  opacity: 0;
+
+  pointer-events: none;
+
+  transform:
+    translateX(-50%)
+    scale(.7);
+
+  z-index: 0;
+}
+
+
+/* =========================================================
+   IMAGE BODY
+========================================================= */
+
+.highlight-slide .highlight-image {
+  width: 100%;
+  height: 390px;
+
+  overflow: hidden;
+
+  background: var(--bg-deep);
+}
+
+.highlight-slide .highlight-image img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    transform .7s ease;
+}
+
+.highlight-slide.active:hover
+.highlight-image img {
+  transform: scale(1.035);
+}
+
+
+/* =========================================================
+   TEXT BODY
+   Directly underneath the image.
+   NO border between them.
+========================================================= */
+
+.highlight-slide .highlight-content {
+  width: 100%;
+
+  padding:
+    30px
+    38px
+    35px;
+
+  margin: 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      #0b1218,
+      #071019
+    );
+
+  border: none;
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.highlight-slide .highlight-label {
+  color: var(--accent-gold);
+
+  font-size: .6rem;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  margin-bottom: .7rem;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.highlight-slide .highlight-title {
+  font-family: 'Cinzel', serif;
+
+  font-size: 1.45rem;
+
+  font-weight: 700;
+
+  color: var(--text-primary);
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+
+  line-height: 1.25;
+
+  margin: 0 0 .65rem;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.highlight-slide .highlight-desc {
+  font-size: .82rem;
+
+  color: var(--text-secondary);
+
+  line-height: 1.75;
+
+  max-width: 600px;
+
+  margin: 0;
+}
+
+
+/* =========================================================
+   OPTIONAL LINK / ARROW
+========================================================= */
+
+.highlight-slide .highlight-arrow {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: .5rem;
+
+  margin-top: 1rem;
+
+  color: var(--accent-gold);
+
+  font-size: .65rem;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.highlight-nav {
+  position: absolute;
+
+  top: 50%;
+
+  left: 0;
+
+  width: 100%;
+
+  transform: translateY(-50%);
+
+  display: flex;
+
+  justify-content: space-between;
+
+  padding: 0 1rem;
+
+  z-index: 20;
+
+  pointer-events: none;
+}
+
+.highlight-nav button {
+  pointer-events: auto;
+
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(201,164,77,.6);
+
+  background:
+    rgba(4,10,18,.9);
+
+  color: var(--accent-gold);
+
+  cursor: pointer;
+
+  border-radius: 50%;
+
+  transition:
+    all .25s ease;
+}
+
+.highlight-nav button:hover {
+  background: var(--accent-gold);
+
+  color: #07101a;
+
+  transform: scale(1.08);
+}
+
+
+/* =========================================================
+   DOTS
+========================================================= */
+
+.highlight-dots {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: .55rem;
+
+  margin-top: 1rem;
+}
+
+.highlight-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid
+    var(--accent-gold);
+
+  background: transparent;
+
+  cursor: pointer;
+
+  padding: 0;
+
+  transition:
+    all .25s ease;
+}
+
+.highlight-dot.active {
+  width: 25px;
+
+  border-radius: 5px;
+
+  background: var(--accent-gold);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .highlights-carousel {
+    height: 590px;
+  }
+
+  .highlight-slide {
+    width: 72%;
+  }
+
+  .highlight-slide.prev {
+    transform:
+      translateX(calc(-50% - 300px))
+      scale(.78);
+  }
+
+  .highlight-slide.next {
+    transform:
+      translateX(calc(-50% + 300px))
+      scale(.78);
+  }
+
+  .highlight-slide .highlight-image {
+    height: 340px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+  .highlights-carousel {
+    height: 540px;
+
+    overflow: hidden;
+  }
+
+  .highlight-slide {
+    width: 86%;
+
+    max-width: 500px;
+  }
+
+  .highlight-slide.prev {
+    transform:
+      translateX(calc(-50% - 190px))
+      scale(.75);
+
+    opacity: .2;
+  }
+
+  .highlight-slide.next {
+    transform:
+      translateX(calc(-50% + 190px))
+      scale(.75);
+
+    opacity: .2;
+  }
+
+  .highlight-slide .highlight-image {
+    height: 280px;
+  }
+
+  .highlight-slide .highlight-content {
+    padding:
+      24px
+      25px
+      28px;
+  }
+
+  .highlight-slide .highlight-title {
+    font-size: 1.1rem;
+  }
+
+  .highlight-slide .highlight-desc {
+    font-size: .75rem;
+  }
+
+  .highlight-nav {
+    padding: 0 .6rem;
+  }
+
+  .highlight-nav button {
+    width: 38px;
+    height: 38px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 450px) {
+
+  .highlights-carousel {
+    height: 500px;
+  }
+
+  .highlight-slide {
+    width: 90%;
+  }
+
+  .highlight-slide .highlight-image {
+    height: 230px;
+  }
+
+  .highlight-slide .highlight-content {
+    padding:
+      22px
+      20px
+      25px;
+  }
+
+  .highlight-slide .highlight-title {
+    font-size: 1rem;
+  }
+
+  .highlight-slide .highlight-desc {
+    font-size: .72rem;
+  }
+
+  .highlight-slide.prev,
+  .highlight-slide.next {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+}
 
     @media (max-width: 900px) {
       .highlight-slide {
@@ -1894,71 +2212,184 @@
       </div>
 
 
-      <div class="highlights-section" id="highlight-reel">
-        <div class="section-title">ACES Highlights</div>
+      <section class="highlights-section">
 
-        <div class="highlights-carousel" id="acesHighlights">
-
-          <div class="highlight-slide active">
-            <img class="highlight-image" src="ja worlds.jpeg" alt="ACES Highlight 1">
-            <div class="highlight-content">
-              <span class="highlight-number">01 / FEATURED</span>
-              <div class="highlight-title">Best team at ja world conference</div>
-              <div class="highlight-desc">Best team at ja world conference</div>
-              <span class="highlight-arrow">Explore <i class="fas fa-arrow-right"></i></span>
+        <div class="section-title">
+          ACES Highlights
+        </div>
+      
+        <div class="highlights-carousel">
+      
+          <!-- HIGHLIGHT 1 -->
+          <article class="highlight-slide active">
+      
+            <div class="highlight-image">
+              <img
+                src="yles.jpeg"
+                alt="Aitchison Business Review"
+              >
             </div>
-          </div>
-
-          <div class="highlight-slide next">
-            <img class="highlight-image" src="markhors den.jpeg" alt="ACES Highlight 2">
+      
             <div class="highlight-content">
-              <span class="highlight-number">02 / FEATURE</span>
-              <div class="highlight-title">Best delegtaion Markhors den</div>
-              <div class="highlight-desc">Best delegtaion Markhors den </div>
-              <span class="highlight-arrow">Explore <i class="fas fa-arrow-right"></i></span>
+      
+              <div class="highlight-label">
+                Inter school win 
+              </div>
+      
+              <div class="highlight-title">
+                Best delegation at YLES
+              </div>
+      
+              <div class="highlight-desc">
+                  Won pakistan premiere business competition.
+              </div>
+      
             </div>
-          </div>
-
-          <div class="highlight-slide far">
-            <img class="highlight-image" src="yles.jpeg" alt="ACES Highlight 3">
+      
+          </article>
+      
+      
+          <!-- HIGHLIGHT 2 -->
+          <article class="highlight-slide">
+      
+            <div class="highlight-image">
+              <img
+                src="markhors den.jpeg"
+                alt="Aitchison Incubation Programme"
+              >
+            </div>
+      
             <div class="highlight-content">
-              <span class="highlight-number">03 / FEATURE</span>
-              <div class="highlight-title">Best delegation at the premiere businesse event of Pakistan</div>
-              <div class="highlight-desc">Best delegation at the premiere businesse event of Pakistan </div>
-              <span class="highlight-arrow">Explore <i class="fas fa-arrow-right"></i></span>
+      
+              <div class="highlight-label">
+                Inter school win 
+              </div>
+      
+              <div class="highlight-title">
+                Best delegation at  Markhors den 
+              </div>
+      
+              <div class="highlight-desc">
+                
+              </div>
+      
             </div>
-          </div>
-
-          <div class="highlight-slide far">
-            <img class="highlight-image" src="speaker session.jpeg" alt="ACES Highlight 4">
+      
+          </article>
+      
+      
+          <!-- HIGHLIGHT 3 -->
+          <article class="highlight-slide">
+      
+            <div class="highlight-image">
+              <img
+                src="speaker session.jpeg"
+                alt="Inter-House Championship"
+              >
+            </div>
+      
             <div class="highlight-content">
-              <span class="highlight-number">04 / FEATURE</span>
-              <div class="highlight-title">Guest spekaer session with ex president Wapda</div>
-              <div class="highlight-desc">Guest spekaer session with ex president Wapda </div>
-              <span class="highlight-arrow">Explore <i class="fas fa-arrow-right"></i></span>
+      
+              <div class="highlight-label">
+                speaker session 
+              </div>
+      
+              <div class="highlight-title">
+                guest speaker session with presidetn Wapda.
+              </div>
+      
+              <div class="highlight-desc">
+               Held a guest speaker session with the preident of wapda which educated student about  the environmental problem that pakistan might face in the coming years
+              </div>
+      
             </div>
-          </div>
-
-
+      
+          </article>
+      
+      
+          <!-- HIGHLIGHT 4 -->
+          <article class="highlight-slide">
+      
+            <div class="highlight-image">
+              <img
+                src="ja worlds.jpeg"
+                alt="ACES Entrepreneurship"
+              >
+            </div>
+      
+            <div class="highlight-content">
+      
+              <div class="highlight-label">
+                Company of the year 
+              </div>
+      
+              <div class="highlight-title">
+                JA world best team 
+              </div>
+      
+              <div class="highlight-desc">
+              
+              </div>
+      
+            </div>
+      
+          </article>
+      
+      
+          <!-- ARROWS -->
           <div class="highlight-nav">
-            <button type="button" onclick="moveHighlight(-1)" aria-label="Previous highlight">
+      
+            <button
+              type="button"
+              id="highlightPrev"
+              aria-label="Previous highlight"
+            >
               <i class="fas fa-chevron-left"></i>
             </button>
-            <button type="button" onclick="moveHighlight(1)" aria-label="Next highlight">
+      
+            <button
+              type="button"
+              id="highlightNext"
+              aria-label="Next highlight"
+            >
               <i class="fas fa-chevron-right"></i>
             </button>
+      
           </div>
+      
         </div>
-
-        <div class="highlight-dots" id="highlightDots">
-          <button class="highlight-dot active" onclick="setHighlight(0)" aria-label="Highlight 1"></button>
-          <button class="highlight-dot" onclick="setHighlight(1)" aria-label="Highlight 2"></button>
-          <button class="highlight-dot" onclick="setHighlight(2)" aria-label="Highlight 3"></button>
-          <button class="highlight-dot" onclick="setHighlight(3)" aria-label="Highlight 4"></button>
-         
-          
+      
+      
+        <!-- DOTS -->
+        <div class="highlight-dots">
+      
+          <button
+            class="highlight-dot active"
+            data-slide="0"
+            aria-label="Highlight 1"
+          ></button>
+      
+          <button
+            class="highlight-dot"
+            data-slide="1"
+            aria-label="Highlight 2"
+          ></button>
+      
+          <button
+            class="highlight-dot"
+            data-slide="2"
+            aria-label="Highlight 3"
+          ></button>
+      
+          <button
+            class="highlight-dot"
+            data-slide="3"
+            aria-label="Highlight 4"
+          ></button>
+      
         </div>
-      </div>
+      
+      </section>
 
       <div class="society-content">
 
@@ -2490,6 +2921,374 @@
         
       });
     }
+ 
+/* =========================================================
+   ACES HIGHLIGHTS CAROUSEL
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const slides = Array.from(
+    document.querySelectorAll(".highlight-slide")
+  );
+
+  const dots = Array.from(
+    document.querySelectorAll(".highlight-dot")
+  );
+
+  const prevButton =
+    document.getElementById("highlightPrev");
+
+  const nextButton =
+    document.getElementById("highlightNext");
+
+  const carousel =
+    document.querySelector(".highlights-carousel");
+
+
+  if (!slides.length) return;
+
+
+  let currentIndex = 0;
+
+
+  /* =======================================================
+     UPDATE SLIDES
+  ======================================================= */
+
+  function updateHighlights() {
+
+    const total = slides.length;
+
+    slides.forEach((slide, index) => {
+
+      slide.classList.remove(
+        "active",
+        "prev",
+        "next",
+        "far"
+      );
+
+      let difference =
+        index - currentIndex;
+
+
+      /*
+       * Make the difference wrap around
+       * so the carousel loops infinitely.
+       */
+
+      if (difference > total / 2) {
+        difference -= total;
+      }
+
+      if (difference < -total / 2) {
+        difference += total;
+      }
+
+
+      /* ACTIVE */
+
+      if (difference === 0) {
+
+        slide.classList.add("active");
+
+      }
+
+
+      /* PREVIOUS */
+
+      else if (difference === -1) {
+
+        slide.classList.add("prev");
+
+      }
+
+
+      /* NEXT */
+
+      else if (difference === 1) {
+
+        slide.classList.add("next");
+
+      }
+
+
+      /* EVERYTHING ELSE */
+
+      else {
+
+        slide.classList.add("far");
+
+      }
+
+    });
+
+
+    /* =====================================================
+       UPDATE DOTS
+    ===================================================== */
+
+    dots.forEach((dot, index) => {
+
+      dot.classList.toggle(
+        "active",
+        index === currentIndex
+      );
+
+    });
+
+  }
+
+
+  /* =======================================================
+     NEXT HIGHLIGHT
+  ======================================================= */
+
+  function nextHighlight() {
+
+    currentIndex =
+      (currentIndex + 1) % slides.length;
+
+    updateHighlights();
+
+  }
+
+
+  /* =======================================================
+     PREVIOUS HIGHLIGHT
+  ======================================================= */
+
+  function previousHighlight() {
+
+    currentIndex =
+      (currentIndex - 1 + slides.length)
+      % slides.length;
+
+    updateHighlights();
+
+  }
+
+
+  /* =======================================================
+     NEXT BUTTON
+  ======================================================= */
+
+  if (nextButton) {
+
+    nextButton.addEventListener(
+      "click",
+      nextHighlight
+    );
+
+  }
+
+
+  /* =======================================================
+     PREVIOUS BUTTON
+  ======================================================= */
+
+  if (prevButton) {
+
+    prevButton.addEventListener(
+      "click",
+      previousHighlight
+    );
+
+  }
+
+
+  /* =======================================================
+     DOT NAVIGATION
+  ======================================================= */
+
+  dots.forEach((dot, index) => {
+
+    dot.addEventListener("click", () => {
+
+      currentIndex = index;
+
+      updateHighlights();
+
+    });
+
+  });
+
+
+  /* =======================================================
+     CLICK SIDE CARDS
+  ======================================================= */
+
+  slides.forEach((slide, index) => {
+
+    slide.addEventListener("click", () => {
+
+      if (slide.classList.contains("prev")) {
+
+        currentIndex =
+          (currentIndex - 1 + slides.length)
+          % slides.length;
+
+        updateHighlights();
+
+      }
+
+      else if (slide.classList.contains("next")) {
+
+        currentIndex =
+          (currentIndex + 1)
+          % slides.length;
+
+        updateHighlights();
+
+      }
+
+    });
+
+  });
+
+
+  /* =======================================================
+     KEYBOARD CONTROLS
+  ======================================================= */
+
+  document.addEventListener("keydown", (event) => {
+
+    /*
+     * Don't interfere with typing into
+     * inputs or textareas.
+     */
+
+    const tag =
+      document.activeElement.tagName;
+
+    if (
+      tag === "INPUT" ||
+      tag === "TEXTAREA"
+    ) {
+      return;
+    }
+
+
+    if (event.key === "ArrowLeft") {
+
+      previousHighlight();
+
+    }
+
+    else if (event.key === "ArrowRight") {
+
+      nextHighlight();
+
+    }
+
+  });
+
+
+  /* =======================================================
+     TOUCH / SWIPE
+  ======================================================= */
+
+  let touchStartX = 0;
+  let touchStartY = 0;
+
+  let touchEndX = 0;
+  let touchEndY = 0;
+
+
+  if (carousel) {
+
+    carousel.addEventListener(
+      "touchstart",
+      (event) => {
+
+        const touch =
+          event.changedTouches[0];
+
+        touchStartX =
+          touch.clientX;
+
+        touchStartY =
+          touch.clientY;
+
+      },
+      { passive: true }
+    );
+
+
+    carousel.addEventListener(
+      "touchend",
+      (event) => {
+
+        const touch =
+          event.changedTouches[0];
+
+        touchEndX =
+          touch.clientX;
+
+        touchEndY =
+          touch.clientY;
+
+
+        const differenceX =
+          touchStartX - touchEndX;
+
+        const differenceY =
+          touchStartY - touchEndY;
+
+
+        /*
+         * Only treat it as a swipe if
+         * horizontal movement is greater
+         * than vertical movement.
+         */
+
+        if (
+          Math.abs(differenceX) <
+          Math.abs(differenceY)
+        ) {
+          return;
+        }
+
+
+        /* Minimum swipe distance */
+
+        if (
+          Math.abs(differenceX) < 50
+        ) {
+          return;
+        }
+
+
+        if (differenceX > 0) {
+
+          nextHighlight();
+
+        }
+
+        else {
+
+          previousHighlight();
+
+        }
+
+      },
+      { passive: true }
+    );
+
+  }
+
+
+  /* =======================================================
+     INITIALIZE
+  ======================================================= */
+
+  updateHighlights();
+
+
+});
+
+
   </script>
 
 </body>
