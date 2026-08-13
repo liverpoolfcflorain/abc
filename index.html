@@ -1527,6 +1527,7 @@
       <li><a href="javascript:void(0)" onclick="showTab('abc')" id="link-abc">ABC</a></li>
       <li><a href="l.html" target="_self">Study Guide</a></li>
       <li><a href="javascript:void(0)" onclick="showTab('response')" id="link-response">Suggestion</a></li>
+      <li><a href="code-conduct.html"> Rules </a></li>
     </ul>
   </nav>
 
@@ -1892,80 +1893,51 @@
       </div>
 
 
-      <div class="highlights-section">
+      <div class="highlights-section" id="highlight-reel">
         <div class="section-title">ACES Highlights</div>
 
         <div class="highlights-carousel" id="acesHighlights">
 
           <div class="highlight-slide active">
-            <img class="highlight-image" src="XIII Vectors/highlight-1.jpg" alt="ACES Highlight 1">
+            <img class="highlight-image" src="ja worlds.jpeg" alt="ACES Highlight 1">
             <div class="highlight-content">
               <span class="highlight-number">01 / FEATURED</span>
               <div class="highlight-title">Highlight Title One</div>
-              <div class="highlight-desc">Add the achievement, event, initiative, or milestone you want to feature here.</div>
+              <div class="highlight-desc">Best team at ja world conference</div>
               <span class="highlight-arrow">Explore <i class="fas fa-arrow-right"></i></span>
             </div>
           </div>
 
           <div class="highlight-slide next">
-            <img class="highlight-image" src="XIII Vectors/highlight-2.jpg" alt="ACES Highlight 2">
+            <img class="highlight-image" src="markhors den.jpeg" alt="ACES Highlight 2">
             <div class="highlight-content">
               <span class="highlight-number">02 / FEATURE</span>
               <div class="highlight-title">Highlight Title Two</div>
-              <div class="highlight-desc">Add the key result, achievement, or story behind this highlight.</div>
+              <div class="highlight-desc">Best delegtaion Markhors den </div>
               <span class="highlight-arrow">Explore <i class="fas fa-arrow-right"></i></span>
             </div>
           </div>
 
           <div class="highlight-slide far">
-            <img class="highlight-image" src="XIII Vectors/highlight-3.jpg" alt="ACES Highlight 3">
+            <img class="highlight-image" src="yles.jpeg" alt="ACES Highlight 3">
             <div class="highlight-content">
               <span class="highlight-number">03 / FEATURE</span>
               <div class="highlight-title">Highlight Title Three</div>
-              <div class="highlight-desc">Add the key result, achievement, or story behind this highlight.</div>
+              <div class="highlight-desc">Best delegation at the premiere businesse event of Pakistan </div>
               <span class="highlight-arrow">Explore <i class="fas fa-arrow-right"></i></span>
             </div>
           </div>
 
           <div class="highlight-slide far">
-            <img class="highlight-image" src="XIII Vectors/highlight-4.jpg" alt="ACES Highlight 4">
+            <img class="highlight-image" src="speaker session.jpeg" alt="ACES Highlight 4">
             <div class="highlight-content">
               <span class="highlight-number">04 / FEATURE</span>
               <div class="highlight-title">Highlight Title Four</div>
-              <div class="highlight-desc">Add the key result, achievement, or story behind this highlight.</div>
+              <div class="highlight-desc">Guest spekaer session with ex president Wapda </div>
               <span class="highlight-arrow">Explore <i class="fas fa-arrow-right"></i></span>
             </div>
           </div>
 
-          <div class="highlight-slide far">
-            <img class="highlight-image" src="XIII Vectors/highlight-5.jpg" alt="ACES Highlight 5">
-            <div class="highlight-content">
-              <span class="highlight-number">05 / FEATURE</span>
-              <div class="highlight-title">Highlight Title Five</div>
-              <div class="highlight-desc">Add the key result, achievement, or story behind this highlight.</div>
-              <span class="highlight-arrow">Explore <i class="fas fa-arrow-right"></i></span>
-            </div>
-          </div>
-
-          <div class="highlight-slide far">
-            <img class="highlight-image" src="XIII Vectors/highlight-6.jpg" alt="ACES Highlight 6">
-            <div class="highlight-content">
-              <span class="highlight-number">06 / FEATURE</span>
-              <div class="highlight-title">Highlight Title Six</div>
-              <div class="highlight-desc">Add the key result, achievement, or story behind this highlight.</div>
-              <span class="highlight-arrow">Explore <i class="fas fa-arrow-right"></i></span>
-            </div>
-          </div>
-
-          <div class="highlight-slide far">
-            <img class="highlight-image" src="XIII Vectors/highlight-7.jpg" alt="ACES Highlight 7">
-            <div class="highlight-content">
-              <span class="highlight-number">07 / FEATURE</span>
-              <div class="highlight-title">Highlight Title Seven</div>
-              <div class="highlight-desc">Add the key result, achievement, or story behind this highlight.</div>
-              <span class="highlight-arrow">Explore <i class="fas fa-arrow-right"></i></span>
-            </div>
-          </div>
 
           <div class="highlight-nav">
             <button type="button" onclick="moveHighlight(-1)" aria-label="Previous highlight">
@@ -1982,9 +1954,8 @@
           <button class="highlight-dot" onclick="setHighlight(1)" aria-label="Highlight 2"></button>
           <button class="highlight-dot" onclick="setHighlight(2)" aria-label="Highlight 3"></button>
           <button class="highlight-dot" onclick="setHighlight(3)" aria-label="Highlight 4"></button>
-          <button class="highlight-dot" onclick="setHighlight(4)" aria-label="Highlight 5"></button>
-          <button class="highlight-dot" onclick="setHighlight(5)" aria-label="Highlight 6"></button>
-          <button class="highlight-dot" onclick="setHighlight(6)" aria-label="Highlight 7"></button>
+         
+          
         </div>
       </div>
 
@@ -2491,6 +2462,33 @@
       }
     });
 
+    const highlights = [{
+      "id":1,
+      "heading":"ja world best company award",
+      "text":"won one of premiere business competition in the country",
+      "img":"ja world.png"
+    },{},{},{}]
+
+    function loadhighlight(highlights){
+      const reel =  document.getElementById('acesHighlights')
+
+      highlights.forEach((cat) =>{
+        reel.innerHTML += `
+        <div class="highlight-slide far active" >
+          <img class="highlight-image" src="${cat.img}" alt="ACES Highlight 5">
+              <div class="highlight-content">
+                <span class="highlight-number">${cat.id}</span>
+                <div class="highlight-title">${cat.heading}</div>
+                <div class="highlight-desc">${cat.text}</div>
+                <span class="highlight-arrow">Explore <i class="fas fa-arrow-right"></i></span>
+              </div>
+          </div>        
+        </div>
+        `  
+       
+        
+      });
+    }
   </script>
 
 </body>
